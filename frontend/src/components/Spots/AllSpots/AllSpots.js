@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../../store/spot";
-// import AllSpotsCard from "../Card/AllSpotsCard";
 import { Link } from "react-router-dom";
+import SpotDetails from "./SpotDetails";
 
 import './AllSpots.css'
 
-const AllSpots = ({spot}) => {
-  // const dispatch = useDispatch();
-  // const [isLoaded, setIsLoaded] = useState(false);
+const AllSpots = ({ spot, isLoaded }) => {
+  const dispatch = useDispatch();
 
   // const spots = useSelector((state) => state.spots.allSpots);
 
@@ -23,13 +22,13 @@ const AllSpots = ({spot}) => {
   if (!spot) return null;
 
   return (
-    <div className="AllSpot_main-conainter1">
-
-        <div className="AllSpots-single_container">
-          <h1>{spot.name}</h1>
-          <span>
-            {spot.city}, {spot.state}
-          </span>
+    !isLoaded && (
+      <div className="All-Spot_container">
+        <h1>{spot.name}</h1>
+        <span>
+          {spot.city}, {spot.state}
+        </span>
+        <Link to={`/spots/${spot.id}`}>
           <div className="all-spot_image-container">
             <img
               id="all-spot_images"
@@ -37,10 +36,11 @@ const AllSpots = ({spot}) => {
               alt="lake_image"
             />
           </div>
-          <div>{spot.description}</div>
-        </div>
-
-    </div>
+        </Link>
+        <div>{spot.description}</div>
+        {isLoaded && <SpotDetails spot={spot} isLoaded={isLoaded} />}
+      </div>
+    )
   );
 };
 

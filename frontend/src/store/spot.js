@@ -14,14 +14,12 @@ export const loadSpots = (spots) => {
   };
 };
 
-export const loadSingleSpot = (spotID) => {
+export const loadSingleSpot = (spotId) => {
   return {
     type: GET_SINGLE_SPOT_BY_ID,
-    spotID
+    spotId,
   };
-}
-
-
+};
 
 //Thunk
 // GET "/api/spots"
@@ -34,14 +32,14 @@ export const getAllSpots = () => async (dispatch) => {
   return response;
 };
 
-export const getSingleSpot = (spotId) => async (dispatch)=> {
-  const response = await csrfFetch(`/api/spots/${spotId}`)
+export const getSingleSpot = (spotId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spotId}`);
   const data = await response.json();
   if (response.ok) {
-    dispatch(loadSingleSpot(data))
+    dispatch(loadSingleSpot(data));
   }
-  return response
-}
+  return response;
+};
 
 // initial state
 let initialState = { allSpots: {}, singleSpot: {} };
@@ -55,8 +53,10 @@ const spotsReducer = (state = initialState, action) => {
       newState.allSpots = { ...allSpots };
       return newState;
 
-case GET_SINGLE_SPOT_BY_ID:
-  return newState
+    case GET_SINGLE_SPOT_BY_ID:
+      const spot = action.spotId;
+      newState.singleSpot = { ...spot };
+      return newState;
     default:
       return state;
   }
