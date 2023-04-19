@@ -40,9 +40,9 @@ const SearchResult = () => {
     dispatch(spotsAction.getAllSpots());
   }, [dispatch]);
 
-if (filteredPosts.lenght === 0) {
-  return "No Result..."
-}
+// if (filteredPosts.lenght === 0) {
+//   return "No Result..."
+// }
 
 
   if (!spots) return null;
