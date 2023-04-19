@@ -55,7 +55,8 @@ const spotsReducer = (state = initialState, action) => {
       newState.allSpots = { ...allSpots };
       return newState;
 
-
+case GET_SINGLE_SPOT_BY_ID:
+  return newState
     default:
       return state;
   }
