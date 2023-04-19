@@ -3,28 +3,28 @@ import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../../store/spot";
 // import AllSpotsCard from "../Card/AllSpotsCard";
 import { Link } from "react-router-dom";
-import SearchBar from "../../Navigation/SearchBar";
+
 import './AllSpots.css'
 
-const AllSpots = () => {
-  const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+const AllSpots = ({spot}) => {
+  // const dispatch = useDispatch();
+  // const [isLoaded, setIsLoaded] = useState(false);
 
-  const spots = useSelector((state) => state.spots.allSpots);
+  // const spots = useSelector((state) => state.spots.allSpots);
 
-  // Object.values(spots).map((spot) => {
-  //   console.log("spots:===> ", spot);
-  // });
+  // // Object.values(spots).map((spot) => {
+  // //   console.log("spots:===> ", spot);
+  // // });
 
-  useEffect(() => {
-    dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(true));
+  // }, [dispatch]);
 
-  if (!spots) return null;
+  if (!spot) return null;
 
   return (
     <div className="AllSpot_main-conainter1">
-      {Object.values(spots).map((spot) => (
+
         <div className="AllSpots-single_container">
           <h1>{spot.name}</h1>
           <span>
@@ -39,7 +39,7 @@ const AllSpots = () => {
           </div>
           <div>{spot.description}</div>
         </div>
-      ))}
+
     </div>
   );
 };
