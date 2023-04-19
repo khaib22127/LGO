@@ -1,12 +1,5 @@
-.AllSpot_main-conainter1{
-    display: flex;
-    flex-direction: row;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        padding-bottom: 70px;
-}
 
-.AllSpots-single_container{
+.All-Spot_container{
     padding: 10px;
     height: 500px;
     width: 400px;

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Spot, Review, SpotImage, User, sequelize } = require("../../db/models");
 const { check, query } = require("express-validator");
-
+const { requireAuth } = require("../../utils/auth");
 
 // Get all spots
 // GET /api/spots
@@ -55,6 +55,24 @@ router.get("/:spotId", async (req, res) => {
 //   console.log("spot:::===> ", spotData.SpotImages)
 
   res.json(spot);
+});
+
+
+// GET /api/spots/current
+router.get("/current", requireAuth, async (req, res) => {
+  const spots = await Spot.findAll({
+    where: {
+      ownerId: req.user.id,
+    },
+    include: [
+      {
+        model: SpotImage,
+      },
+    ],
+  });
+
+
+  res.json({ Spots: spots });
 });
 
 module.exports = router;

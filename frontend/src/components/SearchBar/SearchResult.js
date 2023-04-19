@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../store/spot";
 import AllSpots from "../Spots/AllSpots/AllSpots";
+import './SearchBar.css'
+
 
 const SearchResult = () => {
   const dispatch = useDispatch();
-
+const [isLoaded, setIsLoaded] = useState(false);
   const spots = useSelector((state) => state.spots.allSpots);
 
   const filterPosts = (spots, query) => {
@@ -37,7 +39,7 @@ const SearchResult = () => {
 // console.log("filteredPosts in search result::", filteredPosts.length === 0);
 
   useEffect(() => {
-    dispatch(spotsAction.getAllSpots());
+    dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(false));
   }, [dispatch]);
 
 // if (filteredPosts.lenght === 0) {
@@ -47,16 +49,18 @@ const SearchResult = () => {
 
   if (!spots) return null;
   return (
-    <div>
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <div className="AllSpot_main-conainter1">
-        {Object.values(filteredPosts).map((spot) => (
-          <div key={spot.id}>
-            <AllSpots spot={spot} />
-          </div>
-        ))}
+    !isLoaded && (
+      <div>
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <div className="AllSpot_main-conainter">
+          {Object.values(filteredPosts).map((spot) => (
+            <div key={spot.id}>
+              <AllSpots spot={spot} isLoaded={isLoaded} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 };
 
