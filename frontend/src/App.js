@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation/Navigation";
 import AllSpots from "./components/Spots/AllSpots/AllSpots";
-import SearchResult from "./components/Navigation/SearchResult";
+import SearchResult from "./components/SearchBar/SearchResult";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,9 +18,6 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path={"/"}>
-            <AllSpots />
-          </Route>
-          <Route path={"/results"}>
             <SearchResult />
           </Route>
         </Switch>

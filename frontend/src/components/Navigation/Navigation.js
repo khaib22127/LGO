@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
-import SearchBar from "./SearchBar";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -13,18 +12,22 @@ function Navigation({ isLoaded }) {
     <ul className="home-knb-icon">
       <div className="go-to-main-button">
         <NavLink exact to="/">
-          <i className="fa-solid fa-paste fa-2x"/>
+          <i className="fa-solid fa-paste fa-2x" />
           {/* <i className="fa-sharp fa-solid fa-face-awesome fa-2x" /> */}
           Home
         </NavLink>
       </div>
 
-      {sessionUser &&
-
-
-          <SearchBar/>
-
-      }
+      {sessionUser && (
+        <div className="searchBar">
+          <i className="fas fa-solid fa-magnifying-glass"></i>
+          <input
+            className="searchInput"
+            onClick={() => alert("Feature Coming Soon...")}
+            placeholder="Search"
+          ></input>
+        </div>
+      )}
 
       <div className="create-new-spot-profileBtn">
         {isLoaded && <ProfileButton user={sessionUser} />}
