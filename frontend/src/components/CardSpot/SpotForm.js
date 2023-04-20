@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Redirect } from "react-router-dom";
 import * as spotsAction from "../../store/spot";
 import "./SpotForm.css";
+import { useModal } from "../../context/Modal";
 
 const SpotForm = ({ spot, submitType, formType }) => {
+    const { closeModal } = useModal();
   const [name, setName] = useState(spot.name);
   const [address, setAddress] = useState(spot.address);
   const [city, setCity] = useState(spot.city);
@@ -26,23 +28,50 @@ const SpotForm = ({ spot, submitType, formType }) => {
     e.preventDefault();
     if (submitType === "Create") {
       spot = await dispatch(
-        spotsAction.createNewSpot({
-          address,
-          city,
-          state,
-          country,
-          name,
-          description,
-        },
-        { url: SpotImages}
+        spotsAction.createNewSpot(
+          {
+            address,
+            city,
+            state,
+            country,
+            name,
+            description,
+          },
+          { url: SpotImages }
         )
       )
         .then((res) => {
-            // dispatch(spotsAction.addNewSpotImage(res.id))
+          // dispatch(spotsAction.addNewSpotImage(res.id))
           history.push(`/spots/${res.id}`);
         })
         .catch(async (response) => {
           const data = await response.json();
+          if (data && data.errors) setErrors(data.errors);
+        });
+    }
+
+    if (submitType === "Edit") {
+      return dispatch(
+        (spot = spotsAction.editUserSpot(
+          {
+            address,
+            city,
+            state,
+            country,
+            name,
+            description,
+          },
+          spot.id
+        ))
+      )
+        .then((res) => {
+        //   history.push(`/spots/${res.id}`);
+        //    history.push(`/spots/manage`);
+        dispatch(spotsAction.getUserSpots())
+           closeModal()
+        })
+        .catch(async (res) => {
+          const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
     }
@@ -115,7 +144,7 @@ const SpotForm = ({ spot, submitType, formType }) => {
           ></textarea>
         </div>
 
-        <div className="input_spaces">
+       {submitType === "Create" && <div className="input_spaces">
           <input
             type="SpotImages"
             id="preview-image"
@@ -123,7 +152,7 @@ const SpotForm = ({ spot, submitType, formType }) => {
             onChange={(e) => setSpotImages(e.target.value)}
             placeholder="Image URL"
           ></input>
-        </div>
+        </div>}
 
         <button style={{ color: "white", background: "red" }} type="submit">
           {formType}

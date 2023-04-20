@@ -2,17 +2,32 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import * as spotsAction from "../../store/spot";
 import defautPic from "../AHelper/default-pin-pic.png";
+import SpotForm from "../CardSpot/SpotForm";
+import { useModal } from "../../context/Modal";
+import UserEditSpot from "./UserEditSpot";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import { useHistory } from "react-router-dom";
 
 const UserSpots = () => {
+  const history = useHistory();
+  const { setModalContent } = useModal();
   const dispatch = useDispatch();
 
-  const spotOfUser = useSelector((state)=> state.spots.userSpots)
-  Object.values(spotOfUser).map(spot=> console.log("some:::: ", spot))
-console.log("USER SPOTS::===> ", spotOfUser)
+  const spotOfUser = useSelector((state) => state.spots.userSpots);
+
   useEffect(() => {
     dispatch(spotsAction.getUserSpots());
   }, [dispatch]);
 
+  const deleteClick = async (e) => {
+    await dispatch(spotsAction.deleteUserSpot(e.id));
+  };
+
+  const editClick = async (spot) => {
+    history.push(`/spots/${spot.id}/edit`);
+    // await dispatch(spotsAction.editUserSpot(e.id))
+    // setModalContent(<SpotForm e={e} formType="Update" submitType="Edit" />);
+  };
   return (
     <div>
       {Object.values(spotOfUser).map((spot) => (
@@ -36,6 +51,10 @@ console.log("USER SPOTS::===> ", spotOfUser)
             )}
           </div>
           <div>{spot.description}</div>
+          {/* <button onClick={() => editClick(spot)}>Edit</button> */}
+
+          <button onClick={()=> setModalContent(<SpotForm spot={spot} formType="Update" submitType="Edit" />)}>Edit</button>
+          <button onClick={() => deleteClick(spot)}>Delete</button>
         </div>
       ))}
     </div>
