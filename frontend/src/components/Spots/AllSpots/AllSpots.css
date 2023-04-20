@@ -3,6 +3,9 @@
     padding: 10px;
     height: 500px;
     width: 400px;
+    max-width: 400px;
+    max-height: 500px;
+ 
 }
 
 #all-spot_images{
