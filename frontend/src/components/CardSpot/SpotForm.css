@@ -7,3 +7,7 @@
 .input_spaces{
    padding: 7px;
 }
+
+.error-msg{
+    color:  red;
+}

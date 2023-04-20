@@ -30,6 +30,13 @@ router.post('/', validateLogin, async (req, res, next) => {
         const { credential, password } = req.body;
 
   const user = await User.login({ credential, password });
+  if (password.length < 4) {
+     res.status(401);
+     return res.json({
+       message: "Password need to be 4 or more characters",
+       statusCode: 401,
+     });
+  }
         if (!user) {
           res.status(401);
           return res.json({

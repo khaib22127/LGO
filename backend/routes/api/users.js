@@ -33,19 +33,25 @@ const validateSignup = [
 
 
 const validateUserInput = [
-  body('email')
-  .isEmail()
-  .withMessage("Invalid email"),
-  body('username')
+  body("email")
   .exists({ checkFalsy: true })
-  .withMessage('Username is required'),
-  body('firstName')
-  .exists({ checkFalsy: true })
-  .withMessage('First Name is required'),
-  body('lastName')
-  .exists({ checkFalsy: true })
-  .withMessage('Last Name is required'),
-  userValidationErrors
+  .withMessage("Email is required"),
+  body("username")
+    .exists({ checkFalsy: true })
+    .withMessage("Username is required"),
+  body("firstName")
+    .exists({ checkFalsy: true })
+    .withMessage("First Name is required"),
+  body("lastName")
+    .exists({ checkFalsy: true })
+    .withMessage("Last Name is required"),
+  body("password")
+    .exists({ checkFalsy: true })
+    .withMessage("Password is required"),
+  body("confirmPassword")
+    .exists({ checkFalsy: true })
+    .withMessage("ConfirmPassword is required"),
+  userValidationErrors,
 ];
 
 
