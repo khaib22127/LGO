@@ -1,0 +1,9 @@
+._Spot-Form_ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input_spaces{
+   padding: 7px;
+}

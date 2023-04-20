@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import * as spotsAction from "../../store/spot";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginForm";
 import SignupFormModal from "../SignupFormModal/SignupForm";
@@ -42,6 +43,16 @@ function ProfileButton({ user}) {
     history.push("/");
   };
 
+  const manageSpot = () => {
+    dispatch(spotsAction.getUserSpots());
+    history.push(`/spots/manage`);
+    closeMenu();
+  };
+
+   const CreateSpot = () => {
+     history.push(`/spots/new`);
+     closeMenu();
+   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
@@ -64,10 +75,14 @@ function ProfileButton({ user}) {
                 }}
               >
                 <p>{`Hello, ${user.username}`}</p>
-                {/* <li>
-              {user.firstName} {user.lastName}
-            </li> */}
+
                 <p>{user.email}</p>
+                <button type="submit" onClick={CreateSpot}>
+                  Create
+                </button>
+                <button type="submit" onClick={manageSpot}>
+                  Manage
+                </button>
               </div>
               {showMenu && (
                 <div
@@ -75,9 +90,7 @@ function ProfileButton({ user}) {
                     borderBottom: "black 2px solid",
                     padding: "5px",
                   }}
-                >
-
-                </div>
+                ></div>
               )}
 
               <div
@@ -115,8 +128,6 @@ function ProfileButton({ user}) {
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
               />
-
-
             </div>
           </>
         )}
