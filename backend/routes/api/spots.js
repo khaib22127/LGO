@@ -136,4 +136,58 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
   });
 });
 
+// Edit a Spot
+// PUT /api/spots/:spotId
+router.put( "/:spotId", requireAuth, async (req, res) => {
+
+  const spotId = req.params.spotId;
+   const spot = await Spot.findByPk(spotId);
+    const {
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price,
+    } = req.body;
+
+
+
+    if (!spot) {
+      res.status(404);
+      res.json({
+        message: "Spot couldn't be found",
+        statusCode: 404,
+      });
+    }
+
+    spot.userId = req.user.id;
+    spot.categoryId = 1;
+    spot.name = name;
+    spot.address = address;
+    spot.city = city;
+    spot.state = state;
+    spot.country = country;
+    spot.description = description;
+
+
+    await spot.save();
+    return res.json(spot);
+  }
+);
+
+// DELETE /api/spots/:spotId
+router.delete("/:spotId", requireAuth, async (req, res) => {
+  const spot = await Spot.findByPk(req.params.spotId);
+
+  await spot.destroy();
+  res.json({
+    message: "Successfully deleted",
+    statusCode: 200,
+  });
+});
+
 module.exports = router;
