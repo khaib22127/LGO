@@ -27,11 +27,11 @@ const userValidationErrors = (req, res, next) => {
   if (!validationErrors.isEmpty()) {
       let errors = validationErrors
           .array()
-          .map((error) => ({ [error.param]: error.msg }));
+          .map((error) => ({ [error.path]: error.msg }));
 
+          const err = Error();
+          err.errors = Object.assign(errors[0], ...errors);
 
-      const err = Error();
-      err.errors = Object.assign(errors[0], ...errors);
       err.status = 400;
       err.statusCode = 400
       err.message = "Validation error"

@@ -1,8 +1,29 @@
 const express = require("express");
 const router = express.Router();
 const { Spot, Review, SpotImage, User, sequelize } = require("../../db/models");
-const { check, query } = require("express-validator");
-const { requireAuth } = require("../../utils/auth");
+const { check } = require("express-validator");
+const { userValidationErrors } = require("../../utils/validation");
+const { requireAuth, userPermission } = require("../../utils/auth");
+
+const validateSpot = [
+  check("name")
+    .exists({ checkFalsy: true })
+    .isLength({ max: 50 })
+    .withMessage("Name must be less than 50 characters"),
+  check("address")
+    .exists({ checkFalsy: true })
+    .withMessage("Street address is required"),
+  check("city").exists({ checkFalsy: true }).withMessage("City is required"),
+  check("state").exists({ checkFalsy: true }).withMessage("State is required"),
+  check("country")
+    .exists({ checkFalsy: true })
+    .withMessage("Country is required"),
+  check("description")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 25 })
+    .withMessage("Description needs a minimum of 25 characters"),
+  userValidationErrors,
+];
 
 // Get all spots
 // GET /api/spots
@@ -24,13 +45,11 @@ router.get("/", async (req, res, next) => {
   });
 
   allSpots.forEach((spot) => {
-
-if (spot.SpotImages.length){
-  spot.SpotImages = spot.SpotImages[0].url;
-}
-
+    if (spot.SpotImages.length) {
+      spot.SpotImages = spot.SpotImages[0].url;
+    }
   });
-return res.json({ Spots: spots });
+  return res.json({ Spots: spots });
   // return res.json({ Spots: allSpots });
 });
 
@@ -89,7 +108,7 @@ router.get("/:spotId", async (req, res) => {
 
 // Create a Spot
 // POST /api/spots
-router.post("/", requireAuth, async (req, res) => {
+router.post("/", requireAuth, validateSpot, async (req, res) => {
   const { address, city, state, country, name, description } = req.body;
 
   const newSpot = await Spot.create({
@@ -138,49 +157,35 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
 
 // Edit a Spot
 // PUT /api/spots/:spotId
-router.put( "/:spotId", requireAuth, async (req, res) => {
-
+router.put("/:spotId", requireAuth, validateSpot, userPermission, async (req, res) => {
   const spotId = req.params.spotId;
-   const spot = await Spot.findByPk(spotId);
-    const {
-      address,
-      city,
-      state,
-      country,
-      lat,
-      lng,
-      name,
-      description,
-      price,
-    } = req.body;
+  const spot = await Spot.findByPk(spotId);
+  const { address, city, state, country, name, description } =
+    req.body;
 
-
-
-    if (!spot) {
-      res.status(404);
-      res.json({
-        message: "Spot couldn't be found",
-        statusCode: 404,
-      });
-    }
-
-    spot.userId = req.user.id;
-    spot.categoryId = 1;
-    spot.name = name;
-    spot.address = address;
-    spot.city = city;
-    spot.state = state;
-    spot.country = country;
-    spot.description = description;
-
-
-    await spot.save();
-    return res.json(spot);
+  if (!spot) {
+    res.status(404);
+    res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404,
+    });
   }
-);
+
+  spot.userId = req.user.id;
+  spot.categoryId = 1;
+  spot.name = name;
+  spot.address = address;
+  spot.city = city;
+  spot.state = state;
+  spot.country = country;
+  spot.description = description;
+
+  await spot.save();
+  return res.json(spot);
+});
 
 // DELETE /api/spots/:spotId
-router.delete("/:spotId", requireAuth, async (req, res) => {
+router.delete("/:spotId", requireAuth, userPermission, async (req, res) => {
   const spot = await Spot.findByPk(req.params.spotId);
 
   await spot.destroy();

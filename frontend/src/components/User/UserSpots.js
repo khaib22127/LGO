@@ -34,7 +34,7 @@ const UserSpots = () => {
         <div className="" key={spot.id}>
           <h1>{spot.name}</h1>
           <span>
-            {spot.city}, {spot.state}
+            {spot.address} , {spot.city}, {spot.state}
           </span>
           <div className="">
             {spot.SpotImages && spot.SpotImages.length > 0 ? (

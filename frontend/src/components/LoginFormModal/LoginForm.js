@@ -14,29 +14,39 @@ function LoginFormModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
+    dispatch(sessionActions.login({ credential, password }))
       .then(closeModal)
       .catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-        return setErrors(["The provided credentials were invalid"]);
+        if (data && data.errors) {
+          setErrors(data.errors);
+        } else {
+         return setErrors({errors:"The provided credentials were invalid"});
+        }
       });
+
   };
 
-  const demoUserSubmitHandler=(e)=> {
+
+
+
+  const demoUserSubmitHandler = (e) => {
     e.preventDefault();
     setErrors([]);
-     return dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }))
-       .then(closeModal)
-       .catch(async (res) => {
-         const data = await res.json();
-         if (data && data.errors) setErrors(data.errors);
-       });
-  }
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    ).then(closeModal);
+  };
 
   let isDiabled;
-  if (!credential || !password || credential.length < 4 || password.length < 6) {
+  if (
+    !credential ||
+    !password ||
+    credential.length < 4 ||
+    password.length < 6
+  ) {
     isDiabled = true;
   } else {
     isDiabled = false;
@@ -46,38 +56,43 @@ function LoginFormModal() {
     <>
       <div className="login-container">
         <p>Log In</p>
+        {<div className="error-msg">{errors.errors}</div>}
         <form onSubmit={handleSubmit}>
-          <ul>
+          {/* <ul>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
-          </ul>
+          </ul> */}
+          {<div className="error-msg">{errors.credential}</div>}
+          <label htmlFor="Username">Username or Email</label>
           <div className="username-input-container">
             {/* <label> */}
             {/* Username or Email */}
             <input
+              id="Username"
               className="input_user"
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
-              required
               placeholder="Username or Email"
             />
             {/* </label> */}
           </div>
+            {<div className="error-msg">{errors.password}</div>}
+          <label htmlFor="Password">Password</label>
           <div className="password-container">
             <input
+              id="Password"
               className="input_user"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              required
             />
           </div>
           <br />
           <div className="login-button-container">
-            <button id="login_12-btn" disabled={isDiabled} type="submit">
+            <button id="login_12-btn" type="submit">
               Log In
             </button>
           </div>
