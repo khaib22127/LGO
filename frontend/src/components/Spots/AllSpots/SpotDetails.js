@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../../store/spot";
 import { useParams } from "react-router-dom";
-import defautPic from "../../Assets/default-pin-pic.png";
+import defautPic from "../../AHelper/default-pin-pic.png";
 
 const SpotDetails = ({isLoaded }) => {
   const { spotId } = useParams();
