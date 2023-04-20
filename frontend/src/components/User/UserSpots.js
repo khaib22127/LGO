@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import * as spotsAction from "../../store/spot";
-import defautPic from "../Assets/default-pin-pic.png";
+import defautPic from "../AHelper/default-pin-pic.png";
 
 const UserSpots = () => {
   const dispatch = useDispatch();

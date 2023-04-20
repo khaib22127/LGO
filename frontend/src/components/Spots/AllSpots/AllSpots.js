@@ -4,8 +4,8 @@ import * as spotsAction from "../../../store/spot";
 import { Link } from "react-router-dom";
 import SpotDetails from "./SpotDetails";
 import './AllSpots.css'
-import defautPic from '../../Assets/default-pin-pic.png'
-import { defaultImage } from "../../Assets/helperFunction";
+import defautPic from '../../AHelper/default-pin-pic.png'
+import { defaultImage } from "../../AHelper/helperFunction";
 
 const AllSpots = ({ spot, isLoaded }) => {
   const dispatch = useDispatch();
