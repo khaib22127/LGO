@@ -8,6 +8,9 @@ const GET_SINGLE_SPOT_BY_ID = "spots/GET_SINGLE_SPOT_BY_ID";
 const GET_USER_SPOTS = "spots/GET_USER_SPOTS";
 const ADD_NEW_SPOT = "spot/ADD_NEW_SPOT";
 const ADD_NEW_SPOT_IMAGE = "spot/ADD_NEW_SPOT_IMAGE";
+const REMOVE_USER_SPOTS = "spots/REMOVE_USER_SPOTS";
+const UPDATE_USER_SPOTS = "spots/UPDATE_USER_SPOTS";
+
 // Action Creator
 export const loadSpots = (spots) => {
   return {
@@ -43,6 +46,20 @@ export const addNewSpotImage = (spotImage) => {
     spotImage,
   };
 };
+
+export const updateUserSpot = (spotId) => {
+  return {
+    type: UPDATE_USER_SPOTS,
+    spotId
+  }
+}
+
+export const removeUserSpots = (spot) => {
+  return {
+    type: REMOVE_USER_SPOTS,
+    spot
+  }
+}
 
 //Thunk
 // GET "/api/spots"
@@ -112,6 +129,30 @@ export const createNewSpotImage = (spot, image) => async (dispatch) => {
   return response;
 };
 
+export const editUserSpot = (spot, spotId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spotId}`, {
+    method: "PUT",
+    body: JSON.stringify(spot),
+  });
+  const data = await response.json();
+  if (response.ok) {
+    dispatch(updateUserSpot(data));
+    return data;
+  }
+  return response;
+};
+
+export const deleteUserSpot = (spotId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spotId}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    dispatch(removeUserSpots(spotId));
+  }
+  dispatch(getUserSpots());
+  return response;
+};
+
 // initial state
 let initialState = { allSpots: {}, singleSpot: {}, userSpots: {} };
 
@@ -139,6 +180,12 @@ const spotsReducer = (state = initialState, action) => {
 
     case ADD_NEW_SPOT_IMAGE:
       return newState;
+
+      case UPDATE_USER_SPOTS:
+        return newState;
+
+        case REMOVE_USER_SPOTS:
+          return newState;
 
     default:
       return state;
