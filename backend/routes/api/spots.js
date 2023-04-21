@@ -8,8 +8,7 @@ const { requireAuth, userPermission } = require("../../utils/auth");
 const validateSpot = [
   check("name")
     .exists({ checkFalsy: true })
-    .isLength({ max: 50 })
-    .withMessage("Name must be less than 50 characters"),
+    .withMessage("Name Required"),
   check("address")
     .exists({ checkFalsy: true })
     .withMessage("Street address is required"),

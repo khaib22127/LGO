@@ -44,6 +44,12 @@ router.get("/:spotId/reviews", async (req, res) => {
 
   const reviews = await Review.findAll({
     where: { spotId: spotId },
+    include: [
+      {
+        model: User,
+        attributes: [ "firstName", "lastName"],
+      },
+    ],
   });
 
   return res.json(reviews);
