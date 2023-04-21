@@ -8,16 +8,13 @@ const UserCreateSpot = () => {
     state: "dfasf",
     country: "sfsf",
     description: "afaf",
-  SpotImages: "https://cdn.hswstatic.com/gif/Flipboard-pic-replacement---pink-lake-1600x900.jpg"
+    SpotImages:
+      "https://cdn.hswstatic.com/gif/Flipboard-pic-replacement---pink-lake-1600x900.jpg",
   };
 
   return (
     <div>
-      <SpotForm
-        spot={spot}
-        formType="Create Spot"
-        submitType="Create"
-      />
+      <SpotForm spot={spot} formType="Create Spot" submitType="Create" />
     </div>
   );
 };

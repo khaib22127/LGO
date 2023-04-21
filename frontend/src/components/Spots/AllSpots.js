@@ -34,7 +34,7 @@ const AllSpots = ({ spot, isLoaded }) => {
             <SpotImages spot={spot} id="all-spot_images" />
           </div>
         </Link>
-        <div>{spot.description}</div>
+        <div>- {spot.description}</div>
         {isLoaded && <SpotDetails spot={spot} isLoaded={isLoaded} />}
       </div>
     )

@@ -1,0 +1,12 @@
+.single_review{
+    margin-bottom: 20px;
+}
+
+#add_review-btn{
+    width: 15rem;
+        height: 3rem;
+        background-color: red;
+        border: 2px solid black;
+        color: white;
+        margin-bottom: 20px;
+}
