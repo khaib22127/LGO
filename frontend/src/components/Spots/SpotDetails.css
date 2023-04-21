@@ -1,0 +1,32 @@
+.-single_container {
+    padding-bottom: 100px;
+    display: flex;
+}
+.-single_container-left{
+border: red solid 2px;
+margin-right: 20px;
+margin-left: 20px;
+}
+
+
+
+.-single_container-right{
+     padding-top: 20px;
+}
+
+
+#single_spot-images {
+    height: 600px;
+    width: 600px;
+}
+.All-review-container{
+    border: red solid 2px;
+    height: 300px;
+    width: 600px;
+
+}
+
+
+.-single_container{
+    padding-bottom: 100px;
+}

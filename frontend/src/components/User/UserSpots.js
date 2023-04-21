@@ -7,6 +7,7 @@ import { useModal } from "../../context/Modal";
 import UserEditSpot from "./UserEditSpot";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import { useHistory } from "react-router-dom";
+import SpotImages from "../Spots/SpotImages";
 
 const UserSpots = () => {
   const history = useHistory();
@@ -37,7 +38,7 @@ const UserSpots = () => {
             {spot.address} , {spot.city}, {spot.state}
           </span>
           <div className="">
-            {spot.SpotImages && spot.SpotImages.length > 0 ? (
+            {/* {spot.SpotImages && spot.SpotImages.length > 0 ? (
               spot.SpotImages.map((image) => (
                 <img
                   key={spot.id}
@@ -48,12 +49,21 @@ const UserSpots = () => {
               ))
             ) : (
               <img src={defautPic} alt="lake_image" id="all-spot_images" />
-            )}
+            )} */}
+            <SpotImages spot={spot} id="all-spot_images" />
           </div>
           <div>{spot.description}</div>
           {/* <button onClick={() => editClick(spot)}>Edit</button> */}
 
-          <button onClick={()=> setModalContent(<SpotForm spot={spot} formType="Update" submitType="Edit" />)}>Edit</button>
+          <button
+            onClick={() =>
+              setModalContent(
+                <SpotForm spot={spot} formType="Update" submitType="Edit" />
+              )
+            }
+          >
+            Edit
+          </button>
           <button onClick={() => deleteClick(spot)}>Delete</button>
         </div>
       ))}

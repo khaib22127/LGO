@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as spotsAction from "../../../store/spot";
+import * as spotsAction from "../../store/spot";
 import { useParams } from "react-router-dom";
-import defautPic from "../../AHelper/default-pin-pic.png";
+import SpotImages from "./SpotImages";
+import "./SpotDetails.css";
+import AllReviews from "../Reviews/AllReviews";
 
-const SpotDetails = ({isLoaded }) => {
+const SpotDetails = ({ isLoaded }) => {
   const { spotId } = useParams();
   const dispatch = useDispatch();
 
-    const spot = useSelector((state) => state.spots.singleSpot);
+  const spot = useSelector((state) => state.spots.singleSpot);
 
   useEffect(() => {
     dispatch(spotsAction.getSingleSpot(spotId));
@@ -28,7 +30,7 @@ const SpotDetails = ({isLoaded }) => {
               src={spot.SpotImages && spot.SpotImages.map((image) => image.url)}
               alt="lake_image"
             /> */}
-            {spot.SpotImages && spot.SpotImages.length > 0 ? (
+            {/* {spot.SpotImages && spot.SpotImages.length > 0 ? (
               spot.SpotImages.map((image) => (
                 <img
                   key={spot.id}
@@ -39,12 +41,16 @@ const SpotDetails = ({isLoaded }) => {
               ))
             ) : (
               <img src={defautPic} alt="lake_image" id="all-spot_images" />
-            )}
+            )} */}
+            <SpotImages spot={spot} id="single_spot-images" />
           </div>
           <div>{spot.description}</div>
 
           <div className="-single_container-right"></div>
         </div>
+
+          <AllReviews />
+
       </div>
     )
   );

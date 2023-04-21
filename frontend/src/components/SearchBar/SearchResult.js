@@ -2,13 +2,12 @@ import SearchBar from "./SearchBar";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../store/spot";
-import AllSpots from "../Spots/AllSpots/AllSpots";
-import './SearchBar.css'
-
+import AllSpots from "../Spots/AllSpots";
+import "./SearchBar.css";
 
 const SearchResult = () => {
   const dispatch = useDispatch();
-const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const spots = useSelector((state) => state.spots.allSpots);
 
   const filterPosts = (spots, query) => {
@@ -27,7 +26,6 @@ const [isLoaded, setIsLoaded] = useState(false);
         spotCity.includes(query)
       );
     });
-
   };
 
   const { search } = window.location;
@@ -35,17 +33,16 @@ const [isLoaded, setIsLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState(query || "");
   const filteredPosts = filterPosts(spots, searchQuery);
 
-// console.log("query in search result::", query)
-// console.log("filteredPosts in search result::", filteredPosts.length === 0);
+  // console.log("query in search result::", query)
+  // console.log("filteredPosts in search result::", filteredPosts.length);
 
   useEffect(() => {
     dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(false));
   }, [dispatch]);
 
-// if (filteredPosts.lenght === 0) {
-//   return "No Result..."
-// }
-
+  // if (filteredPosts.lenght === 0) {
+  //   return <h1>No No No</h1>;
+  // }
 
   if (!spots) return null;
   return (
