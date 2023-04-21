@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation/Navigation";
 import SearchResult from "./components/SearchBar/SearchResult";
-import SpotDetails from "./components/Spots/AllSpots/SpotDetails";
+import SpotDetails from "./components/Spots/SpotDetails";
 import UserSpots from "./components/User/UserSpots";
 import UserCreateSpot from "./components/User/UserCreateSpot";
 import UserEditSpot from "./components/User/UserEditSpot";

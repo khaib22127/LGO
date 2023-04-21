@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as spotsAction from "../../../store/spot";
+import * as spotsAction from "../../store/spot";
 import { Link } from "react-router-dom";
 import SpotDetails from "./SpotDetails";
 import './AllSpots.css'
-import defautPic from '../../AHelper/default-pin-pic.png'
+import SpotImages from "./SpotImages";
+import defautPic from '../AHelper/default-pin-pic.png'
 
 
 const AllSpots = ({ spot, isLoaded }) => {
@@ -30,30 +31,7 @@ const AllSpots = ({ spot, isLoaded }) => {
         </span>
         <Link to={`/spots/${spot.id}`}>
           <div className="all-spot_image-container">
-            {/* <img
-              key={spot.id}
-              src={spot.SpotImages}
-              alt="lake_image"
-              id="all-spot_images"
-              onError={defaultImage}
-            /> */}
-            {spot.SpotImages.length > 0 ? (
-              spot.SpotImages.map((image) => (
-                <img
-                  key={spot.id}
-                  src={image.url}
-                  alt="lake_image"
-                  id="all-spot_images"
-                />
-              ))
-            ) : (
-              <img src={defautPic} alt="lake_image" id="all-spot_images" />
-            )}
-            {/* <img
-              id="all-spot_images"
-              src={spot.SpotImages.map((image) => image.url)}
-              alt="lake_image"
-            /> */}
+            <SpotImages spot={spot} id="all-spot_images" />
           </div>
         </Link>
         <div>{spot.description}</div>

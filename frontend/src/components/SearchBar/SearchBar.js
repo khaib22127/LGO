@@ -102,7 +102,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
   };
 
   return (
-    
+
     <form action="/" method="get" autoComplete="off" onSubmit={onSubmit}>
       <label htmlFor="header-search">
         <span className="visually-hidden">Search...</span>
