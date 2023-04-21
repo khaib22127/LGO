@@ -49,7 +49,7 @@ const SpotDetails = ({ isLoaded }) => {
           <div className="-single_container-right"></div>
         </div>
 
-          <AllReviews />
+          <AllReviews spotId={spotId}/>
 
       </div>
     )

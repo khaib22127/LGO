@@ -8,6 +8,7 @@ import SpotDetails from "./components/Spots/SpotDetails";
 import UserSpots from "./components/User/UserSpots";
 import UserCreateSpot from "./components/User/UserCreateSpot";
 import UserEditSpot from "./components/User/UserEditSpot";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);

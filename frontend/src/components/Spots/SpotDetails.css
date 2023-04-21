@@ -3,7 +3,7 @@
     display: flex;
 }
 .-single_container-left{
-border: red solid 2px;
+border: rgb(53, 68, 196) solid 4px;
 margin-right: 20px;
 margin-left: 20px;
 }
@@ -17,13 +17,14 @@ margin-left: 20px;
 
 #single_spot-images {
     height: 600px;
-    width: 600px;
+    width: 700px;
 }
 .All-review-container{
-    border: red solid 2px;
+    border: red solid 4px;
     height: 300px;
     width: 600px;
-
+    padding: 5px;
+overflow-y: scroll;
 }
 
 
