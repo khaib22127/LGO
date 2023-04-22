@@ -1,0 +1,50 @@
+.landing-page-container {
+    position: relative;
+}
+
+.welcome_banner {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    top: 10px;
+    /* border: 3px solid #73AD21; */
+}
+#h1_welcome-text{
+    color: rgb(230, 198, 198);
+
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style:italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+
+}
+.inner_page-Btn {
+    position: absolute;
+    display: flex;
+    top: 100px;
+    width: 100%;
+    height: 100px;
+    /* border: 3px solid #73AD21; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#enter_btn {
+    height: 50px;
+    width: 250px;
+    border: none;
+    border-radius: 20px;
+    background-color: aliceblue;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+/* opacity: 1; */

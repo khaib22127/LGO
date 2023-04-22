@@ -2,12 +2,12 @@ import ReviewForm from "../CardSpot/ReviewForm";
 
 let review = {
     review: "",
-    star: ""
+    stars: ""
 }
 
 const CreateReview =()=> {
     return (<>
-<ReviewForm formType="Create" submitType="create" reviews={review}/>
+<ReviewForm formType="Create" submitType="Create" reviews={review}/>
     </>)
 }
 export default CreateReview;

@@ -97,7 +97,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
 
 
   const onSubmit = (e) => {
-    // history.push(`?s=${searchQuery}`);
+    history.push(`?s=${searchQuery}`);
     e.preventDefault();
   };
 
