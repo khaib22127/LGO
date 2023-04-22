@@ -10,7 +10,7 @@ const SearchResult = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const spots = useSelector((state) => state.spots.allSpots);
 
-  const filterPosts = (spots, query) => {
+  const filterSpots = (spots, query) => {
     if (!query) {
       return spots;
     }
@@ -31,16 +31,16 @@ const SearchResult = () => {
   const { search } = window.location;
   const query = new URLSearchParams(search).get("s");
   const [searchQuery, setSearchQuery] = useState(query || "");
-  const filteredPosts = filterPosts(spots, searchQuery);
+  const filteredSpots = filterSpots(spots, searchQuery);
 
   // console.log("query in search result::", query)
-  // console.log("filteredPosts in search result::", filteredPosts.length);
+  // console.log("filteredSpots in search result::", filteredSpots.length);
 
   useEffect(() => {
     dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(false));
   }, [dispatch]);
 
-  // if (filteredPosts.length === 0) {
+  // if (filteredSpots.length === 0) {
   //    <h1>No Result....</h1>;
   // }
 
@@ -50,7 +50,7 @@ const SearchResult = () => {
       <div>
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <div className="AllSpot_main-conainter">
-          {Object.values(filteredPosts).map((spot) => (
+          {Object.values(filteredSpots).map((spot) => (
             <div key={spot.id}>
               <AllSpots spot={spot} isLoaded={isLoaded} />
             </div>
