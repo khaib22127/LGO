@@ -25,7 +25,7 @@ const AllSpots = ({ spot, isLoaded }) => {
   return (
     !isLoaded && (
       <div className="All-Spot_container">
-        <h1>{spot.name}</h1>
+        <h2>{spot.name}</h2>
         <span>
           {spot.city}, {spot.state}
         </span>
@@ -34,7 +34,7 @@ const AllSpots = ({ spot, isLoaded }) => {
             <SpotImages spot={spot} id="all-spot_images" />
           </div>
         </Link>
-        <div>- {spot.description}</div>
+        <div className="all_spot-description">- {spot.description}</div>
         {isLoaded && <SpotDetails spot={spot} isLoaded={isLoaded} />}
       </div>
     )

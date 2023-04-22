@@ -1,14 +1,29 @@
-
-.All-Spot_container{
-    padding: 10px;
-    height: 500px;
-    width: 400px;
+.All-Spot_container {
     max-width: 400px;
-    max-height: 500px;
- 
+    max-height: 700px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
-#all-spot_images{
+#all-spot_images {
     height: 400px;
     width: 400px;
+    border-radius: 40px;
+    box-shadow: 12px 12px 60px 1px rgba(250, 250, 251, 0.2);
 }
+
+.All-Spot_container>span {
+    font-size: 20px;
+}
+
+/*
+.all_spot-description{
+    box-shadow: 0 8px 16px 0 #c1c1e4cc;
+   border-radius: 5px;
+    background: rgb(242, 240, 234);
+    font-size: 17px;
+} */

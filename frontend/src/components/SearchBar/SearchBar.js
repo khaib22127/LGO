@@ -102,21 +102,24 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
   };
 
   return (
-
-    <form action="/" method="get" autoComplete="off" onSubmit={onSubmit}>
-      <label htmlFor="header-search">
-        <span className="visually-hidden">Search...</span>
-      </label>
-      <input
-        value={searchQuery}
-        onInput={(e) => setSearchQuery(e.target.value)}
-        type="text"
-        id="header-search"
-        placeholder="Search..."
-        name="s"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div className="search_form-bar">
+      <form action="/" method="get" autoComplete="off" onSubmit={onSubmit}>
+        <label htmlFor="header-search">
+          <span className="visually-hidden">Search</span>
+        </label>
+        <input
+          value={searchQuery}
+          onInput={(e) => setSearchQuery(e.target.value)}
+          type="text"
+          id="header-search"
+          placeholder="Search... name or location"
+          name="s"
+        />
+        <button id="search_btnn" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
   );
 };
 
