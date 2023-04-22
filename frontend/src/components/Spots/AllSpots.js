@@ -9,7 +9,7 @@ import defautPic from '../AHelper/default-pin-pic.png'
 
 
 const AllSpots = ({ spot, isLoaded }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 //   const spots = useSelector((state) => state.spots.allSpots);
 // console.log("spots:===> ", spot);
   // // Object.values(spots).map((spot) => {
