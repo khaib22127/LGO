@@ -86,7 +86,7 @@ export const editReview = (review, reviewId) => async (dispatch) => {
   });
   const data = await response.json();
   if (response.ok) {
-    dispatch(updateSpotReview(data));
+    dispatch(updateSpotReview(data.review));
     return data;
   }
   return response;
@@ -117,10 +117,10 @@ const reviewReducer = (state = initialState, action) => {
       return newState
     //   return {...newState,[action.reviews.id]: {...newState}};
 
-    case GET_USER_REVIEWS:
-      const userReviews = action.reviews.Reviews;
-      newState.UserReview = userReviews;
-      return newState;
+    // case GET_USER_REVIEWS:
+    //   const userReviews = action.reviews.Reviews;
+    //   newState.UserReview = userReviews;
+    //   return newState;
 
     case CREATE_REVIEW:
       return newState;

@@ -40,8 +40,8 @@ const SearchResult = () => {
     dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(false));
   }, [dispatch]);
 
-  // if (filteredPosts.lenght === 0) {
-  //   return <h1>No No No</h1>;
+  // if (filteredPosts.length === 0) {
+  //    <h1>No Result....</h1>;
   // }
 
   if (!spots) return null;
