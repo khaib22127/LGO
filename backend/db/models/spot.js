@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       Spot.hasMany(models.Review, { foreignKey: "spotId" });
       Spot.hasMany(models.SpotImage, { foreignKey: "spotId" });
       Spot.hasMany(models.SpotSave, { foreignKey: "spotId" });
+       Spot.hasMany(models.CatchLog, { foreignKey: "spotId" });
       Spot.belongsTo(models.Category, { foreignKey: "categoryId" });
     }
   }
