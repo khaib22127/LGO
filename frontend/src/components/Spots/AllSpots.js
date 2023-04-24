@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import * as spotsAction from "../../store/spot";
-import { Link } from "react-router-dom";
 import SpotDetails from "./SpotDetails";
 import './AllSpots.css'
 import SpotImages from "./SpotImages";
-import defautPic from '../AHelper/default-pin-pic.png'
+// import React, { useState } from "react";
+// import * as spotsAction from "../../store/spot";
+// import { Link } from "react-router-dom";
+// import { useSelector, useDispatch } from "react-redux";
+// import defautPic from '../AHelper/default-pin-pic.png'
 
 
 const AllSpots = ({ spot, isLoaded }) => {
@@ -20,11 +20,11 @@ const AllSpots = ({ spot, isLoaded }) => {
           {spot.city}, {spot.state}
         </span>
         <div className="all_spot-description">- {spot.description}</div>
-        <Link to={`/spots/${spot.id}`}>
+        {/* <Link to={`/spots/${spot.id}`}> */}
           <div className="all-spot_image-container">
             <SpotImages spot={spot} id="all-spot_images" />
           </div>
-        </Link>
+        {/* </Link> */}
         {isLoaded && <SpotDetails spot={spot} isLoaded={isLoaded} />}
       </div>
     )

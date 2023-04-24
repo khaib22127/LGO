@@ -2,12 +2,12 @@ import SpotForm from "../CardSpot/SpotForm";
 
 const UserCreateSpot = () => {
   const spot = {
-    name: "new",
-    address: "ew",
-    city: "ow",
-    state: "dfasf",
-    country: "sfsf",
-    description: "afaf",
+    name: "",
+    address: "",
+    city: "",
+    state: "",
+    country: "",
+    description: "",
     SpotImages:
       "https://cdn.hswstatic.com/gif/Flipboard-pic-replacement---pink-lake-1600x900.jpg",
   };

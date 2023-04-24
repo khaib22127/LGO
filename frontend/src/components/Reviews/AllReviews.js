@@ -50,13 +50,14 @@ const AllReviews = ({ spotId, spot }) => {
     return <h1>{reviews.length} Reviews</h1>
   }
 
+
   if (!reviews ) return null;
 
 
   return (
     <div className="All-review-main-container">
       {reviewsLog()}
-      {currentUser && !userReview && (
+      {currentUser && !userReview &&  spot.userId !== currentUser?.id &&(
         <button
           id="add_review-btn"
           onClick={() => setModalContent(<CreateReview />)}
@@ -64,7 +65,7 @@ const AllReviews = ({ spotId, spot }) => {
           ADD REVIEW
         </button>
       )}
-    
+
       <div className="single_review-container">
         {Object.values(reviews).map((review) => (
           <div className="single_review" key={review.id}>

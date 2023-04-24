@@ -1,0 +1,14 @@
+.user_edit-delete_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.owner__spot-container{
+    display: flex;
+    margin-left: 40px;
+}
+
+.owner__single-spot-container{
+    margin-left: 40px;
+}

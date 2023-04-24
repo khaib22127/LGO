@@ -6,14 +6,16 @@ import * as spotsAction from "../../store/spot";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal/LoginForm";
 import SignupFormModal from "../SignupFormModal/SignupForm";
-import {  useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useModal } from "../../context/Modal";
+import UserCreateSpot from "../User/UserCreateSpot";
 
-
-function ProfileButton({ user}) {
+function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const history =  useHistory()
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const { setModalContent } = useModal();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -49,10 +51,12 @@ function ProfileButton({ user}) {
     closeMenu();
   };
 
-   const CreateSpot = () => {
-     history.push(`/spots/new`);
-     closeMenu();
-   };
+  const createSpot = (e) => {
+ e.preventDefault();
+    setModalContent(<UserCreateSpot />)
+    closeMenu()
+
+  };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
@@ -74,7 +78,11 @@ function ProfileButton({ user}) {
               <p>{user.email}</p>
 
               <div className="logged-in_user-profile-btn">
-                <button id="log_out__btn" type="submit" onClick={CreateSpot}>
+                <button
+                  id="log_out__btn"
+                  type="submit"
+                  onClick={createSpot}
+                >
                   Create
                 </button>
                 <button id="log_out__btn" type="submit" onClick={manageSpot}>

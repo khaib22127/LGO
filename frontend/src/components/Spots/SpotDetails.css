@@ -7,7 +7,7 @@
 
 .-single_container-left {
     display: flex;
-    border: rgb(53, 68, 196) solid 4px;
+    /* border: rgb(53, 68, 196) solid 4px; */
     height: 800px;
     margin-right: 25px;
     /* margin-left: 20px; */

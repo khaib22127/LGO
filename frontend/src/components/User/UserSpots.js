@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import * as spotsAction from "../../store/spot";
 import SpotForm from "../CardSpot/SpotForm";
 import { useModal } from "../../context/Modal";
-import { useHistory } from "react-router-dom";
 import SpotImages from "../Spots/SpotImages";
 import DeleteForm from "../CardSpot/DeleteForm";
+import './UserSpot.css'
 
 const UserSpots = () => {
 
@@ -20,9 +20,9 @@ const UserSpots = () => {
 
 
   return (
-    <div>
+    <div className="owner__spot-container">
       {Object.values(spotOfUser).map((spot) => (
-        <div className="" key={spot.id}>
+        <div className="owner__single-spot-container" key={spot.id}>
           <h1>{spot.name}</h1>
           <span>
             {spot.address} , {spot.city}, {spot.state}
@@ -44,31 +44,34 @@ const UserSpots = () => {
           </div>
           <div>{spot.description}</div>
           {/* <button onClick={() => editClick(spot)}>Edit</button> */}
-
-          <button
-            onClick={() =>
-              setModalContent(
-                <SpotForm spot={spot} formType="Update" submitType="Edit" />
-              )
-            }
-          >
-            Edit
-          </button>
-          {/* <button onClick={() => deleteClick(spot)}>Delete</button> */}
-          <button
-            onClick={() =>
-              setModalContent(
-                <DeleteForm
-                  id="delete-form_container"
-                  submitType="spot"
-                  deleteType="Spot"
-                  comp={spot}
-                />
-              )
-            }
-          >
-            Delete
-          </button>
+          <div className="user_edit-delete_btn">
+            <button
+              id="log_out__btn"
+              onClick={() =>
+                setModalContent(
+                  <SpotForm spot={spot} formType="Update" submitType="Edit" />
+                )
+              }
+            >
+              Edit
+            </button>
+            {/* <button onClick={() => deleteClick(spot)}>Delete</button> */}
+            <button
+              id="log_out__btn"
+              onClick={() =>
+                setModalContent(
+                  <DeleteForm
+                    id="delete-form_container"
+                    submitType="spot"
+                    deleteType="Spot"
+                    comp={spot}
+                  />
+                )
+              }
+            >
+              Delete
+            </button>
+          </div>
         </div>
       ))}
     </div>
