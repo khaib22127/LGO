@@ -15,9 +15,9 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(spotsAction.getAllSpots());
+    // dispatch(spotsAction.getAllSpots());
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    // dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(true));
+    dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
