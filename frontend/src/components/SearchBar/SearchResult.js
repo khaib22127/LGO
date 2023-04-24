@@ -9,6 +9,7 @@ const SearchResult = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const spots = useSelector((state) => state.spots.allSpots);
+    const currentUser = useSelector((state) => state.session.user);
 
   const filterSpots = (spots, query) => {
     if (!query) {
@@ -48,7 +49,15 @@ const SearchResult = () => {
   return (
     !isLoaded && (
       <div>
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <div className="search_result-top-page">
+          <SearchBar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+          {currentUser &&  <button id="create_new-spot-btn">Create Spot</button>}
+
+        </div>
+
         <div className="AllSpot_main-conainter">
           {Object.values(filteredSpots).map((spot) => (
             <div key={spot.id}>
