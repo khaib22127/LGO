@@ -89,7 +89,7 @@ import "./SearchBar.css";
 // };
 
 // export default SearchBar;
-import { useHistory } from "react-router-dom";
+import React, { useHistory } from "react-router-dom";
 
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
