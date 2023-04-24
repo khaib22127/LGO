@@ -50,16 +50,16 @@ export const addNewSpotImage = (spotImage) => {
 export const updateUserSpot = (spotId) => {
   return {
     type: UPDATE_USER_SPOTS,
-    spotId
-  }
-}
+    spotId,
+  };
+};
 
 export const removeUserSpots = (spot) => {
   return {
     type: REMOVE_USER_SPOTS,
-    spot
-  }
-}
+    spot,
+  };
+};
 
 //Thunk
 // GET "/api/spots"
@@ -90,9 +90,8 @@ export const getUserSpots = () => async (dispatch) => {
   return response;
 };
 
-
 export const createNewSpot = (spot, image) => async (dispatch) => {
-  let { url} = image;
+  let { url } = image;
   const response = await csrfFetch("/api/spots", {
     method: "POST",
     body: JSON.stringify(spot),
@@ -103,10 +102,10 @@ export const createNewSpot = (spot, image) => async (dispatch) => {
     dispatch(addNewSpot(data));
     const responseImage = await csrfFetch(`/api/spots/${data.id}/images`, {
       method: "POST",
-      body: JSON.stringify({ url}),
+      body: JSON.stringify({ url }),
     });
     if (responseImage.ok) {
-  return data
+      return data;
     } else {
       throw responseImage;
     }
@@ -181,11 +180,11 @@ const spotsReducer = (state = initialState, action) => {
     case ADD_NEW_SPOT_IMAGE:
       return newState;
 
-      case UPDATE_USER_SPOTS:
-        return newState;
+    case UPDATE_USER_SPOTS:
+      return newState;
 
-        case REMOVE_USER_SPOTS:
-          return newState;
+    case REMOVE_USER_SPOTS:
+      return newState;
 
     default:
       return state;
