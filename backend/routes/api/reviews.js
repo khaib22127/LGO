@@ -27,7 +27,7 @@ router.get("/current", requireAuth, async (req, res) => {
   });
 
   if (!reviews) {
-    res.status(400);
+    res.status(404);
     return res.json({
       message: "Review couldn't be found",
       statusCode: 404,
@@ -81,6 +81,14 @@ router.post(
         });
       }
     }
+
+if (!stars) {
+ res.status(400);
+ return res.json({
+   message: "Stars Required!",
+   statusCode: 400,
+ });
+}
 
     const newReview = await Review.create({
       userId: req.user.id,

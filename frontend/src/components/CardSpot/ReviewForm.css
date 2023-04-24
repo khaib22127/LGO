@@ -1,4 +1,51 @@
-.Review_form {
-    height: 500px;
-    width: 500px;
+.Review_form-main-container {
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+background-color: rgb(242, 235, 235);
+border-radius: 20px;
+border: none;
+}
+
+.Review_form{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+
+}
+
+.Review_text-box{
+    height: 60px;
+    width: 300px;
+    border-radius: 10px;
+    padding-top: 4px;
+}
+
+.rating-input{
+   font-size: 25px;
+
+}
+
+#create_review-btn{
+    width: 15rem;
+        height: 3rem;
+        background-color: rgb(168, 126, 241);
+        border: 2px solid black;
+        color: white;
+        margin-bottom: 20px;
+        border-radius: 25px;
+}
+
+
+#create_review-btn:disabled{
+    width: 15rem;
+        height: 3rem;
+        background-color: rgb(196, 186, 186);
+        border: 2px solid black;
+        color: rgb(226, 214, 214);
+        margin-bottom: 20px;
+        border-radius: 25px;
+        border: none;
 }

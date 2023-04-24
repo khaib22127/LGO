@@ -29,12 +29,12 @@ const AllSpots = ({ spot, isLoaded }) => {
         <span>
           {spot.city}, {spot.state}
         </span>
+        <div className="all_spot-description">- {spot.description}</div>
         <Link to={`/spots/${spot.id}`}>
           <div className="all-spot_image-container">
             <SpotImages spot={spot} id="all-spot_images" />
           </div>
         </Link>
-        <div className="all_spot-description">- {spot.description}</div>
         {isLoaded && <SpotDetails spot={spot} isLoaded={isLoaded} />}
       </div>
     )

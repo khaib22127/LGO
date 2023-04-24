@@ -9,47 +9,78 @@ import DeleteForm from "../CardSpot/DeleteForm";
 import ReviewDetail from "../Reviews/ReviewDetail";
 import "./AllReviews.css";
 
-const AllReviews = ({ spotId }) => {
+const AllReviews = ({ spotId, spot }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { setModalContent } = useModal();
 
   const currentUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => state.reviews.SpotReview);
-  // console.log("reviews: ==> ", spot.review);
+  // console.log("reviews: ==> ", reviews);
 
+  const userReview = useSelector((state) => state.reviews.UserReview[spotId]);
+  // console.log("user review:===> ", currentUser);
+
+  // console.log("current spot:  ", spot)
   useEffect(() => {
-    dispatch(reviewsActions.getSpotReviews(spotId));
-  }, [dispatch, spotId]);
+    dispatch(reviewsActions.getSpotReviews(spotId)).then(()=> {
+      if (currentUser){
+        dispatch(reviewsActions.getUserReviews());
+      }
+    });
+  }, [dispatch, spotId, currentUser]);
 
-// if (!spot.review) {
-//   return
-// } else {
-//   spot.review.map(ele=>
-// console.log("ele::::", ele)
-//     )
+
+
+// const addnewReview = ()=> {
+// if (userReview || spot.userId === currentUser.id) {
+//   return null;
+// }
+// return (
+//   <button id="add_review-btn" onClick={() => setModalContent(<CreateReview />)}>
+//     ADD REVIEW
+//   </button>
+// );
 // }
 
-  if (!reviews) return null;
+  const reviewsLog=()=> {
+    if (!reviews.length) {
+      return <h1>No Reviews Yet...</h1>
+    }
+    if(reviews.length === 1) {
+      return <h1> 1 Review</h1>
+    }
+    return <h1>{reviews.length} Reviews</h1>
+  }
+
+  if (!reviews ) return null;
+
+  // Object.values(reviews).map(review=>
+  //   console.log("review::::=====> ", review))
+  
+  // if (!userReview) return null;
 
   return (
-    <div className="All-review-container">
-      <h1>Reviews</h1>
-
-      <button
-        id="add_review-btn"
-        onClick={() => setModalContent(<CreateReview />)}
-      >
-        ADD REVIEW
-      </button>
-      <div>
+    <div className="All-review-main-container">
+      {reviewsLog()}
+      {currentUser && !userReview && (
+        <button
+          id="add_review-btn"
+          onClick={() => setModalContent(<CreateReview />)}
+        >
+          ADD REVIEW
+        </button>
+      )}
+      {/* {addnewReview()} */}
+      <div className="single_review-container">
         {Object.values(reviews).map((review) => (
           <div className="single_review" key={review.id}>
-            <ReviewDetail review={review} />
-            {currentUser.id === review.userId && (
+            <ReviewDetail review={review} spot={spot} />
+            {currentUser && currentUser.id === review.userId && (
               <div>
                 {" "}
                 <button
+                  className="edit-delete-review-btn"
                   onClick={() =>
                     setModalContent(
                       <ReviewForm
@@ -63,9 +94,11 @@ const AllReviews = ({ spotId }) => {
                   Edit
                 </button>{" "}
                 <button
+                  className="edit-delete-review-btn"
                   onClick={() =>
                     setModalContent(
                       <DeleteForm
+                        id="delete-form_container"
                         submitType="review"
                         deleteType="Review"
                         comp={review}
@@ -80,6 +113,46 @@ const AllReviews = ({ spotId }) => {
             )}
           </div>
         ))}
+        {/* {Object.values(reviews).map((review) => (
+          <div className="single_review" key={review.id}>
+            <ReviewDetail review={review} />
+            {currentUser.id === review.userId && (
+              <div>
+                {" "}
+                <button
+                  className="edit-delete-review-btn"
+                  onClick={() =>
+                    setModalContent(
+                      <ReviewForm
+                        reviews={review}
+                        submitType="edit"
+                        formType="Edit Review"
+                      />
+                    )
+                  }
+                >
+                  Edit
+                </button>{" "}
+                <button
+                  className="edit-delete-review-btn"
+                  onClick={() =>
+                    setModalContent(
+                      <DeleteForm
+                        id="delete-form_container"
+                        submitType="review"
+                        deleteType="Review"
+                        comp={review}
+                        spotId={spotId}
+                      />
+                    )
+                  }
+                >
+                  Delete
+                </button>
+              </div>
+            )}
+          </div>
+        ))} */}
       </div>
     </div>
   );
