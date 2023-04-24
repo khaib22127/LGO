@@ -1,15 +1,29 @@
+.main_login-in-container{
+    display: flex;
+}
+
 .login-container {
     display: flex;
-    height: 17rem;
+    height: 19rem;
     width: 25rem;
     padding: 2%;
     align-items: center;
     flex-direction: column;
+    justify-content: flex-start;
+    /* position: relative; */
+}
+
+.login-container > p {
+   font-size: 22px;
+   font-weight: bold;
+   margin: 0;
+   margin-bottom: 29px;
 }
 
 .demo-user-btn-container {
     text-decoration: underline;
 }
+
 
 
 .login-button-container {
@@ -19,19 +33,33 @@
 }
 
 #login_12-btn {
-    width: 21rem;
-    height: 3rem;
-    background-color: red;
-    border: 2px solid black;
-    color: white;
+    width: 10rem;
+    height: 2.4rem;
+        background-color: rgb(61, 114, 205);
+        color: white;
+        border: 2px solid black;
+        border-radius: 15PX;
+        cursor: pointer;
 }
 .input_user {
     background: rgb(211, 233, 239);
     width: 20rem;
+    margin-top: 5px;
+    margin-bottom: 25px;
 }
 
 .demo-user-btn-container{
     display: flex;
     justify-content: center;
     color: rgb(31, 138, 138);
+}
+
+.err-msgs {
+    color: red;
+    position: absolute;
+    top: 2.7rem;
+}
+
+.login_class{
+    position: relative;
 }

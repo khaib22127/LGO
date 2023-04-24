@@ -23,10 +23,17 @@
 }
 
 .login-n-signout-button {
-    padding: 2px;
+
     display: flex;
     align-items: center;
-
+    height: 30px;
+    width: 70px;
+    border-radius: 15px;
+    background-color: rgb(61, 114, 205);
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .profile-dropdown {
@@ -57,7 +64,7 @@
     width: 90px;
     height: 40px;
     border-radius: 176px;
-    background: white;
+    background: rgb(255, 255, 255);
     cursor: pointer;
     transition: box-shadow 0.2 ease;
 }
@@ -76,7 +83,7 @@
     align-items: center;
     padding: 10px;
     height: 40px;
-    width: 100%;
+    width: 60%;
     margin-left: 20px;
     margin-right: 20px;
     background-color: lightgray;
@@ -103,3 +110,19 @@
     z-index: 9;
 
 } */
+
+
+.logged-in_user-profile-btn {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+#log_out__btn{
+    height: 30px;
+    width: 80px;
+    background: gray;
+    color: white;
+    border-radius: 50px;
+    margin-top: 10px;
+}

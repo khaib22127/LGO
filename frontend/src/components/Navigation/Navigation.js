@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
         </NavLink>
       </div>
 
-      {sessionUser && (
+      {(
         <div className="searchBar">
           <i className="fas fa-solid fa-magnifying-glass"></i>
           <input

@@ -64,53 +64,28 @@ function ProfileButton({ user}) {
           <i className="fas fa-user-circle fa-2x" />
         </button>
       </div>
+
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
             <div className="user-popup-info">
-              <div
-                className={`user${user.id}-info`}
-                style={{
-                  borderBottom: "black 2px solid",
-                }}
-              >
-                <p>{`Hello, ${user.username}`}</p>
+              <p>{`Hello, ${user.username}`}</p>
 
-                <p>{user.email}</p>
-                <button type="submit" onClick={CreateSpot}>
+              <p>{user.email}</p>
+
+              <div className="logged-in_user-profile-btn">
+                <button id="log_out__btn" type="submit" onClick={CreateSpot}>
                   Create
                 </button>
-                <button type="submit" onClick={manageSpot}>
+                <button id="log_out__btn" type="submit" onClick={manageSpot}>
                   Manage
                 </button>
-              </div>
-              {showMenu && (
-                <div
-                  style={{
-                    borderBottom: "black 2px solid",
-                    padding: "5px",
-                  }}
-                ></div>
-              )}
 
-              <div
-                className="logout-btn"
-                style={{
-                  paddingTop: "10px",
-                }}
-              >
-                <button
-                  style={{
-                    height: "40px",
-                    width: "80px",
-                    background: "gray",
-                    color: "white",
-                    borderRadius: "100px",
-                  }}
-                  onClick={logout}
-                >
-                  Log Out
-                </button>
+                <div className="logout-btn">
+                  <button id="log_out__btn" onClick={logout}>
+                    Log Out
+                  </button>
+                </div>
               </div>
             </div>
           </>
