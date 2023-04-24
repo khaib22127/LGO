@@ -8,6 +8,7 @@ import UserEditSpot from "./UserEditSpot";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import { useHistory } from "react-router-dom";
 import SpotImages from "../Spots/SpotImages";
+import DeleteForm from "../CardSpot/DeleteForm";
 
 const UserSpots = () => {
   const history = useHistory();
@@ -64,7 +65,21 @@ const UserSpots = () => {
           >
             Edit
           </button>
-          <button onClick={() => deleteClick(spot)}>Delete</button>
+          {/* <button onClick={() => deleteClick(spot)}>Delete</button> */}
+          <button
+            onClick={() =>
+              setModalContent(
+                <DeleteForm
+                  id="delete-form_container"
+                  submitType="spot"
+                  deleteType="Spot"
+                  comp={spot}
+                />
+              )
+            }
+          >
+            Delete
+          </button>
         </div>
       ))}
     </div>
