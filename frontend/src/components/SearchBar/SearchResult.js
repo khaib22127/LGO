@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../store/spot";
 import AllSpots from "../Spots/AllSpots";
-import { useModal } from "../../context/Modal";
+// import { useModal } from "../../context/Modal";
 import "./SearchBar.css";
 
 const SearchResult = () => {
