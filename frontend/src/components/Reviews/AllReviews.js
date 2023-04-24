@@ -16,12 +16,9 @@ const AllReviews = ({ spotId, spot }) => {
 
   const currentUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => state.reviews.SpotReview);
-  // console.log("reviews: ==> ", reviews);
 
   const userReview = useSelector((state) => state.reviews.UserReview[spotId]);
-  // console.log("user review:===> ", currentUser);
 
-  // console.log("current spot:  ", spot)
   useEffect(() => {
     dispatch(reviewsActions.getSpotReviews(spotId)).then(()=> {
       if (currentUser){
@@ -55,10 +52,6 @@ const AllReviews = ({ spotId, spot }) => {
 
   if (!reviews ) return null;
 
-  // Object.values(reviews).map(review=>
-  //   console.log("review::::=====> ", review))
-  
-  // if (!userReview) return null;
 
   return (
     <div className="All-review-main-container">
@@ -71,7 +64,7 @@ const AllReviews = ({ spotId, spot }) => {
           ADD REVIEW
         </button>
       )}
-      {/* {addnewReview()} */}
+    
       <div className="single_review-container">
         {Object.values(reviews).map((review) => (
           <div className="single_review" key={review.id}>
