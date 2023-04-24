@@ -35,16 +35,11 @@ const SearchResult = () => {
   const [searchQuery, setSearchQuery] = useState(query || "");
   const filteredSpots = filterSpots(spots, searchQuery);
 
-  // console.log("query in search result::", query)
-  // console.log("filteredSpots in search result::", filteredSpots.length);
-
   useEffect(() => {
     dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(false));
   }, [dispatch]);
 
-  // if (filteredSpots.length === 0) {
-  //    <h1>No Result....</h1>;
-  // }
+
 
   if (!spots) return null;
   return (

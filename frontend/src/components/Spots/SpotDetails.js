@@ -14,8 +14,6 @@ const SpotDetails = ({ isLoaded }) => {
   const history = useHistory();
   const spot = useSelector((state) => state.spots.singleSpot);
 
-  // console.log("spot::====> ", spot.averageRating);
-  // console.log("spotId::====> ", spotId);
   useEffect(() => {
     dispatch(spotsAction.getSingleSpot(spotId)).then(()=> {
       dispatch(reviewsActions.getSpotReviews(spotId));
