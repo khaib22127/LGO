@@ -104,71 +104,78 @@ function SignupFormModal() {
         <h3>Sign Up</h3>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="sign-up_padding">
-
-            {<div className="error-msg">{errors.email}</div>}
-            <label>Email</label>
+            <label id="label_margin" htmlFor="email">
+              Email
+            </label>
+            {<div className="err-msg">{errors.email}</div>}
 
             <input
+              id="email"
               className="all_input_sign-box"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="EMAIL"
             />
           </div>
 
           <div className="sign-up_padding">
-            {<div className="error-msg">{errors.username}</div>}
-            <label>Username</label>
+            <label id="label_margin">Username</label>
+            {<div className="err-msg">{errors.username}</div>}
             <input
               className="all_input_sign-box"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              placeholder="USERNAME"
             />
           </div>
 
           <div className="sign-up_padding">
-            {<div className="error-msg">{errors.firstName}</div>}
-            <label>First Name</label>
+            <label id="label_margin">First Name</label>
+            {<div className="err-msg">{errors.firstName}</div>}
             <input
               className="all_input_sign-box"
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              placeholder="FIRST NAME"
             />
           </div>
 
           <div className="sign-up_padding">
-            {<div className="error-msg">{errors.lastName}</div>}
-            <label>Last Name</label>
+            <label id="label_margin">Last Name</label>
+            {<div className="err-msg">{errors.lastName}</div>}
             <input
               className="all_input_sign-box"
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              placeholder="LAST NAME"
             />
           </div>
 
           <div className="sign-up_padding">
-            {<div className="error-msg">{errors.password}</div>}
-            <label>Password</label>
+            <label id="label_margin">Password</label>
+            {<div className="err-msg">{errors.password}</div>}
             <input
               className="all_input_sign-box"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="PASSWORD"
             />
           </div>
 
           <div className="sign-UP-01 sign-up_padding">
-            {<div className="error-msg">{errors.confirmPassword}</div> }
-
-            <label>Confirm Password</label>
+            <label id="label_margin">Confirm Password</label>
+            {<div className="err-msg">{errors.confirmPassword}</div>}
             <input
               className="all_input_sign-box"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="CONFIRM PASSWORD"
             />
           </div>
 

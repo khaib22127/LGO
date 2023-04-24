@@ -23,14 +23,10 @@ function LoginFormModal() {
         if (data && data.errors) {
           setErrors(data.errors);
         } else {
-         return setErrors({errors:"The provided credentials were invalid"});
+          return setErrors({ errors: "The provided credentials were invalid" });
         }
       });
-
   };
-
-
-
 
   const demoUserSubmitHandler = (e) => {
     e.preventDefault();
@@ -53,44 +49,42 @@ function LoginFormModal() {
   }
 
   return (
-    <>
+    <div className="main_login-in-container">
       <div className="login-container">
         <p>Log In</p>
-        {<div className="error-msg">{errors.errors}</div>}
+        {<div className="err-msgs">{errors.errors}</div>}
         <form onSubmit={handleSubmit}>
-          {/* <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul> */}
-          {<div className="error-msg">{errors.credential}</div>}
-          <label htmlFor="Username">Username or Email</label>
-          <div className="username-input-container">
-            {/* <label> */}
-            {/* Username or Email */}
-            <input
-              id="Username"
-              className="input_user"
-              type="text"
-              value={credential}
-              onChange={(e) => setCredential(e.target.value)}
-              placeholder="Username or Email"
-            />
-            {/* </label> */}
+          <div className="login_class">
+            <label htmlFor="Username">Username or Email</label>
+            {<div className="err-msgs">{errors.credential}</div>}
+            <div className="username-input-container">
+              <input
+                id="Username"
+                className="input_user"
+                type="text"
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                placeholder="Username or Email"
+              />
+              {/* </label> */}
+            </div>
           </div>
-            {<div className="error-msg">{errors.password}</div>}
-          <label htmlFor="Password">Password</label>
-          <div className="password-container">
-            <input
-              id="Password"
-              className="input_user"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-            />
+
+          <div className="login_class">
+            <label htmlFor="Password">Password</label>
+            {<div className="err-msgs">{errors.password}</div>}
+            <div className="password-container">
+              <input
+                id="Password"
+                className="input_user"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+            </div>
           </div>
-          <br />
+
           <div className="login-button-container">
             <button id="login_12-btn" type="submit">
               Log In
@@ -106,7 +100,7 @@ function LoginFormModal() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 
