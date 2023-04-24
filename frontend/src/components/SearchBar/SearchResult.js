@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../store/spot";
 import AllSpots from "../Spots/AllSpots";
-// import { useModal } from "../../context/Modal";
+import { useModal } from "../../context/Modal";
+import UserCreateSpot from "../User/UserCreateSpot";
 import "./SearchBar.css";
 
 const SearchResult = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const { setModalContent } = useModal();
   const spots = useSelector((state) => state.spots.allSpots);
     const currentUser = useSelector((state) => state.session.user);
 
@@ -50,8 +52,14 @@ const SearchResult = () => {
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
-          {currentUser &&  <button id="create_new-spot-btn">Create Spot</button>}
-
+          {currentUser && (
+            <button
+              id="create_new-spot-btn"
+              onClick={() => setModalContent(<UserCreateSpot/>)}
+            >
+              Create Spot
+            </button>
+          )}
         </div>
 
         <div className="AllSpot_main-conainter">

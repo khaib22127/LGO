@@ -56,6 +56,7 @@ const SpotForm = ({ spot, submitType, formType }) => {
         .then((res) => {
           // dispatch(spotsAction.addNewSpotImage(res.id))
           history.push(`/spots/${res.id}`);
+          closeModal()
         })
         .catch(async (response) => {
           const data = await response.json();
@@ -92,89 +93,98 @@ const SpotForm = ({ spot, submitType, formType }) => {
 
 
   return (
-    <div>
+    <div className="spot_form-main_container">
       <form onSubmit={submitSpotForm} className="_Spot-Form_">
-        <h1>{formType}</h1>
+        <h2>{formType}</h2>
 
-        <label htmlFor="place-name">Name Of Place</label>
-        {<label className="error-msg">{errors.name}</label>}
-        <div className="input_spaces">
-          <input
-            type="text"
-            id="place-name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Name of The Place"
-          />
+        <div className="spot_form-relative-position">
+          <label htmlFor="place-name">Name Of Place</label>
+          <div className="input_spaces">
+            {<label className="error-msg">{errors.name}</label>}
+            <input
+              type="text"
+              id="place-name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              // placeholder="Name of The Place"
+            />
+          </div>
         </div>
 
-        <label htmlFor="Address">Street Address</label>
-        {<label className="error-msg">{errors.address}</label>}
-        <div className="input_spaces">
-          <input
-            type="text"
-            id="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Address"
-
-          />
+        <div className="spot_form-relative-position">
+          <label htmlFor="Address">Street Address</label>
+          <div className="input_spaces">
+            {<label className="error-msg">{errors.address}</label>}
+            <input
+              type="text"
+              id="Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              // placeholder="Address"
+            />
+          </div>
         </div>
 
-        <label htmlFor="City">City</label>
-        {<label className="error-msg">{errors.city}</label>}
-        <div className="input_spaces">
-          <input
-            type="text"
-            id="City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            placeholder="City"
-
-          />
+        <div className="spot_form-relative-position">
+          <label htmlFor="City">City</label>
+          <div className="input_spaces">
+            {<label className="error-msg">{errors.city}</label>}
+            <input
+              type="text"
+              id="City"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              // placeholder="City"
+            />
+          </div>
         </div>
 
-        <label htmlFor="State">State</label>
-        {<label className="error-msg">{errors.state}</label>}
-        <div className="input_spaces">
-          <input
-            type="text"
-            id="State"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            placeholder="State"
-
-          ></input>
+        <div className="spot_form-relative-position">
+          <label htmlFor="State">State</label>
+          <div className="input_spaces">
+            {<label className="error-msg">{errors.state}</label>}
+            <input
+              type="text"
+              id="State"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              // placeholder="State"
+            ></input>
+          </div>
         </div>
 
-        <label htmlFor="Country">Country</label>
-        {<label className="error-msg">{errors.country}</label>}
-        <div className="input_spaces">
-          <input
-            type="text"
-            id="Country"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            placeholder="COUNTRY"
-          ></input>
+        <div className="spot_form-relative-position">
+          <label htmlFor="Country">Country</label>
+          <div className="input_spaces">
+            {<label className="error-msg">{errors.country}</label>}
+            <input
+              type="text"
+              id="Country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              // placeholder="COUNTRY"
+            ></input>
+          </div>
         </div>
 
-        <label htmlFor="Description">Description</label>
-        {<label className="error-msg">{errors.description}</label>}
+        <div className="spot_form-relative-position">
+            <label htmlFor="Description">Description</label>
         <div className="input_spaces">
+        {<label className="error-msg-des">{errors.description}</label>}
           <textarea
             type="text"
             id="Description"
             minLength={30}
-
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Please write at least 25 characters"
           ></textarea>
         </div>
+        </div>
+
 
         {submitType === "Create" && (
-          <>
+          <div id="image_label">
             <label htmlFor="review-image">Image Url</label>
             <div className="input_spaces">
               <input
@@ -186,10 +196,10 @@ const SpotForm = ({ spot, submitType, formType }) => {
                 required
               ></input>
             </div>
-          </>
+          </div>
         )}
 
-        <button style={{ color: "white", background: "red" }} type="submit">
+        <button id="spot_form-submit-btn" type="submit">
           {formType}
         </button>
       </form>

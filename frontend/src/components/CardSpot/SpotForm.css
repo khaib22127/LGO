@@ -1,3 +1,27 @@
+.spot_form-main_container{
+height: 640px;
+width: 420px;
+display: flex;
+flex-direction: column;
+}
+
+
+.inner_spotForm-container{
+display: flex;
+    flex-direction: column;
+}
+
+.city_state-container{
+    display: flex;
+}
+
+.city_state-label{
+    display: flex;
+}
+#city_{
+    left: 10px;
+    margin-right: 20px;
+}
 ._Spot-Form_ {
     display: flex;
     flex-direction: column;
@@ -5,9 +29,42 @@
 }
 
 .input_spaces{
-   padding: 7px;
+
+   position: relative;
 }
 
 .error-msg{
     color:  red;
+    position: absolute;
+    width: 300px;
+left: 0px;
+    top: 20px;
+}
+
+.error-msg-des{
+    color: red;
+        position: absolute;
+        top: 45px;
+}
+.spot_form-relative-position{
+    margin-bottom: 25px;
+}
+
+#Description{
+    
+}
+
+#image_label{
+    margin-top: 17px;
+}
+#spot_form-submit-btn{
+    width: 10rem;
+        height: 2.4rem;
+        background-color: rgb(61, 114, 205);
+        color: white;
+        border: 2px solid black;
+        border-radius: 15PX;
+        cursor: pointer;
+        bottom: 5px;
+        margin-top: 15px;
 }
