@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as reviewsActions from "../../store/review";
 import * as spotsAction from "../../store/spot";
+import * as catchLogsActions from "../../store/catchlog";
 import "./DeleteForm.css";
 
 const DeleteForm = ({ comp, deleteType, submitType, spotId }) => {
@@ -30,6 +31,15 @@ const DeleteForm = ({ comp, deleteType, submitType, spotId }) => {
         dispatch(reviewsActions.getUserReviews());
       });
     }
+
+if (submitType === "catchLog") {
+dispatch(catchLogsActions.deleteSpotCatchLog(comp.id))
+.then(()=> {
+  closeModal()
+  dispatch(catchLogsActions.getSpotCatchLog(spotId))
+})
+}
+
   };
 
   const cancelSubmit = () => {

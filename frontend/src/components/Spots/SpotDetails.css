@@ -10,10 +10,8 @@
 
 .-single_container-left {
     display: flex;
-    /* border: rgb(53, 68, 196) solid 4px; */
-    /* height: 800px; */
+    height: 875px;
     margin-right: 25px;
-    /* margin-left: 20px; */
     margin-top: 40px;
     background-color: white;
     border-radius: 40px;

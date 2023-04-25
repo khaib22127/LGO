@@ -20,7 +20,7 @@ export const loadUserCatchLog = (catches) => {
   };
 };
 
-export const createCatchLog = (catches) => {
+export const addCatchLog = (catches) => {
   return {
     type: CREATE_CATCH_LOG,
     catches,
@@ -71,7 +71,7 @@ export const createSpotCatchLog = (catches, spotId) => async (dispatch) => {
   });
   const data = await response.json();
   if (response.ok) {
-    dispatch(createCatchLog(data.catches));
+    dispatch(addCatchLog(data.catches));
     return data;
   }
   return response;
@@ -79,7 +79,7 @@ export const createSpotCatchLog = (catches, spotId) => async (dispatch) => {
 
 // PUT /api/catches/:catchId
 export const editCatchLog = (catches, catchId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/catchess/${catchId}`, {
+  const response = await csrfFetch(`/api/catches/${catchId}`, {
     method: "PUT",
     body: JSON.stringify(catches),
   });
