@@ -1,17 +1,33 @@
 const express = require("express");
+const { check } = require("express-validator");
 const router = express.Router();
-const {
-  Spot,
-  Review,
-  SpotImage,
-  User,
-  CatchLog,
-  sequelize,
-} = require("../../db/models");
+const { User, CatchLog } = require("../../db/models");
+const { userValidationErrors } = require("../../utils/validation");
+
+const validateCatchLog = [
+  check("type")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 2 })
+    .withMessage("Type is required a minimun of 2 characters"),
+  check("weight")
+    .exists({ checkFalsy: true })
+    .isDecimal({ min: .1 })
+    .withMessage("Weight required a number and greater then 0"),
+  check("length")
+    .exists({ checkFalsy: true })
+    .isNumeric({ gt: 0 })
+    .withMessage("Length required a number and greater then 0"),
+  check("summary")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 5 })
+    .withMessage("Description needs a minimum of 5 characters"),
+  userValidationErrors,
+];
+
 const { requireAuth } = require("../../utils/auth");
 
 // Get all CatchLog by a Spot's id
-// GET /api/spots/:spotId/catch
+// GET /api/spots/:spotId/catches
 router.get("/:spotId/catches", async (req, res) => {
   const spotId = req.params.spotId;
   const catches = await CatchLog.findAll({
@@ -23,7 +39,7 @@ router.get("/:spotId/catches", async (req, res) => {
     ],
   });
 
-  res.json(catches);
+  return res.json(catches);
 });
 
 // GET  /api/catches/current
@@ -45,7 +61,7 @@ router.get("/current", requireAuth, async (req, res) => {
 
 // Create CatchLog for a Spot
 // POST  /api/spots/:spotId/catches
-router.post("/:spotId/catches", requireAuth, async (req, res) => {
+router.post("/:spotId/catches", validateCatchLog, requireAuth, async (req, res) => {
   const { type, weight, length, summary } = req.body;
   const spotId = req.params.spotId;
   const userId = req.user.id;
@@ -65,54 +81,53 @@ router.post("/:spotId/catches", requireAuth, async (req, res) => {
     });
   }
 
-const newCatchLog = await CatchLog.create({
-  userId: userId,
-  spotId: spotId,
-  type,
-  weight,
-  length,
-  summary,
-});
+ 
 
-await newCatchLog.save()
-return res.json(newCatchLog)
-//   res.send("hellloo");
-});
+  const newCatchLog = await CatchLog.create({
+    userId: userId,
+    spotId: spotId,
+    type,
+    weight,
+    length,
+    summary,
+  });
 
+  await newCatchLog.save();
+  return res.json(newCatchLog);
+  //   res.send("hellloo");
+});
 
 //Edit Catch Log
 // PUT /api/catches/:catchId
-router.put("/:catchId", requireAuth, async (req, res) => {
-const userId = req.user.id;
-const catchId = req.params.catchId
- const { type, weight, length, summary } = req.body;
+router.put("/:catchId", requireAuth, validateCatchLog, async (req, res) => {
+  const userId = req.user.id;
+  const catchId = req.params.catchId;
+  const { type, weight, length, summary } = req.body;
 
-const catches = await CatchLog.findByPk(catchId)
+  const catches = await CatchLog.findByPk(catchId);
 
-catches.userId = userId;
-catches.type = type;
-catches.weight = weight;
-catches.length = length;
-catches.summary = summary;
+  catches.userId = userId;
+  catches.type = type;
+  catches.weight = weight;
+  catches.length = length;
+  catches.summary = summary;
 
-await catches.save()
-res.json(catches)
-    // res.send("Hellooo")
-})
-
+  await catches.save();
+  res.json(catches);
+  // res.send("Hellooo")
+});
 
 //Delete Catch Log
 // DELETE /api/catches/:catchId
 router.delete("/:catchId", requireAuth, async (req, res) => {
-    const catchId = req.params.catchId;
-    const catches = await CatchLog.findByPk(catchId)
+  const catchId = req.params.catchId;
+  const catches = await CatchLog.findByPk(catchId);
 
-    await catches.destroy()
-     res.json({
-       message: "Successfully deleted",
-       statusCode: 200,
-     });
-})
-
+  await catches.destroy();
+  res.json({
+    message: "Successfully deleted",
+    statusCode: 200,
+  });
+});
 
 module.exports = router;
