@@ -1,6 +1,6 @@
 .All-review-main-container {
     /* margin-top: 40px; */
-    height: 50%;
+    height: 400px;
     width: 600px;
     padding: 5px;
     overflow-y: scroll;
@@ -16,15 +16,22 @@
     height: 50px;
 }
 
-.All-review-main-container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 40px;
+.All-review-main-container::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 /* Handle on hover */
 .All-review-main-container::-webkit-scrollbar-thumb {
-    background: #000000;
-    border-radius: 40px;
+    border-radius: 100px;
+    background-color: #8070d4;
+    background-clip: content-box;
+}
+
+.All-review-main-container::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 25px;
 }
 
 .single_review-container{
@@ -68,6 +75,10 @@
 }
 
 .fa-star {
+    color: rgb(193, 193, 80);
+}
+
+.fa-fish-fins {
     color: rgb(193, 193, 80);
 }
 

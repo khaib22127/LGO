@@ -48,9 +48,6 @@ const validateUserInput = [
   body("password")
     .exists({ checkFalsy: true })
     .withMessage("Password is required"),
-  body("confirmPassword")
-    .exists({ checkFalsy: true })
-    .withMessage("ConfirmPassword is required"),
   userValidationErrors,
 ];
 

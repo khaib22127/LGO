@@ -45,10 +45,12 @@ function SignupFormModal() {
 
     if (!confirmPassword) {
       errors.confirmPassword = "ConfirmPassword is Required!";
-    } else if (password !== confirmPassword) {
+    }
+    if (password !== confirmPassword) {
       errors.confirmPassword =
         "Confirm Password must be the same as the Password";
     }
+
     return errors;
   };
   const handleSubmit = (e) => {
@@ -56,7 +58,7 @@ function SignupFormModal() {
     // setErrors(errors);
     const err = validateSignupError();
 
-  if (!err) return;
+
       if (Object.keys(err).length > 0) return setErrors(err);
 
     if (password === confirmPassword) {
@@ -77,7 +79,7 @@ function SignupFormModal() {
           }
         });
       }
-
+ if (!err) return;
   };
 
 

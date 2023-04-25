@@ -1,22 +1,28 @@
 import { useSelector, useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as spotsAction from "../../store/spot";
-import SpotForm from "../CardSpot/SpotForm";
+import SpotForm from "../Form/SpotForm";
 import { useModal } from "../../context/Modal";
 import SpotImages from "../Spots/SpotImages";
-import DeleteForm from "../CardSpot/DeleteForm";
-import './UserSpot.css'
+import DeleteForm from "../Form/DeleteForm";
+import "./UserSpot.css";
+import { Redirect } from "react-router-dom";
 
 const UserSpots = () => {
-
+  const currentUser = useSelector((state) => state.session.user);
+  // const history = useHistory();
   const { setModalContent } = useModal();
   const dispatch = useDispatch();
 
   const spotOfUser = useSelector((state) => state.spots.userSpots);
 
+
   useEffect(() => {
     dispatch(spotsAction.getUserSpots());
   }, [dispatch]);
+
+
+ if (!currentUser) return <Redirect to="/" />;
 
 
   return (

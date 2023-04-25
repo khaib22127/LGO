@@ -52,6 +52,7 @@ router.get("/", async (req, res, next) => {
   // return res.json({ Spots: allSpots });
 });
 
+
 // GET /api/spots/current
 router.get("/current", async (req, res) => {
   const spots = await Spot.findAll({
@@ -70,6 +71,7 @@ router.get("/current", async (req, res) => {
 
   res.json({ Spots: spots });
 });
+
 
 // GET /api/spots/:spotId
 router.get("/:spotId", async (req, res) => {
