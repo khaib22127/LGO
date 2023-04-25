@@ -1,4 +1,4 @@
-import ReviewForm from "../CardSpot/ReviewForm";
+import ReviewForm from "../Form/ReviewForm";
 
 let review = {
     review: "",

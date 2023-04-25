@@ -4,8 +4,8 @@ import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom";
 import * as reviewsActions from "../../store/review";
 import CreateReview from "./CreateReview";
-import ReviewForm from "../CardSpot/ReviewForm";
-import DeleteForm from "../CardSpot/DeleteForm";
+import ReviewForm from "../Form/ReviewForm";
+import DeleteForm from "../Form/DeleteForm";
 import ReviewDetail from "../Reviews/ReviewDetail";
 import "./AllReviews.css";
 

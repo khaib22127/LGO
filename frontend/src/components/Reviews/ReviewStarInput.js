@@ -13,17 +13,15 @@ const ReviewStarInput = ({ stars, onChange}) => {
       starIcon.onMouseEnter = () => setStarRating(number);
       starIcon.onMouseLeave = () => setStarRating(stars);
       starIcon.onClick = () => onChange(number);
-
+<i class="fa-regular fa-fish"></i>;
     return (
       <div
         key={number}
         className={
-          starRating >= number ? "fa-solid fa-star" : "fa-regular fa-star"
+          starRating >= number ? "fa-solid fa-fish-fins" : "fa-solid fa-fish"
         }
         {...starIcon}
-
-      >
-      </div>
+      ></div>
     );
   };
   return (
