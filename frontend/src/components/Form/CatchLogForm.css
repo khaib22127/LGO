@@ -1,0 +1,72 @@
+.Catch-Log_main-container{
+    height: 400px;
+    width: 400px;
+display: flex;
+flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.catch_log_form-Container{
+    display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 100%;
+        width: 100%;
+        justify-content: space-around;
+
+}
+
+.catch-error-msg{
+    color: red;
+    position: absolute;
+top: 28px;
+}
+
+.catchForm__divs{
+display: flex;
+    width: 100%;
+    height: 25px;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    align-items: flex-end;
+}
+
+.catch_form_input{
+width: 70%;
+height: 100%;
+overflow-y: scroll hidden;
+border-radius: 20px;
+padding-left: 10PX;
+}
+
+#catch-form-title{
+    display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: row;
+        font-size: 27px;
+        font-weight: bold;
+        margin: 0;
+
+}
+
+#catch-form-submit-btn{
+    width: 15rem;
+        height: 3rem;
+        background-color: rgb(168, 126, 241);
+        border: 2px solid black;
+        color: white;
+        border-radius: 25px;
+        font-size: 20px;
+}
+
+#catch-form-submit-btn-div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+        flex-direction: row;
+
+}
