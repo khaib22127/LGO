@@ -1,4 +1,4 @@
-import SpotForm from "../CardSpot/SpotForm";
+import SpotForm from "../Form/SpotForm";
 
 const UserCreateSpot = () => {
   const spot = {

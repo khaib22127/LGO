@@ -1,4 +1,4 @@
-import ReviewForm from "../CardSpot/ReviewForm";
+import ReviewForm from "../Form/ReviewForm";
 
 const EditReview = () => {
   return <div></div>;

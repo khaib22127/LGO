@@ -1,5 +1,5 @@
 import { csrfFetch } from "./csrf";
-import { normalizingData } from "./spot";
+
 
 const GET_SPOT_REVIEWS = "review/GET_SPOT_REVIEWS";
 const GET_USER_REVIEWS = "review/GET_USER_REVIEWS";
