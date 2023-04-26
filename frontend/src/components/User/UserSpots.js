@@ -10,7 +10,6 @@ import { Redirect } from "react-router-dom";
 
 const UserSpots = () => {
   const currentUser = useSelector((state) => state.session.user);
-  // const history = useHistory();
   const { setModalContent } = useModal();
   const dispatch = useDispatch();
 
@@ -26,30 +25,24 @@ const UserSpots = () => {
 
 
   return (
-    <div className="owner__spot-container">
+    <div className="user_main-fish-spot-conainter">
       {Object.values(spotOfUser).map((spot) => (
-        <div className="owner__single-spot-container" key={spot.id}>
-          <h1>{spot.name}</h1>
-          <span>
-            {spot.address} , {spot.city}, {spot.state}
-          </span>
-          <div className="">
-            {/* {spot.SpotImages && spot.SpotImages.length > 0 ? (
-              spot.SpotImages.map((image) => (
-                <img
-                  key={spot.id}
-                  src={image.url}
-                  alt="lake_image"
-                  id="all-spot_images"
-                />
-              ))
-            ) : (
-              <img src={defautPic} alt="lake_image" id="all-spot_images" />
-            )} */}
-            <SpotImages spot={spot} id="all-spot_images" />
+        <div className="owner-Spot_container" key={spot.id}>
+
+          <div className="owner-Spot_inner-container-1">
+            <h2 className="all_fishing-spot-title">{spot.name}</h2>
+            <span className="user_spot__description">
+              {spot.address} , {spot.city}, {spot.state}
+            </span>
+            <div className="">
+              <SpotImages spot={spot} id="all-spot_images" />
+            </div>
           </div>
-          <div>{spot.description}</div>
-          {/* <button onClick={() => editClick(spot)}>Edit</button> */}
+
+          <div className="owner-Spot_inner-container-2">
+            <div id="spot__descript">{spot.description}</div>
+          </div>
+
           <div className="user_edit-delete_btn">
             <button
               id="log_out__btn"
@@ -61,7 +54,7 @@ const UserSpots = () => {
             >
               Edit
             </button>
-            {/* <button onClick={() => deleteClick(spot)}>Delete</button> */}
+
             <button
               id="log_out__btn"
               onClick={() =>

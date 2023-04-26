@@ -44,7 +44,6 @@ const CatchLog = () => {
   if (!catches) return;
 
 
-
   return (
     <div className="Catch__Log-container">
       <h2 className="catchlog_title-display">Catch Log</h2>
@@ -80,8 +79,8 @@ const CatchLog = () => {
                 })}
               </div>
               <div className="fish_measurements">
-                <span className="fish_info-span">Type of Fish: </span>
-                <span>{c.type}</span>
+                <span className="fish_info-span">Fish-Type: </span>
+                <span className="user-output_fish-info">{c.type}</span>
               </div>
 
               <div className="fish_measurements">

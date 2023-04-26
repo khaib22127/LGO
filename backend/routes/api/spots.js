@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Spot, Review, SpotImage, User, sequelize } = require("../../db/models");
+const { Spot, Review, SpotImage, User,SpotSave, sequelize } = require("../../db/models");
 const { check } = require("express-validator");
 const { userValidationErrors } = require("../../utils/validation");
 const { requireAuth, userPermission } = require("../../utils/auth");
@@ -8,11 +8,16 @@ const { requireAuth, userPermission } = require("../../utils/auth");
 const validateSpot = [
   check("name")
     .exists({ checkFalsy: true })
+    .isLength({ min: 4, max: 50 })
     .withMessage("Name Required"),
   check("address")
     .exists({ checkFalsy: true })
+    .isLength({ min: 4, max: 50 })
     .withMessage("Street address is required"),
-  check("city").exists({ checkFalsy: true }).withMessage("City is required"),
+  check("city")
+    .exists({ checkFalsy: true })
+    .isLength({ min: 4, max: 50 })
+    .withMessage("City is required"),
   check("state").exists({ checkFalsy: true }).withMessage("State is required"),
   check("country")
     .exists({ checkFalsy: true })
@@ -113,7 +118,7 @@ router.get("/:spotId", async (req, res) => {
 
   }
   if (!starAvg) {
-   spot.averageRating = "No rating yet"
+   spot.averageRating = 0
   } else {
 
     spot.averageRating = starAvg
@@ -171,6 +176,8 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
     url: image.url,
   });
 });
+
+
 
 // Edit a Spot
 // PUT /api/spots/:spotId

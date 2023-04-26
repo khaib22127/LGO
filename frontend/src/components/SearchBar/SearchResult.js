@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../store/spot";
 import AllSpots from "../Spots/AllSpots";
 import { useModal } from "../../context/Modal";
-import UserCreateSpot from "../User/UserCreateSpot";
+import CreateSpot from "../Spots/CreateSpot";
 import "./SearchBar.css";
 
 const SearchResult = () => {
@@ -46,7 +46,7 @@ const SearchResult = () => {
   if (!spots) return null;
   return (
     !isLoaded && (
-      <div>
+      <>
         <div className="search_result-top-page">
           <SearchBar
             searchQuery={searchQuery}
@@ -55,21 +55,21 @@ const SearchResult = () => {
           {currentUser && (
             <button
               id="create_new-spot-btn"
-              onClick={() => setModalContent(<UserCreateSpot/>)}
+              onClick={() => setModalContent(<CreateSpot />)}
             >
               Create Spot
             </button>
           )}
         </div>
 
-        <div className="AllSpot_main-conainter">
+        <div className="searchResult-AllSpot_main-conainter">
           {Object.values(filteredSpots).map((spot) => (
-            <div key={spot.id}>
+            <div className="All-Spot_container" key={spot.id}>
               <AllSpots spot={spot} isLoaded={isLoaded} />
             </div>
           ))}
         </div>
-      </div>
+      </>
     )
   );
 };

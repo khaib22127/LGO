@@ -9,7 +9,8 @@ const reviewsRouter = require("./reviews.js");
 const reviewsSpotRouter = require("./reviews.js")
 const catchLogSpotRouter = require("./catchlog.js")
 const catchRouter = require("./catchlog.js");
-
+const categoryRouter = require("./category.js")
+const savesRouter = require("./saves.js")
 // Connect restoreUser middleware to the API router
 // If current user session is valid, set req.user to the user in the database
 // If current user session is not valid, set req.user to null
@@ -22,6 +23,7 @@ router.use("/reviews", reviewsRouter);
 router.use("/spots", reviewsSpotRouter);
 router.use("/catches", catchRouter);
 router.use("/spots", catchLogSpotRouter);
-
+router.use("/categories", categoryRouter);
+router.use("/saves", savesRouter)
 
 module.exports = router;

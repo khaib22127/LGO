@@ -1,42 +1,81 @@
 .All-Spot_container {
-    height: 500px;
-    max-width: 400px;
-    max-height: 800px;
+    height: 550px;
+    width: 400px;
     margin-left: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-top: 15px;
     border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.All-Spot_inner-container-1 {
+    height: 465px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px 40px 10px 10px;
+    /* border: 4px red solid; */
+    background: white;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 8px 16px 0 #c1c1e4cc;
 }
 
-.All-Spot_container>h2 {
-    margin: 0;
+
+.All-Spot_inner-container-2 {
+    width: 400px;
+    height: 80px;
+    overflow-y: auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px 10px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 4px greenyellow solid; */
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 8px 16px 0 #c1c1e4cc;
 }
 
+#spot__descript {
+    font-size: 17px;
+    color: rgb(132, 9, 54);
+    padding: 10px;
+}
+
+
 #all-spot_images {
-    height: 350px;
-    width: 400px;
-    border-radius: 40px;
-    margin-bottom: 0px;
-        padding-bottom: 0px;
-    /* box-shadow: 12px 12px 60px 1px rgba(250, 250, 251, 0.2); */
+    height: 320px;
+    width: 399px;
+    border-radius: 40px 40px 10px 10px;
+    padding-top: 10px;
 }
 
 .All-Spot_container>span {
     font-size: 20px;
 }
 
+.all_fishing-spot-title {
+    width: 370px;
+    height: 60px;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
 
-.all_spot-description {
-    /* display: flex; */
-    /* border-radius: 5px; */
-    /* width: 100%; */
-    margin-left: 15px;
-    font-size: 17px;
-    color: rgb(132, 9, 54);
+.all_fishing-spot-city {
+    margin-top: 3px;
+    max-height: 30px;
+    overflow-y: auto;
+    padding: 4px;
 }

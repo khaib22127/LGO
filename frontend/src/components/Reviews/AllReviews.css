@@ -1,11 +1,11 @@
 .All-review-main-container {
     /* margin-top: 40px; */
-    height: 400px;
-    width: 600px;
+    height: 410px;
+    width: 650px;
     padding: 5px;
     overflow-y: scroll;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 40px;
     padding-left: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     /* border: rgb(52, 206, 13) solid 4px; */
