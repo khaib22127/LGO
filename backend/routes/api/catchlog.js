@@ -7,8 +7,8 @@ const { userValidationErrors } = require("../../utils/validation");
 const validateCatchLog = [
   check("type")
     .exists({ checkFalsy: true })
-    .isLength({ min: 2 })
-    .withMessage("Type is required a minimun of 2 characters"),
+    .isLength({ min: 2, max:50 })
+    .withMessage("Type required a length between 2 and 50 characters"),
   check("weight")
     .exists({ checkFalsy: true })
     .isDecimal({ min: .1 })
@@ -20,7 +20,7 @@ const validateCatchLog = [
   check("summary")
     .exists({ checkFalsy: true })
     .isLength({ min: 5 })
-    .withMessage("Description needs a minimum of 5 characters"),
+    .withMessage("Description required a minimum of 5 characters"),
   userValidationErrors,
 ];
 
@@ -81,7 +81,7 @@ router.post("/:spotId/catches", validateCatchLog, requireAuth, async (req, res) 
     });
   }
 
- 
+
 
   const newCatchLog = await CatchLog.create({
     userId: userId,

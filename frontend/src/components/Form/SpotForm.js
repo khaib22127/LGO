@@ -17,17 +17,53 @@ const SpotForm = ({ spot, submitType, formType }) => {
 
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
-  const { spotId } = useParams();
+
   const dispatch = useDispatch();
   const history = useHistory();
 
-    // useEffect(()=> {
+const validateError = () => {
+  let errors = {};
+  if (!address) {
+    errors.address = "Address is required";
+  }
+  if (address.length > 80) {
+    errors.address = "Address only allow up to 80 characters";
+  }
+  if (!city) {
+    errors.city = "City is required";
+  }
+  if (city.length > 50) {
+    errors.city = "Only allow up to 50 characters";
+  }
+  if (!state) {
+    errors.state = "State is required";
+  }
+  if (state.length > 50) {
+    errors.state = "State only allow up to 50 characters";
+  }
+  if (!country) {
+    errors.country = "Country is required";
+  }
+  if (country.length > 50) {
+    errors.country = "Country ionly allow up to 50 characters";
+  }
+  if (!name) {
+    errors.name = "Name is required";
+  }
+  if (name.length > 50) {
+    errors.name = "Name only allow up to 50 characters";
+  }
 
-    //  if (Object.keys(errors).length > 0) {
-    //    return setErrors(errors);
-    //  }
+  if (description.length < 25) {
+    errors.description = "Description needs a minimum of 25 characters";
+  }
 
-    // }, [setErrors, errors])
+  if (!SpotImages) {
+    errors.SpotImages = "Url is required.";
+  }
+
+  return errors;
+};
 
 
   const currentUser = useSelector((state) => state.session.user);
@@ -37,7 +73,10 @@ const SpotForm = ({ spot, submitType, formType }) => {
   const submitSpotForm = async (e) => {
     e.preventDefault();
     setErrors({});
- if (!errors) return;
+  const err = validateError();
+  if (!err) return;
+
+  if (Object.keys(err).length > 0) return setErrors(err);
 
     if (submitType === "Create") {
       spot = await dispatch(
@@ -168,20 +207,19 @@ const SpotForm = ({ spot, submitType, formType }) => {
         </div>
 
         <div className="spot_form-relative-position">
-            <label htmlFor="Description">Description</label>
-        <div className="input_spaces">
-        {<label className="error-msg-des">{errors.description}</label>}
-          <textarea
-            type="text"
-            id="Description"
-            minLength={30}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Please write at least 25 characters"
-          ></textarea>
+          <label htmlFor="Description">Description</label>
+          <div className="input_spaces">
+            {<label className="error-msg-des">{errors.description}</label>}
+            <textarea
+              type="text"
+              id="Description"
+              minLength={30}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Please write at least 25 characters"
+            ></textarea>
+          </div>
         </div>
-        </div>
-
 
         {submitType === "Create" && (
           <div id="image_label">
@@ -195,6 +233,7 @@ const SpotForm = ({ spot, submitType, formType }) => {
                 placeholder="Image URL"
                 required
               ></input>
+            {<label className="error-msg">{errors.SpotImages}</label>}
             </div>
           </div>
         )}

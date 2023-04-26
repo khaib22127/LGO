@@ -8,7 +8,7 @@ import LoginFormModal from "../LoginFormModal/LoginForm";
 import SignupFormModal from "../SignupFormModal/SignupForm";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
-import UserCreateSpot from "../User/UserCreateSpot";
+import CreateSpot from "../Spots/CreateSpot";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ function ProfileButton({ user }) {
 
   const createSpot = (e) => {
  e.preventDefault();
-    setModalContent(<UserCreateSpot />)
+    setModalContent(<CreateSpot />)
     closeMenu()
 
   };

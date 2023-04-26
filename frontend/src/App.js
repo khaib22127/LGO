@@ -7,8 +7,6 @@ import Navigation from "./components/Navigation/Navigation";
 import SearchResult from "./components/SearchBar/SearchResult";
 import SpotDetails from "./components/Spots/SpotDetails";
 import UserSpots from "./components/User/UserSpots";
-import UserCreateSpot from "./components/User/UserCreateSpot";
-import UserEditSpot from "./components/User/UserEditSpot";
 import LandingPage from "./components/ALandingPage/LandingPage";
 
 function App() {
@@ -25,27 +23,23 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+
           <Route exact path={"/"}>
             <LandingPage />
           </Route>
+
           <Route exact path={"/category"}>
             <SearchResult />
           </Route>
+
           <Route path={`/spots/manage`}>
             <UserSpots />
-          </Route>
-
-          <Route exact path={`/spots/new`}>
-            <UserCreateSpot />
           </Route>
 
           <Route exact path={`/spots/:spotId`}>
             <SpotDetails />
           </Route>
 
-          <Route exact path={`/spots/:spotId/edit`}>
-            <UserEditSpot />
-          </Route>
         </Switch>
       )}
     </>
