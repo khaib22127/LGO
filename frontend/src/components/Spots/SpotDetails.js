@@ -25,28 +25,28 @@ const SpotDetails = ({ isLoaded }) => {
     history.push("/category");
   };
 
+const starAverageType = typeof spot.averageRating === "number";
+
   if (!spot) return null;
 
   return (
     !isLoaded && (
       <>
-          <div className="back_arrow_container">
-            <button className="back_arrow" onClick={goBackClick}>
-              ⬅
-            </button>
-            <div className="go-back_div">Go Back</div>
-          </div>
+        <div className="back_arrow_container">
+          <button className="back_arrow" onClick={goBackClick}>
+            ⬅
+          </button>
+          <div className="go-back_div">Go Back</div>
+        </div>
         <div className="-single_container">
-
           <div className="-single_container-left">
             <h1 className="h1_spot-title">
-              {spot.name}{" "}
+              {spot.name}&nbsp;&nbsp;
               <span id="average_star-rating">
-                ({spot.averageRating}{" "}
+                {starAverageType && spot.averageRating.toFixed(1)}
                 {typeof spot.averageRating === "number" && (
                   <i className="fas fa-star" />
                 )}
-                )
               </span>
               <span></span>
             </h1>

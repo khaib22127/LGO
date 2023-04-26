@@ -15,6 +15,12 @@ module.exports = {
         {
           name: "Fishing",
         },
+        {
+          name: "Hiking",
+        },
+        {
+          name: "Biking",
+        },
       ],
       {}
     );
@@ -26,7 +32,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        id: { [Op.in]: [1] },
+        id: { [Op.in]: [1, 2, 3] },
       },
       {}
     );

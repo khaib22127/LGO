@@ -13,11 +13,10 @@ const CatchLogForm = ({ submitType, formType, userCatch, spotId }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
+
   const submitCatchLog = async (e) => {
     e.preventDefault();
     setErrors({});
-
-
 
    if (!errors) return
 
@@ -63,14 +62,9 @@ const CatchLogForm = ({ submitType, formType, userCatch, spotId }) => {
         });
     }
 
-    if (weight<0) {
-      return setErrors({weight: "noooooooooooo"})
-    }
-
     // setErrors(errors)
   };
-console.log("weight", typeof weight);
-console.log("catch form errors::", errors)
+
 
   return (
     <div className="Catch-Log_main-container">
@@ -104,7 +98,6 @@ console.log("catch form errors::", errors)
             onChange={(e) => setWeight(Number(e.target.value))}
             placeholder="Weight in pound"
           />
-          {/* <span>lb/lbs</span> */}
           {
             <label htmlFor="catch-log-weight" className="catch-error-msg">
               {errors.weight}
@@ -122,7 +115,6 @@ console.log("catch form errors::", errors)
             onChange={(e) => setLength(Number(e.target.value))}
             placeholder="Measure in inches"
           />
-          {/* <span>Inches</span> */}
           {
             <label htmlFor="catch-log-length" className="catch-error-msg">
               {errors.length}
