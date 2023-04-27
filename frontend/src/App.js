@@ -8,6 +8,8 @@ import SearchResult from "./components/SearchBar/SearchResult";
 import SpotDetails from "./components/Spots/SpotDetails";
 import UserSpots from "./components/User/UserSpots";
 import LandingPage from "./components/ALandingPage/LandingPage";
+import UserSavedSpot from "./components/User/UserSavedSpot";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -23,13 +25,16 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-
           <Route exact path={"/"}>
             <LandingPage />
           </Route>
 
           <Route exact path={"/category"}>
             <SearchResult />
+          </Route>
+
+          <Route exact path={"/saves"}>
+            <UserSavedSpot />
           </Route>
 
           <Route path={`/spots/manage`}>
@@ -39,7 +44,6 @@ function App() {
           <Route exact path={`/spots/:spotId`}>
             <SpotDetails />
           </Route>
-
         </Switch>
       )}
     </>

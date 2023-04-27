@@ -1,0 +1,37 @@
+.user-saved-spot-main-container {
+width: 400px;
+height: 600px;
+
+}
+
+.user-saved-spot-inner-container{
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+#user-saved-spot_image-id{
+    height: 350px;
+    width: 350px;
+}
+
+.saved_heart-icon {
+    position: absolute;
+
+}
+
+/* .fa-regular{
+    color: red;
+
+} */
+
+/* .something{
+     color: white;
+} */
+
+
+.fa-heart {
+    color: red;
+}
