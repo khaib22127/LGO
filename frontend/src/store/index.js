@@ -4,12 +4,14 @@ import sessionReducer from "./session";
 import spotsReducer from "./spot";
 import reviewReducer from "./review";
 import catchLogReducer from "./catchlog";
+import savesReducer from "./savedSpot";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   spots: spotsReducer,
   reviews: reviewReducer,
-  catchLog: catchLogReducer
+  catchLog: catchLogReducer,
+  saved: savesReducer
 });
 
 let enhancer;
