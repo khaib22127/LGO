@@ -12,7 +12,7 @@ const SearchResult = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { setModalContent } = useModal();
   const spots = useSelector((state) => state.spots.allSpots);
-    const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector((state) => state.session.user);
 
   const filterSpots = (spots, query) => {
     if (!query) {
@@ -38,39 +38,40 @@ const SearchResult = () => {
   const filteredSpots = filterSpots(spots, searchQuery);
 
   useEffect(() => {
-    dispatch(spotsAction.getAllSpots()).then(() => setIsLoaded(false));
+    const fetchData = async () => {
+      setIsLoaded(false);
+      await dispatch(spotsAction.getAllSpots());
+      setIsLoaded(true);
+    };
+    fetchData();
   }, [dispatch]);
 
-
-
   if (!spots) return null;
-  return (
-    !isLoaded && (
-      <>
-        <div className="search_result-top-page">
-          <SearchBar
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
-          {currentUser && (
-            <button
-              id="create_new-spot-btn"
-              onClick={() => setModalContent(<CreateSpot />)}
-            >
-              Create Spot
-            </button>
-          )}
-        </div>
+  return !isLoaded ? (
+    <div></div>
+  ) : (
+    <>
+      <div className="search_result-top-page">
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        {currentUser && (
+          <button
+            id="create_new-spot-btn"
+            onClick={() => setModalContent(<CreateSpot />)}
+          >
+            Create Spot
+          </button>
+        )}
+      </div>
 
-        <div className="searchResult-AllSpot_main-conainter">
-          {Object.values(filteredSpots).map((spot) => (
-            <div className="All-Spot_container" key={spot.id}>
-              <AllSpots spot={spot} isLoaded={isLoaded} />
-            </div>
-          ))}
-        </div>
-      </>
-    )
+      <div className="searchResult-AllSpot_main-conainter">
+        {Object.values(filteredSpots).map((spot) => (
+          <div className="All-Spot_container" key={spot.id}>
+            <AllSpots spot={spot} isLoaded={isLoaded} />
+            {}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

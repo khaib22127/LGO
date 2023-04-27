@@ -55,6 +55,8 @@
     width: 399px;
     border-radius: 40px 40px 10px 10px;
     padding-top: 10px;
+    position: relative;
+    top: 5px;
 }
 
 .All-Spot_container>span {

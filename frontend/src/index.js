@@ -11,6 +11,7 @@ import * as sessionActions from "./store/session";
 import * as spotsActions from "./store/spot";
 import * as reviewsActions from "./store/review"
 import * as catchLogsActions from "./store/catchlog";
+import * as savesActions from "./store/savedSpot";
 
 
 import { ModalProvider, Modal } from "./context/Modal";
@@ -26,7 +27,8 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
   window.spotsActions = spotsActions;
   window.reviewsActions = reviewsActions;
-  window.catchLogsActions = catchLogsActions
+  window.catchLogsActions = catchLogsActions;
+  window.savesActions = savesActions;
 }
 
 // Wrap the application with the Modal provider and render the Modal component
