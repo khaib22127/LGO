@@ -1,18 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import * as spotsAction from "../../store/spot";
+import { Redirect } from "react-router-dom";
 import SpotForm from "../Form/SpotForm";
 import { useModal } from "../../context/Modal";
 import SpotImages from "../Spots/SpotImages";
 import DeleteForm from "../Form/DeleteForm";
 import "./UserSpot.css";
-import { Redirect } from "react-router-dom";
 
 const UserSpots = () => {
-  const currentUser = useSelector((state) => state.session.user);
   const { setModalContent } = useModal();
   const dispatch = useDispatch();
 
+  const currentUser = useSelector((state) => state.session.user);
   const spotOfUser = useSelector((state) => state.spots.userSpots);
 
 
@@ -26,6 +26,7 @@ const UserSpots = () => {
 
   return (
     <div className="user_main-fish-spot-conainter">
+      <h1>Created Spot</h1>
       {Object.values(spotOfUser).map((spot) => (
         <div className="owner-Spot_container" key={spot.id}>
 
@@ -40,7 +41,8 @@ const UserSpots = () => {
           </div>
 
           <div className="owner-Spot_inner-container-2">
-            <div id="spot__descript">{spot.description}</div>
+            {/* <div id="spot__descript">{spot.description}</div> */}
+
           </div>
 
           <div className="user_edit-delete_btn">

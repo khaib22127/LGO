@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../store/spot";
 import * as reviewsActions from "../../store/review";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory} from "react-router-dom";
 import SpotImages from "./SpotImages";
 import "./SpotDetails.css";
 import AllReviews from "../Reviews/AllReviews";
@@ -12,6 +12,7 @@ const SpotDetails = () => {
   const { spotId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+
   const [isLoaded, setIsLoaded] = useState(false);
   const spot = useSelector((state) => state.spots.singleSpot);
 
@@ -31,9 +32,8 @@ const SpotDetails = () => {
   //   });
   // }, [dispatch, spotId]);
 
-  const goBackClick = (e) => {
-    e.preventDefault();
-    history.push("/category");
+  const goBackClick = () => {
+   history.push("/category");
   };
 
   const starAverageType = typeof spot.averageRating === "number";
@@ -41,15 +41,23 @@ const SpotDetails = () => {
   if (!spot) return null;
 
   return !isLoaded ? (
-    <div></div>
-  ) : (
-    <>
+    <div className="loading_problem">
+      <h1>Give it a Sec....</h1>
       <div className="back_arrow_container">
-        <button className="back_arrow" onClick={goBackClick}>
+        <button className="back_arrow" onClick={() => goBackClick()}>
           ⬅
         </button>
         <div className="go-back_div">Go Back</div>
       </div>
+    </div>
+  ) : (
+    <>
+      {/* <div className="back_arrow_container">
+        <button className="back_arrow" onClick={() => goBackClick()}>
+          ⬅
+        </button>
+        <div className="go-back_div">Go Back</div>
+      </div> */}
       <div className="-single_container">
         <div className="-single_container-left">
           <h1 className="h1_spot-title">

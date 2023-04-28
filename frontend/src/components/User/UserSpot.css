@@ -1,11 +1,11 @@
 .user_main-fish-spot-conainter {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     flex-wrap: wrap;
     padding-bottom: 70px;
     padding-left: 50px;
-    background-color: rgb(103 106 107);
+    background-color: rgb(224, 233, 236);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -11,7 +11,7 @@ function Navigation({ isLoaded }) {
   return (
     <ul className="home-knb-icon">
       <div className="go-to-main-button">
-        <NavLink exact to="/">
+        <NavLink exact to="/category">
           <i className="fa-solid fa-paste fa-2x" />
           {/* <i className="fa-sharp fa-solid fa-face-awesome fa-2x" /> */}
           Home
