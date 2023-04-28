@@ -69,8 +69,10 @@
 #single_spot-images {
     height: 600px;
     width: 700px;
+    position: relative;
+        top: 4px;
     border-radius: 0px 0px 40px 40px;
-    margin-bottom: 0px;
+
 }
 
 .back_arrow_container {
@@ -99,4 +101,9 @@
 
 #average_star-rating {
     color: gray;
+}
+
+
+.loading_problem {
+    padding-left: 30px;
 }

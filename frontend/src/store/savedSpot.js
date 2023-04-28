@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+import * as spotsAction from "../store/spot";
 
 //Action Type
 const GET_ALL_USER_SAVED_SPOTS = "saves/GET_ALL_USER_SAVED_SPOTS";
@@ -54,6 +55,7 @@ export const createSaveSpot = (spot) => async (dispatch) => {
     dispatch(addNewSavedSpot(data.id))
     return data
   }
+  dispatch(getUserSavedSpots())
   return response
 }
 
@@ -63,9 +65,12 @@ export const deleteUserSavedSpot = (spotId) => async (dispatch) => {
   const response = await csrfFetch(`/api/saves/${spotId}`, {
     method: "DELETE",
   });
+   const data = await response.json();
   if (response.ok) {
-    dispatch(deleteSavedSpot(spotId));
+    dispatch(deleteSavedSpot(data.spotId))
+    return data
   }
+  //  dispatch(getUserSavedSpots());
   return response;
 };
 

@@ -33,41 +33,53 @@ router.get("/current", requireAuth, async (req, res) => {
 
 //Create A Save Spot
 // POST /api/saves
-router.post("/", async (req, res) => {
+router.post("/", requireAuth, async (req, res) => {
   const userId = req.user.id;
   const { spotId } = req.body;
+// const spot = await Spot.findAll()
 
 // const userSavedSpot = await SpotSave.findAll({
 //   where: {
-//     userId: req.user.id
+//     userId: userId
 //   }
 // })
 
+// let spots = []
+// spot.map(s => {
+//   spots.push(s.toJSON())
+// })
 
-// if (userSavedSpot) {
-//   for (let userSaved of userSavedSpot ) {
-//   userSaved = userSaved.toJSON()
-//   if (userSaved.spotId) {
+// spots.forEach(spot=> {
+
+// userSavedSpot.forEach(user=> {
+// user = user.toJSON()
+//      if (!spot.id) {
+//    res.status(404);
+//    return res.json({
+//      message: "Spot couldn't be found",
+//      statusCode: 404,
+//    });
+// } else if (spot.id === user.spotId) {
 //       res.status(403);
-//     return res.json({
-//       message: "User already saved this spot",
-//       statusCode: 403,
-//     });
-//   }
-
+//       return res.json({
+//         message: "User already saved this spot",
+//         statusCode: 403,
+//       });
 // }
-// }
+// })
+// })
 
 
 
   const spotSaved = await SpotSave.create({
     userId: userId,
-    spotId,
+    spotId
   });
 
   await spotSaved.save();
   return res.json(spotSaved);
   // res.send("hellllo")
+  // res.json(spots)
 });
 
 //Delete a saved spots
@@ -76,6 +88,7 @@ router.delete("/:spotId", requireAuth, async (req, res) => {
   const spotId = req.params.spotId
   const savedSpot = await SpotSave.findOne({
     where: {
+      userId: req.user.id,
       spotId:spotId
     }
   });

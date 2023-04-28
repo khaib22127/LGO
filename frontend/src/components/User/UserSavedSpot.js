@@ -15,18 +15,19 @@ dispatch(savesActions.getUserSavedSpots())
     },[dispatch])
 
 
+
 if (!userSaves) return null;
 
     return (
-      <div>
-        <h1>Helllo Saved Page</h1>
-        <div className="user-saved-spot-main-container">
+      <div className="user-saved-spot-main-container">
+        <h1 style={{textAlign:"center"}} >Saved Page</h1>
+        <div className="user-saved-spot-main-container2">
           {Object.values(userSaves).map((saved) => (
             <div
               className="user-saved-spot-inner-container"
-              key={saved.Spot.id}
+              key={`user-${saved.Spot.id}`}
             >
-              <div className="user-saved-spot-inner-container1">
+
                 <div> {saved.Spot.name}</div>
                 <div>
                   {`${saved.Spot.address}, ${saved.Spot.city}, ${saved.Spot.state}`}{" "}
@@ -39,15 +40,9 @@ if (!userSaves) return null;
                     id="user-saved-spot_image-id"
                   />
                 }
-              </div>
 
-              <div className="user-saved-spot-inner-container2">
-                {/* <div>{saved.Spot.description} </div> */}
-              </div>
 
-              <div className="user-saved-spot-inner-container3">
-                <button>Unsaved</button>
-              </div>
+
             </div>
           ))}
         </div>
