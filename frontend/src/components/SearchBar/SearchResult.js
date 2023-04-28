@@ -6,6 +6,7 @@ import AllSpots from "../Spots/AllSpots";
 import { useModal } from "../../context/Modal";
 import CreateSpot from "../Spots/CreateSpot";
 import "./SearchBar.css";
+import { useHistory } from "react-router-dom";
 
 const SearchResult = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const SearchResult = () => {
   const { setModalContent } = useModal();
   const spots = useSelector((state) => state.spots.allSpots);
   const currentUser = useSelector((state) => state.session.user);
+  const history = useHistory();
 
   const filterSpots = (spots, query) => {
     if (!query) {
@@ -46,12 +48,25 @@ const SearchResult = () => {
     fetchData();
   }, [dispatch]);
 
+ const onClick =  () => {
+ history.push("/category");
+setSearchQuery("")
+ }
+
   if (!spots) return null;
   return !isLoaded ? (
-    <div></div>
+    <div>
+      <h1>Loading....</h1>
+    </div>
   ) : (
     <>
       <div className="search_result-top-page">
+          <button
+            className="no-result_search-btn"
+            onClick={() => onClick()}
+          >
+            Go Back
+          </button>
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         {currentUser && (
           <button
@@ -67,10 +82,14 @@ const SearchResult = () => {
         {Object.values(filteredSpots).map((spot) => (
           <div className="All-Spot_container" key={spot.id}>
             <AllSpots spot={spot} isLoaded={isLoaded} />
-            {}
           </div>
         ))}
       </div>
+      {filteredSpots.length === 0 && (
+        <div className="no-search_result-data">
+          <h1>No result.....</h1>
+        </div>
+      )}
     </>
   );
 };

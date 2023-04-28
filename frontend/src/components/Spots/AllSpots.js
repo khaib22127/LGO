@@ -8,10 +8,10 @@ import SpotImages from "./SpotImages";
 // import defautPic from '../AHelper/default-pin-pic.png'
 
 const AllSpots = ({ spot, isLoaded }) => {
-  if (!spot) return null;
+  // if (!spot) return null;
 
   return !isLoaded ? (
-    <div></div>
+    <div><h1>Give it a Sec....</h1></div>
   ) : (
     <>
       <div className="All-Spot_inner-container-1">
@@ -19,12 +19,11 @@ const AllSpots = ({ spot, isLoaded }) => {
         <span className="all_fishing-spot-city">
           {spot.city}, {spot.state}
         </span>
-        {/* <Link to={`/spots/${spot.id}`}> */}
+
         <div className="all-spot_image-container">
           <SpotImages spot={spot} id="all-spot_images" isLoaded={isLoaded}/>
         </div>
-        {/* </Link> */}
-        {/* {isLoaded && <SpotDetails spot={spot} isLoaded={isLoaded} />} */}
+
       </div>
       <div className="All-Spot_inner-container-2">
         <span id="spot__descript">- {spot.description}</span>

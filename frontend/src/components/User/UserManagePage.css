@@ -1,0 +1,9 @@
+.nav{
+    display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+}

@@ -1,20 +1,28 @@
-.user-saved-spot-main-container {
-width: 400px;
-height: 600px;
-
+.user-saved-spot-main-container{
+background-color: rgb(224, 233, 236);
+height:1200px ;
 }
 
-.user-saved-spot-inner-container{
+.user-saved-spot-main-container2 {
 display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
     flex-wrap: wrap;
+
 }
+
 
 
 #user-saved-spot_image-id{
     height: 350px;
     width: 350px;
+    border-radius: 20px;
+}
+
+#user-saved-spot_image-id_for-heart-icon{
+    position: relative;
+  left: 100px;
+  top: 20px;
 }
 
 .saved_heart-icon {
@@ -22,16 +30,15 @@ display: flex;
 
 }
 
-/* .fa-regular{
-    color: red;
-
-} */
-
-/* .something{
-     color: white;
-} */
-
-
-.fa-heart {
-    color: red;
+.user-saved-spot-inner-container{
+    /* border: red solid 2px; */
+    margin-left: 55px;
+        border-radius: 20px;
+        height: 440px;
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
 }

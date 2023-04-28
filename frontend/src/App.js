@@ -6,10 +6,11 @@ import * as spotsAction from "./store/spot";
 import Navigation from "./components/Navigation/Navigation";
 import SearchResult from "./components/SearchBar/SearchResult";
 import SpotDetails from "./components/Spots/SpotDetails";
-import UserSpots from "./components/User/UserSpots";
+
 import LandingPage from "./components/ALandingPage/LandingPage";
 import UserSavedSpot from "./components/User/UserSavedSpot";
-
+import UserManagePage from "./components/User/UserMangePage";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,12 +39,16 @@ function App() {
           </Route>
 
           <Route path={`/spots/manage`}>
-            <UserSpots />
+
+            <UserManagePage />
           </Route>
 
           <Route exact path={`/spots/:spotId`}>
             <SpotDetails />
           </Route>
+<Route path="*">
+  <ErrorPage/>
+</Route>
         </Switch>
       )}
     </>
