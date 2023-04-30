@@ -27,57 +27,65 @@ const UserCreatedSpots = () => {
 
   return (
     <div className="user_main-fish-spot-conainter">
-      <h1 style={{ textAlign: "center" }}>Created Spot</h1>
-      {Object.values(spotOfUser).length ? (
-        Object.values(spotOfUser).map((spot) => (
-          <div className="owner-Spot_container" key={spot.id}>
-            <div className="owner-Spot_inner-container-1">
-              <h2 className="all_fishing-spot-title">{spot.name}</h2>
-              <span className="user_spot__description">
-                {spot.address} , {spot.city}, {spot.state}
-              </span>
-              <div className="">
-                <SpotImages spot={spot} id="all-spot_images" />
+      <div>
+        <h1>Created Spot</h1>
+      </div>
+      <div className="owner-created-Spot_container">
+        {Object.values(spotOfUser).length ? (
+          Object.values(spotOfUser).map((spot) => (
+            <div className="owner-inner-Spot_container" key={spot.id}>
+              <div className="owner-Spot_inner-container-1">
+                <h2 className="all_fishing-spot-title">{spot.name}</h2>
+                <span className="user_spot__description">
+                  {spot.address} , {spot.city}, {spot.state}
+                </span>
+                <div className="">
+                  <SpotImages spot={spot} id="all-spot_images" />
+                </div>
+              </div>
+
+              <div className="owner-Spot_inner-container-2">
+                <div id="spot__descript">{spot.description}</div>
+              </div>
+
+              <div className="user_edit-delete_btn-container">
+                <button
+                  id="log_out__btn"
+                  onClick={() =>
+                    setModalContent(
+                      <SpotForm
+                        spot={spot}
+                        formType="Update"
+                        submitType="Edit"
+                      />
+                    )
+                  }
+                >
+                  Edit
+                </button>
+
+                <button
+                  id="log_out__btn"
+                  onClick={() =>
+                    setModalContent(
+                      <DeleteForm
+                        id="delete-form_container"
+                        submitType="spot"
+                        deleteType="Spot"
+                        comp={spot}
+                      />
+                    )
+                  }
+                >
+                  Delete
+                </button>
               </div>
             </div>
-
-            <div className="owner-Spot_inner-container-2">
-              <div id="spot__descript">{spot.description}</div>
-            </div>
-
-            <div className="user_edit-delete_btn">
-              <button
-                id="log_out__btn"
-                onClick={() =>
-                  setModalContent(
-                    <SpotForm spot={spot} formType="Update" submitType="Edit" />
-                  )
-                }
-              >
-                Edit
-              </button>
-
-              <button
-                id="log_out__btn"
-                onClick={() =>
-                  setModalContent(
-                    <DeleteForm
-                      id="delete-form_container"
-                      submitType="spot"
-                      deleteType="Spot"
-                      comp={spot}
-                    />
-                  )
-                }
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))
-      ) : (
-        <h1>Nothing has been created...</h1>
-      )}
+          ))
+        ) : (
+          <h1>Nothing has been created...</h1>
+        )}
+      </div>
     </div>
   );
 };

@@ -13,45 +13,58 @@ module.exports = {
       [
         {
           userId: 1,
-          spotId: 1,
+          spotId: 2,
           review:
-            "You're an inspiration. Despite any struggles you've endured, each day you come to class with a smile on your face and a willingness to learn and improve. These are admirable traits.",
+            "If you are new to fishing it's a great place to start ,they have bait / rod and reel rentals and lots of people always...",
+          stars: 5,
+        },
+        {
+          userId: 1,
+          spotId: 3,
+          review:
+            "I bought my family here for a fishing day and the kids loved it!",
+          stars: 4,
+        },
+        {
+          userId: 1,
+          spotId: 4,
+          review:
+            "Great place to fish and we had a lot of fun, worth checking it out if you like to fish but get there early to get a good spot. ",
           stars: 5,
         },
         {
           userId: 2,
-          spotId: 2,
-          review:
-            "You're a fantastic listener. It's clear to me that you're very open to learning and hearing methods you can use to improve your studies. You follow directions perfectly, and you're well on your way to improvement.",
-          stars: 4,
+          spotId: 1,
+          review: "This place was so beautiful and great for kids.",
+          stars: 5,
         },
         {
-          userId: 3,
+          userId: 2,
           spotId: 3,
           review:
-            "You tackle issues and challenges with a positive, can-do attitude. Because of this, I have no doubt that you can accomplish anything you put your mind to. An attitude like that can change the world.",
-          stars: 5,
-        },
-        {
-          userId: 4,
-          spotId: 4,
-          review:
-            "It's clear that you take pride in your work. The confidence you have in your academics is impressive. Self-confidence is a great trait to have.",
-          stars: 5,
-        },
-        {
-          userId: 5,
-          spotId: 5,
-          review:
-            "You consistently show respect for both your peers and your teachers. Your disposition and manners always impress me. You're a kind and considerate student, and I'm glad to be your teacher.",
+            "Even though we had no luck fishing today, but the weather still nice and this place is gorgeous.",
           stars: 5,
         },
         {
           userId: 3,
           spotId: 1,
           review:
-            "You're sensitive to the thoughts and opinions of others. This allows them to express their thoughts and feelings. I find this commendable.",
+            "Catch believe I didn't find this place sooner. I can't wait to go back next week",
           stars: 4,
+        },
+        {
+          userId: 3,
+          spotId: 4,
+          review:
+            "If you are new to fishing it's a great place to start ,they have bait / rod and reel rentals and lots of people always...",
+          stars: 5,
+        },
+        {
+          userId: 4,
+          spotId: 1,
+          review:
+            "Fishing is not an escape from life, but often a deeper immersion into it.",
+          stars: 5,
         },
       ],
       {}
