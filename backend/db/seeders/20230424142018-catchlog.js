@@ -56,7 +56,7 @@ module.exports = {
           type: "Thunder Trout",
           weight: 17,
           length: 10,
-          summary: "I use power bait, and it would like magic",
+          summary: "I use power bait, and it work like magic",
         },
         {
           userId: 3,
@@ -65,6 +65,22 @@ module.exports = {
           weight: 15.5,
           length: 14,
           summary: "Couldn't ask for a better fight from these fish!",
+        },
+        {
+          userId: 2,
+          spotId: 4,
+          type: "Alligator gar",
+          weight: 34,
+          length: 48,
+          summary: "This fish is a monster!",
+        },
+        {
+          userId: 4,
+          spotId: 1,
+          type: "Thunder Trout",
+          weight: 17,
+          length: 10,
+          summary: "I use power bait, and it work like magic",
         },
       ],
       {}

@@ -29,7 +29,19 @@ module.exports = {
         },
         {
           spotId: 5,
-          url: "https://i.insider.com/5a25b75b3339b038008b45e0?width=750&format=jpeg&auto=webp",
+          url: "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?cs=srgb&dl=pexels-bri-schneiter-346529.jpg&fm=jpg",
+        },
+        {
+          spotId: 6,
+          url: "https://fishmasters.com/wp-content/uploads/2022/05/minnesota-fishing-lake.jpg",
+        },
+        {
+          spotId: 7,
+          url: "https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg?cs=srgb&dl=pexels-pixabay-247600.jpg&fm=jpg",
+        },
+        {
+          spotId: 8,
+          url: "https://www.nalms.org/wp-content/uploads/2016/05/22797560873_d715f0899f_o.jpg",
         },
       ],
       {}
@@ -42,7 +54,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        spotId: { [Op.in]: [1, 2, 3, 4, 5] },
+        spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8] },
       },
       {}
     );

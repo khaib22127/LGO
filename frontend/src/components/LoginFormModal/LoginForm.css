@@ -4,8 +4,8 @@
 
 .login-container {
     display: flex;
-    height: 19rem;
-    width: 25rem;
+    height: 24rem;
+    width: 28rem;
     padding: 2%;
     align-items: center;
     flex-direction: column;
@@ -13,6 +13,7 @@
     /* position: relative; */
     border: red solid 4px;
     border-radius: 20px;
+    font-size: 20px;
 }
 
 .login-container > p {
@@ -42,13 +43,18 @@
         border: 2px solid black;
         border-radius: 15PX;
         cursor: pointer;
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 20px;
 }
 .input_user {
     background: rgb(211, 233, 239);
     width: 20rem;
-    height: 1.5rem;
+    height: 1.8rem;
     margin-top: 5px;
     margin-bottom: 25px;
+    border-radius: 10px;
+    font-size: 15px;
 }
 
 .demo-user-btn-container{
@@ -60,9 +66,16 @@
 .err-msgs {
     color: red;
     position: absolute;
-    top: 3.5rem;
+    top: 4rem;
+}
+
+.top-err-msgs{
+    color: red;
+        position: absolute;
+        top: 3.1rem;
 }
 
 .login_class{
     position: relative;
+    margin-top: 5px;
 }

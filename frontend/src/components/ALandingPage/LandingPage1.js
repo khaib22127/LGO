@@ -35,11 +35,11 @@ const logIn = (e) => {
         <p id="id_title_text_">"Let's Go Outside!"</p>
       </div>
 
-      <div className="splash-page-log_in-btn">
+      {/* <div className="splash-page-log_in-btn">
         <button id="log_in-splash-page-btn" onClick={logIn}>
           LOGIN
         </button>
-      </div>
+      </div> */}
       <div className="inner_page-Btn_fishing">
         <button id="enter_btn" onClick={() => btn1click()}>
           Fishing Spot!
