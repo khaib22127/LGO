@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import * as spotsAction from "../../store/spot";
 import { useModal } from "../../context/Modal";
-import UserSpots from "./UserSpots";
+import UserCreatedSpots from "./UserCreatedSpots";
 import UserSavedSpot from "./UserSavedSpot";
 import "./UserManagePage.css";
 
@@ -48,7 +48,7 @@ if (!currentUser) return <Redirect to="/" />;
             </div>
           ) : (
             <div className="SecondTab-Created">
-              <UserSpots />
+              <UserCreatedSpots />
             </div>
           )}
         </div>

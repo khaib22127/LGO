@@ -115,7 +115,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
           placeholder="Search... name or location"
           name="s"
         />
-        <button id="search_btnn" type="submit">
+        <button id="search_btnn">
           Search
         </button>
       </form>

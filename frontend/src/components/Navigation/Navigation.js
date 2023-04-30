@@ -12,13 +12,11 @@ function Navigation({ isLoaded }) {
     <ul className="home-knb-icon">
       <div className="go-to-main-button">
         <NavLink exact to="/category">
-          <i className="fa-solid fa-paste fa-2x" />
-          {/* <i className="fa-sharp fa-solid fa-face-awesome fa-2x" /> */}
-          Home
+          <i className="fa-solid fa-person-hiking fa-4x" />
         </NavLink>
       </div>
 
-      {(
+      {
         <div className="searchBar">
           <i className="fas fa-solid fa-magnifying-glass"></i>
           <input
@@ -27,7 +25,7 @@ function Navigation({ isLoaded }) {
             placeholder="Search"
           ></input>
         </div>
-      )}
+      }
 
       <div className="create-new-spot-profileBtn">
         {isLoaded && <ProfileButton user={sessionUser} />}

@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import "./SignupForm.css";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
+   const history = useHistory();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -48,7 +49,7 @@ function SignupFormModal() {
     }
     if (password !== confirmPassword) {
       errors.confirmPassword =
-        "Confirm Password must be the same as the Password";
+        "Must be the same as the Password";
     }
 
     return errors;
@@ -71,7 +72,10 @@ function SignupFormModal() {
           password,
         })
       )
-        .then(closeModal)
+       .then(()=> {
+      closeModal()
+      history.push("/category")
+    })
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) {

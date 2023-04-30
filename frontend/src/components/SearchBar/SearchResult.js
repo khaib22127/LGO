@@ -1,12 +1,12 @@
-import SearchBar from "./SearchBar";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as spotsAction from "../../store/spot";
-import AllSpots from "../Spots/AllSpots";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
+import * as spotsAction from "../../store/spot";
+import SearchBar from "./SearchBar";
+import AllSpots from "../Spots/AllSpots";
 import CreateSpot from "../Spots/CreateSpot";
 import "./SearchBar.css";
-import { useHistory } from "react-router-dom";
 
 const SearchResult = () => {
   const dispatch = useDispatch();
@@ -65,7 +65,7 @@ setSearchQuery("")
             className="no-result_search-btn"
             onClick={() => onClick()}
           >
-            Go Back
+            Reset
           </button>
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         {currentUser && (
@@ -79,17 +79,15 @@ setSearchQuery("")
       </div>
 
       <div className="searchResult-AllSpot_main-conainter">
-        {Object.values(filteredSpots).map((spot) => (
+        {filteredSpots.length !== 0 ? Object.values(filteredSpots).map((spot) => (
           <div className="All-Spot_container" key={spot.id}>
             <AllSpots spot={spot} isLoaded={isLoaded} />
           </div>
-        ))}
-      </div>
-      {filteredSpots.length === 0 && (
-        <div className="no-search_result-data">
+        )) : <div className="no-search_result-data">
           <h1>No result.....</h1>
-        </div>
-      )}
+        </div>}
+      </div>
+
     </>
   );
 };

@@ -11,6 +11,8 @@
     flex-direction: column;
     justify-content: flex-start;
     /* position: relative; */
+    border: red solid 4px;
+    border-radius: 20px;
 }
 
 .login-container > p {
@@ -44,6 +46,7 @@
 .input_user {
     background: rgb(211, 233, 239);
     width: 20rem;
+    height: 1.5rem;
     margin-top: 5px;
     margin-bottom: 25px;
 }
@@ -57,7 +60,7 @@
 .err-msgs {
     color: red;
     position: absolute;
-    top: 2.7rem;
+    top: 3.5rem;
 }
 
 .login_class{
