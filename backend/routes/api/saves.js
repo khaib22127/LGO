@@ -1,14 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {
-  Spot,
-
-  SpotImage,
-
-  SpotSave,
-
-} = require("../../db/models");
-const { requireAuth, } = require("../../utils/auth");
+const { Spot, SpotImage, SpotSave } = require("../../db/models");
+const { requireAuth } = require("../../utils/auth");
 
 // Get user saved spot
 // GET /api/saves/current
@@ -17,16 +10,15 @@ router.get("/current", requireAuth, async (req, res) => {
     where: {
       userId: req.user.id,
     },
-    include:
-      {
-        model: Spot,
-        include: [{ model: SpotImage }],
-      },
+    include: {
+      model: Spot,
+      include: [{ model: SpotImage }],
+    },
 
     attributes: ["id", "userId"],
   });
 
-// allSavedSpots = allSavedSpots.toJSON()
+  // allSavedSpots = allSavedSpots.toJSON()
 
   res.json(allSavedSpots);
 });
@@ -36,44 +28,42 @@ router.get("/current", requireAuth, async (req, res) => {
 router.post("/", requireAuth, async (req, res) => {
   const userId = req.user.id;
   const { spotId } = req.body;
-// const spot = await Spot.findAll()
+  // const spot = await Spot.findAll()
 
-// const userSavedSpot = await SpotSave.findAll({
-//   where: {
-//     userId: userId
-//   }
-// })
+  // const userSavedSpot = await SpotSave.findAll({
+  //   where: {
+  //     userId: userId
+  //   }
+  // })
 
-// let spots = []
-// spot.map(s => {
-//   spots.push(s.toJSON())
-// })
+  // let spots = []
+  // spot.map(s => {
+  //   spots.push(s.toJSON())
+  // })
 
-// spots.forEach(spot=> {
+  // spots.forEach(spot=> {
 
-// userSavedSpot.forEach(user=> {
-// user = user.toJSON()
-//      if (!spot.id) {
-//    res.status(404);
-//    return res.json({
-//      message: "Spot couldn't be found",
-//      statusCode: 404,
-//    });
-// } else if (spot.id === user.spotId) {
-//       res.status(403);
-//       return res.json({
-//         message: "User already saved this spot",
-//         statusCode: 403,
-//       });
-// }
-// })
-// })
-
-
+  // userSavedSpot.forEach(user=> {
+  // user = user.toJSON()
+  //      if (!spot.id) {
+  //    res.status(404);
+  //    return res.json({
+  //      message: "Spot couldn't be found",
+  //      statusCode: 404,
+  //    });
+  // } else if (spot.id === user.spotId) {
+  //       res.status(403);
+  //       return res.json({
+  //         message: "User already saved this spot",
+  //         statusCode: 403,
+  //       });
+  // }
+  // })
+  // })
 
   const spotSaved = await SpotSave.create({
     userId: userId,
-    spotId
+    spotId,
   });
 
   await spotSaved.save();
@@ -85,12 +75,12 @@ router.post("/", requireAuth, async (req, res) => {
 //Delete a saved spots
 // DELETE /api/saves/:spotId
 router.delete("/:spotId", requireAuth, async (req, res) => {
-  const spotId = req.params.spotId
+  const spotId = req.params.spotId;
   const savedSpot = await SpotSave.findOne({
     where: {
       userId: req.user.id,
-      spotId:spotId
-    }
+      spotId: spotId,
+    },
   });
 
   await savedSpot.destroy();
