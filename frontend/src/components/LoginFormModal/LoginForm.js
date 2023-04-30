@@ -44,17 +44,17 @@ function LoginFormModal() {
     });
   };
 
-  let isDiabled;
-  if (
-    !credential ||
-    !password ||
-    credential.length < 4 ||
-    password.length < 6
-  ) {
-    isDiabled = true;
-  } else {
-    isDiabled = false;
-  }
+  // let isDiabled;
+  // if (
+  //   !credential ||
+  //   !password ||
+  //   credential.length < 4 ||
+  //   password.length < 6
+  // ) {
+  //   isDiabled = true;
+  // } else {
+  //   isDiabled = false;
+  // }
 
   return (
     <div className="main_login-in-container">

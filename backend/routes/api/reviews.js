@@ -2,12 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator");
-const { Spot, Review, SpotImage, User, sequelize } = require("../../db/models");
+const { Review, User } = require("../../db/models");
 const { requireAuth, userReviewPermission } = require("../../utils/auth");
-const {
-  userValidationErrors,
-  reviewValidationErrors,
-} = require("../../utils/validation");
+const { userValidationErrors } = require("../../utils/validation");
 
 const validateUserReviews = [
   check("review")
@@ -47,7 +44,7 @@ router.get("/:spotId/reviews", async (req, res) => {
     include: [
       {
         model: User,
-        attributes: [ "firstName", "lastName"],
+        attributes: ["firstName", "lastName"],
       },
     ],
   });
@@ -82,13 +79,13 @@ router.post(
       }
     }
 
-if (!stars) {
- res.status(400);
- return res.json({
-   message: "Stars Required!",
-   statusCode: 400,
- });
-}
+    if (!stars) {
+      res.status(400);
+      return res.json({
+        message: "Stars Required!",
+        statusCode: 400,
+      });
+    }
 
     const newReview = await Review.create({
       userId: req.user.id,

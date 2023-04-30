@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useModal } from "../../context/Modal";
 import * as catchLogsActions from "../../store/catchlog";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./CatchLogForm.css";
 
 const CatchLogForm = ({ submitType, formType, userCatch, spotId }) => {
@@ -13,22 +13,24 @@ const CatchLogForm = ({ submitType, formType, userCatch, spotId }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
-
   const submitCatchLog = async (e) => {
     e.preventDefault();
     setErrors({});
 
-   if (!errors) return
-
+    if (!errors) return;
 
     if (submitType === "Create") {
-      userCatch = await dispatch(catchLogsActions
-        .createSpotCatchLog({
-          type,
-          weight,
-          length,
-          summary,
-        }, spotId))
+      userCatch = await dispatch(
+        catchLogsActions.createSpotCatchLog(
+          {
+            type,
+            weight,
+            length,
+            summary,
+          },
+          spotId
+        )
+      )
         .then(() => {
           closeModal();
           dispatch(catchLogsActions.getSpotCatchLog(spotId));
@@ -39,7 +41,6 @@ const CatchLogForm = ({ submitType, formType, userCatch, spotId }) => {
         });
     }
 
-
     if (submitType === "Edit") {
       userCatch = await dispatch(
         catchLogsActions.editCatchLog(
@@ -49,7 +50,7 @@ const CatchLogForm = ({ submitType, formType, userCatch, spotId }) => {
             length,
             summary,
           },
-         userCatch.id
+          userCatch.id
         )
       )
         .then(() => {
@@ -64,7 +65,6 @@ const CatchLogForm = ({ submitType, formType, userCatch, spotId }) => {
 
     // setErrors(errors)
   };
-
 
   return (
     <div className="Catch-Log_main-container">

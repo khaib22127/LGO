@@ -2,9 +2,9 @@ import defaultPic from "../AHelper/default-pin-pic.png";
 import { Link } from "react-router-dom";
 import SavedHeartIcon from "./SavedHeartIcon";
 import { useSelector, useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as savesActions from "../../store/savedSpot";
-import * as spotsAction from "../../store/spot";
+
 
 const SpotImages = ({ spot, id, userSaves }) => {
   const dispatch = useDispatch();

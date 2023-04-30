@@ -23,8 +23,6 @@ const UserCreatedSpots = () => {
 
  if (!currentUser) return <Redirect to="/" />;
 
- console.log("spot of user::: ", Object.values(spotOfUser))
-
   return (
     <div className="user_main-fish-spot-conainter">
       <div>

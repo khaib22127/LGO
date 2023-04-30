@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams, Redirect } from "react-router-dom";
+import React, { useEffect } from "react";
+import {  useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as catchLogsActions from "../../store/catchlog";
 import { useModal } from "../../context/Modal";
