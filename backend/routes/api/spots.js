@@ -1,6 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { Spot, Review, SpotImage, User,SpotSave, sequelize } = require("../../db/models");
+const {
+  Spot,
+  Review,
+  SpotImage,
+  User,
+  SpotSave,
+  sequelize,
+} = require("../../db/models");
 const { check } = require("express-validator");
 const { userValidationErrors } = require("../../utils/validation");
 const { requireAuth, userPermission } = require("../../utils/auth");
@@ -57,7 +64,6 @@ router.get("/", async (req, res, next) => {
   // return res.json({ Spots: allSpots });
 });
 
-
 // GET /api/spots/current
 router.get("/current", async (req, res) => {
   const spots = await Spot.findAll({
@@ -76,7 +82,6 @@ router.get("/current", async (req, res) => {
 
   res.json({ Spots: spots });
 });
-
 
 // GET /api/spots/:spotId
 router.get("/:spotId", async (req, res) => {
@@ -113,17 +118,16 @@ router.get("/:spotId", async (req, res) => {
   } else {
     spot.Reviews.forEach((reviewStar) => {
       arrStars.push(reviewStar.stars);
-      starAvg = arrStars.reduce((a, b) => (a + b) / arrStars.length);
+      starAvg = arrStars.reduce((a, b) => (a + b));
+      return starAvg;
     });
-
   }
+
   if (!starAvg) {
-   spot.averageRating = 0
+    spot.averageRating = 0;
   } else {
-
-    spot.averageRating = starAvg
+    spot.averageRating = starAvg / arrStars.length;
   }
-
 
   res.json(spot);
 });
@@ -176,8 +180,6 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
     url: image.url,
   });
 });
-
-
 
 // Edit a Spot
 // PUT /api/spots/:spotId

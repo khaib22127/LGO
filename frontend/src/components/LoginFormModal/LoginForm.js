@@ -59,7 +59,7 @@ function LoginFormModal() {
   return (
     <div className="main_login-in-container">
       <div className="login-container">
-        <p>Log In</p>
+        <h3>Log In</h3>
         {<div className="err-msgs">{errors.errors}</div>}
         <form onSubmit={handleSubmit}>
           <div className="login_class">

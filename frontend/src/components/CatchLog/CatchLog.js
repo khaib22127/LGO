@@ -8,11 +8,9 @@ import CatchLogForm from "../Form/CatchLogForm";
 import "./CatchLog.css";
 
 const CatchLog = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
   const { spotId } = useParams();
   const { setModalContent } = useModal();
-  const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
@@ -133,19 +131,19 @@ const CatchLog = () => {
             )}
           </div>
         ))}
-        {!currentUser ? (
-          !catches.length && (
-            <div className="no-catch-log-yet">
-              <h1>...nothing yet... </h1>
-              <h2>Sign up and enter one?</h2>
-            </div>
-          )
-        ) : (
-          <div className="no-catch-log-yet">
-            <h1>...nothing yet... </h1>
-            <h2>Enter one?</h2>
-          </div>
-        )}
+        {!currentUser
+          ? !catches.length && (
+              <div className="no-catch-log-yet">
+                <h1>...nothing yet... </h1>
+                <h2>Sign up and enter one?</h2>
+              </div>
+            )
+          : !catches.length && (
+              <div className="no-catch-log-yet">
+                <h1>...nothing yet... </h1>
+                <h2>Enter one?</h2>
+              </div>
+            )}
       </div>
     </div>
   );
