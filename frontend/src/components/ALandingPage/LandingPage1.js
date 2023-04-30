@@ -1,11 +1,11 @@
 import splashImage from "../AHelper/splash-page-cover.jpeg";
 import { useHistory } from "react-router-dom";
-import LoginFormModal from "../LoginFormModal/LoginForm";
-import { useModal } from "../../context/Modal";
+// import LoginFormModal from "../LoginFormModal/LoginForm";
+// import { useModal } from "../../context/Modal";
 import "./LandingPage2.css"
 
 const LandingPage1 = () => {
-   const { setModalContent } = useModal();
+  //  const { setModalContent } = useModal();
   const history = useHistory();
   const myStyle = {
     backgroundImage: `url(${splashImage})`,
@@ -15,15 +15,15 @@ const LandingPage1 = () => {
     backgroundRepeat: "no-repeat",
   };
 
-  const btn1click = (e) => {
+  const btn1click = () => {
     history.push("/category");
   };
 
-const logIn = (e) => {
-  e.preventDefault();
-  setModalContent(<LoginFormModal/>)
+// const logIn = (e) => {
+//   e.preventDefault();
+//   setModalContent(<LoginFormModal/>)
 
-}
+// }
 
   return (
     <div className="landing-page-container-1" style={myStyle}>

@@ -16,7 +16,6 @@ const SpotForm = ({ spot, submitType, formType }) => {
   const [SpotImages, setSpotImages] = useState(spot.SpotImages);
 
   const [errors, setErrors] = useState({});
-  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();

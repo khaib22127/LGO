@@ -1,13 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {
-  Spot,
-  Review,
-  SpotImage,
-  User,
-  SpotSave,
-  sequelize,
-} = require("../../db/models");
+const { Spot, Review, SpotImage, User } = require("../../db/models");
 const { check } = require("express-validator");
 const { userValidationErrors } = require("../../utils/validation");
 const { requireAuth, userPermission } = require("../../utils/auth");
@@ -118,7 +111,7 @@ router.get("/:spotId", async (req, res) => {
   } else {
     spot.Reviews.forEach((reviewStar) => {
       arrStars.push(reviewStar.stars);
-      starAvg = arrStars.reduce((a, b) => (a + b));
+      starAvg = arrStars.reduce((a, b) => a + b);
       return starAvg;
     });
   }

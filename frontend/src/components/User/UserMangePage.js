@@ -1,8 +1,6 @@
-import { useSelector, useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import * as spotsAction from "../../store/spot";
-import { useModal } from "../../context/Modal";
 import UserCreatedSpots from "./UserCreatedSpots";
 import UserSavedSpot from "./UserSavedSpot";
 import "./UserManagePage.css";
@@ -10,11 +8,9 @@ import "./UserManagePage.css";
 const UserManagePage = () => {
   const [activeTab, setActiveTab] = useState("saved-tab");
 
-const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector((state) => state.session.user);
 
-if (!currentUser) return <Redirect to="/" />;
-
-
+  if (!currentUser) return <Redirect to="/" />;
 
   const handleTab1 = () => {
     // update the state to tab1

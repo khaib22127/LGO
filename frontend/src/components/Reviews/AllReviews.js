@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useModal } from "../../context/Modal";
-import { useHistory } from "react-router-dom";
 import * as reviewsActions from "../../store/review";
 import CreateReview from "./CreateReview";
 import ReviewForm from "../Form/ReviewForm";
@@ -11,7 +10,6 @@ import "./AllReviews.css";
 
 const AllReviews = ({ spotId, spot }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { setModalContent } = useModal();
 
   const currentUser = useSelector((state) => state.session.user);
@@ -27,18 +25,6 @@ const AllReviews = ({ spotId, spot }) => {
     });
   }, [dispatch, spotId, currentUser]);
 
-
-
-// const addnewReview = ()=> {
-// if (userReview || spot.userId === currentUser.id) {
-//   return null;
-// }
-// return (
-//   <button id="add_review-btn" onClick={() => setModalContent(<CreateReview />)}>
-//     ADD REVIEW
-//   </button>
-// );
-// }
 
   const reviewsLog=()=> {
     if (!reviews.length) {

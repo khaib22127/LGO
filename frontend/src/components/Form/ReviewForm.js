@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as reviewsActions from "../../store/review";
 import * as spotsAction from "../../store/spot";
-import { useParams } from "react-router-dom";
 import ReviewStarInput from "../Reviews/ReviewStarInput";
 
 const ReviewForm = ({ reviews, submitType, formType }) => {
