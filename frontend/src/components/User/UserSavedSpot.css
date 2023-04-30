@@ -1,6 +1,25 @@
 .user-saved-spot-main-container{
 background-color: rgb(224, 233, 236);
-height:1200px ;
+height:100vh;
+width: 100%;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+}
+
+
+.user-saved-spot-inner-container {
+    height: 465px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 40px;
+        background: white;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 8px 16px 0 #c1c1e4cc;
+        margin: 50px;
+        padding-top: 5px;
 }
 
 .user-saved-spot-main-container2 {
@@ -11,27 +30,27 @@ display: flex;
 
 }
 
-
+.saved_spot-name{
+    font-weight: bold;
+    font-size: 20px;
+}
 
 #user-saved-spot_image-id{
     height: 350px;
     width: 350px;
-    border-radius: 20px;
+    border-radius: 40px;
+    position: relative;
+        top: 4px;
 }
 
 #user-saved-spot_image-id_for-heart-icon{
     position: relative;
   left: 100px;
-  top: 20px;
+  top: 30px;
 }
 
-.saved_heart-icon {
-    position: absolute;
 
-}
-
-.user-saved-spot-inner-container{
-    /* border: red solid 2px; */
+/* .user-saved-spot-inner-container{
     margin-left: 55px;
         border-radius: 20px;
         height: 440px;
@@ -41,4 +60,4 @@ display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-}
+} */

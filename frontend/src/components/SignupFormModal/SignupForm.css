@@ -5,8 +5,8 @@
 
 .sign-up-container {
     display: flex;
-    height: 40rem;
-    width: 23rem;
+    height: 44rem;
+    width: 27rem;
     flex-direction: column;
     padding: 2rem;
     align-items: center;
@@ -31,9 +31,11 @@
 .all_input_sign-box {
     width: 300px;
     background-color: rgb(203, 239, 239);
-height: 20px;
+height: 25px;
 border-radius: 15px;
 padding-left: 7px;
+font-size: 15px;
+    font-weight: bold;
 }
 
 .signup-summit-btn {
@@ -51,15 +53,17 @@ padding-left: 7px;
     border: 2px solid black;
     border-radius: 15PX;
     cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #label_margin{
     margin-bottom: 20px;
-
+font-size: 20px;
 }
 
 .err-msg{
     color: red;
     position: absolute;
-    top: 16px;
+    top: 22px;
 }

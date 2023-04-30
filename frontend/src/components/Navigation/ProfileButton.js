@@ -63,9 +63,9 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className="user-dropdown-icon-bar">
-        <button className="user-dropdown-icon-bar" onClick={openMenu}>
-          <i className="fa-solid fa-bars fa-2x"></i>
-          <i className="fas fa-user-circle fa-2x" />
+        <button className="user-dropdown-icon-bar-button" onClick={openMenu}>
+          <i className="fa-solid fa-bars fa-2x fish-profile"></i>
+          <i className="fa-solid fa-fish fa-3x fish-profile" />
         </button>
       </div>
 
@@ -78,11 +78,7 @@ function ProfileButton({ user }) {
               <p>{user.email}</p>
 
               <div className="logged-in_user-profile-btn">
-                <button
-                  id="log_out__btn"
-                  type="submit"
-                  onClick={createSpot}
-                >
+                <button id="log_out__btn" type="submit" onClick={createSpot}>
                   Create
                 </button>
                 <button id="log_out__btn" type="submit" onClick={manageSpot}>

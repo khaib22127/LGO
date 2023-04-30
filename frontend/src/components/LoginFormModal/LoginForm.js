@@ -2,11 +2,13 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -17,7 +19,10 @@ function LoginFormModal() {
 
     setErrors([]);
     dispatch(sessionActions.login({ credential, password }))
-      .then(closeModal)
+     .then(()=> {
+      closeModal()
+      history.push("/category")
+    })
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) {
@@ -33,7 +38,10 @@ function LoginFormModal() {
     setErrors([]);
     return dispatch(
       sessionActions.login({ credential: "Demo-lition", password: "password" })
-    ).then(closeModal);
+    ).then(()=> {
+      closeModal()
+      history.push("/category")
+    });
   };
 
   let isDiabled;

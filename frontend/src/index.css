@@ -4,9 +4,20 @@ body,html {
     width: 100%;
     height: 100%;
     margin: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
+body{
+    font-family: Domine, Georgia, Times, Times New Roman, serif;
+}
+button {
+    cursor: pointer;
+}
+ button:focus {
+     outline-color: transparent;
+     outline-style: solid;
+     box-shadow: 0 0 0 4px #b3b3db;
 
+ }
 /* :root {
     display: flex;
     flex-direction: row;

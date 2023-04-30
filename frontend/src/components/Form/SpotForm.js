@@ -55,7 +55,7 @@ const validateError = () => {
   }
 
   if (description.length < 25) {
-    errors.description = "Description needs a minimum of 25 characters";
+    errors.description = "Needs a minimum of 25 characters";
   }
 
   if (!SpotImages) {
