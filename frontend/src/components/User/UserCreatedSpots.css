@@ -1,4 +1,5 @@
 .user_main-fish-spot-conainter {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

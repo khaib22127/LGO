@@ -28,7 +28,7 @@ if (!userSaves) return null;
               key={`user-${saved.Spot.id}`}
             >
 
-                <div> {saved.Spot.name}</div>
+                <div className="saved_spot-name"> {saved.Spot.name}</div>
                 <div>
                   {`${saved.Spot.address}, ${saved.Spot.city}, ${saved.Spot.state}`}{" "}
                 </div>
