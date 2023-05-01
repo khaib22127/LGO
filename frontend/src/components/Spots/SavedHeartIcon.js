@@ -9,7 +9,7 @@ const SavedHeartIcon = ({ spot, savedIcon, unsavedIcon }) => {
   const dispatch = useDispatch();
   const userSaves = useSelector((state) => state.saved.userSaved);
   const currentUser = useSelector((state) => state.session.user);
- 
+
   useEffect(() => {
     dispatch(spotsAction.getAllSpots());
     if (currentUser) {
@@ -19,19 +19,10 @@ const SavedHeartIcon = ({ spot, savedIcon, unsavedIcon }) => {
 
   const onClickSaved = () => {
     dispatch(savesActions.createSaveSpot({ spotId: spot.id }));
-    //  dispatch(spotsAction.getAllSpots());
-    //  dispatch(savesActions.getUserSavedSpots());
-
   };
 
   const onClickDelete = () => {
-    // e.preventDefault();
-    // setSaved(!saved)
     dispatch(savesActions.deleteUserSavedSpot(spot.id))
-    // dispatch(spotsAction.getAllSpots());
-
-    // dispatch(savesActions.getUserSavedSpots());
-    //  setSaved(saved);
   };
 
   const unsavedWhiteIcon = () => {
@@ -61,32 +52,7 @@ const SavedHeartIcon = ({ spot, savedIcon, unsavedIcon }) => {
     return icon;
   };
 
-  // const unsavedWhiteIcon = () => {
-  //   let icon = !saved ? (
-  //     <div onClick={() => onClickSaved()}>
-  //       <i className="fa-regular fa-heart fa-3x" style={{ color: "red" }}></i>
-  //     </div>
-  //   ) : (
-  //     <div onClick={() => onClickDelete()}>
-  //       <i className="fa-solid fa-heart fa-3x" style={{ color: "red" }}></i>
-  //     </div>
-  //   );
 
-  //   if (user.Spot.id === spot.id) {
-  //     icon = !saved ? (
-  //       <div key={user.id} onClick={() => onClickDelete()}>
-  //         <i className="fa-solid fa-heart fa-3x" style={{ color: "red" }}></i>
-  //       </div>
-  //     ) : (
-  //       <div key={user.id} onClick={() => onClickSaved()}>
-  //         <i className="fa-regular fa-heart fa-3x" style={{ color: "red" }}></i>
-  //       </div>
-  //     );
-  //     return icon
-  //   }
-
-  //   return icon;
-  // };
 
   if (!userSaves) return;
 
@@ -95,10 +61,6 @@ const SavedHeartIcon = ({ spot, savedIcon, unsavedIcon }) => {
       <div className="saved_heart-icon" onClick={() => setSaved(!saved)}>
         {(spot.userId !== currentUser.id )&& unsavedWhiteIcon()}
       </div>
-
-      // <div>
-
-      // </div>
     )
   );
 };
