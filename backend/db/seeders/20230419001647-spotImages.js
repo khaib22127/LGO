@@ -43,6 +43,10 @@ module.exports = {
           spotId: 8,
           url: "https://www.nalms.org/wp-content/uploads/2016/05/22797560873_d715f0899f_o.jpg",
         },
+        {
+          spotId: 9,
+          url: "https://www.sciencenews.org/wp-content/uploads/2022/10/101722_jc_river-heat-waves_feat.jpg",
+        },
       ],
       {}
     );

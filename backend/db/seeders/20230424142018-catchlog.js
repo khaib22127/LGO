@@ -82,6 +82,22 @@ module.exports = {
           length: 10,
           summary: "I use power bait, and it work like magic",
         },
+        {
+          userId: 4,
+          spotId: 6,
+          type: "Thunder Trout",
+          weight: 17,
+          length: 10,
+          summary: "Beatiful fish",
+        },
+        {
+          userId: 4,
+          spotId: 7,
+          type: "RainbowTrout",
+          weight: 17,
+          length: 10,
+          summary: "Can't get any better then this",
+        },
       ],
       {}
     );

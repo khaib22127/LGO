@@ -66,6 +66,31 @@ module.exports = {
             "Fishing is not an escape from life, but often a deeper immersion into it.",
           stars: 5,
         },
+        {
+          userId: 4,
+          spotId: 6,
+          review: "Fishing here is the best!",
+          stars: 5,
+        },
+        {
+          userId: 4,
+          spotId: 7,
+          review: "Can not wait to bring my daughter here!",
+          stars: 5,
+        },
+        {
+          userId: 4,
+          spotId: 8,
+          review: "Fishing is is the best here!",
+          stars: 5,
+        },
+        {
+          userId: 4,
+          spotId: 9,
+          review:
+            "The best spot to enjoy with friends and families",
+          stars: 5,
+        },
       ],
       {}
     );
@@ -77,7 +102,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        spotId: { [Op.in]: [1, 2, 3, 4, 5] },
+        spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9] },
       },
       {}
     );

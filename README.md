@@ -24,3 +24,30 @@ favorite spot to help others discover and appreciate that spot._
 
 
 ## Fishing Spot Details
+
+
+
+# Features
+
+## Fishing Spots
+* Users can create a Spot
+* Users can view other Spot
+* Users can update their Spot
+* Users can delete their Spot
+
+## Fishing Spot's Reviews
+* Users can create a Review for a spot
+* Users can view all other Reviews for Spot
+* Users can update their Review
+* Users can delete their Review
+
+## Fishing Spot's Catch Logs
+* Users can create a Catch Logs for a spot
+* Users can view all other Catch Logs for Spot
+* Users can update their Catch Logs
+* Users can delete their Catch Logs
+
+## Save
+* Users can Save a Spot to their profile page
+* Users can view their Saves
+* Users can delete their Saves
