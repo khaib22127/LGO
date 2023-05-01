@@ -11,9 +11,9 @@ const SavedHeartIcon = ({ spot, savedIcon, unsavedIcon }) => {
   const currentUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
-    dispatch(spotsAction.getAllSpots());
     if (currentUser) {
       dispatch(savesActions.getUserSavedSpots());
+      // dispatch(spotsAction.getAllSpots());
     }
   }, [dispatch, currentUser]);
 
@@ -27,22 +27,22 @@ const SavedHeartIcon = ({ spot, savedIcon, unsavedIcon }) => {
 
   const unsavedWhiteIcon = () => {
     let icon = saved ? (
-      <div key={spot.id} onClick={() => onClickSaved()}>
+      <div onClick={() => onClickSaved()}>
        {unsavedIcon}
       </div>
     ) : (
-      <div key={spot.id} onClick={() => onClickDelete()}>
+      <div onClick={() => onClickDelete()}>
         {savedIcon}
       </div>
     );
     Object.values(userSaves).map((user) => {
       if (user.Spot.id === spot.id) {
         icon = saved ? (
-          <div key={user.id} onClick={() => onClickDelete()}>
+          <div onClick={() => onClickDelete()}>
          {savedIcon}
           </div>
         ) : (
-          <div key={user.id} onClick={() => onClickSaved()}>
+          <div onClick={() => onClickSaved()}>
             {unsavedIcon}
           </div>
         );
