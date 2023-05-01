@@ -50,8 +50,8 @@ export const createSaveSpot = (spot) => async (dispatch) => {
     method: "POST",
     body: JSON.stringify({ spotId }),
   });
+  const data = await response.json()
   if (response.ok) {
-    const data = await response.json()
     dispatch(addNewSavedSpot(data.id))
     return data
   }
