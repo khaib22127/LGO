@@ -13,18 +13,15 @@ favorite spot to help others discover and appreciate that spot._
 
 
 ## Technologies Used
- <img src="./Assets/Icons/icons8-react-48.png"></img>
-<img src="./Assets/Icons/icons8-javascript-48.png"></img>
-<img src="./Assets/Icons/icons8-express-js-48.png"></img>
-<img src="./Assets/Icons/icons8-css-50.png"></img>
-<img src="./Assets/Icons/icons8-html-48.png"></img>
-<img src="./Assets/Icons/icons8-nodejs-48.png"></img>
-<img src="./Assets/Icons/icons8-sql-48.png"></img>
-<img src="./Assets/Icons/icons8-visual-studio-code-2019-48.png"></img>
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=git,kubernetes,docker,c,vim" />
+  </a>
+</p>
 
 ## Splash Page
-<img src="./Assets/LGO-splash-page.png"></img>
+
 
 
 ## Fishing Spot Details
-<img src="./Assets/LGO-detail-page.png"></img>
+
