@@ -9,7 +9,7 @@ const CreateSpot = () => {
     country: "",
     description: "",
     SpotImages:
-      "https://cdn.hswstatic.com/gif/Flipboard-pic-replacement---pink-lake-1600x900.jpg",
+      "",
   };
 
   return (

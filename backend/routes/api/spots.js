@@ -12,11 +12,11 @@ const validateSpot = [
     .withMessage("Name Required"),
   check("address")
     .exists({ checkFalsy: true })
-    .isLength({ min: 4, max: 50 })
+    .isLength({ min: 2, max: 50 })
     .withMessage("Street address is required"),
   check("city")
     .exists({ checkFalsy: true })
-    .isLength({ min: 4, max: 50 })
+    .isLength({ min: 2, max: 50 })
     .withMessage("City is required"),
   check("state").exists({ checkFalsy: true }).withMessage("State is required"),
   check("country")
