@@ -38,7 +38,7 @@ const SpotImages = ({ spot, id, userSaves }) => {
           />
         </div>
       ))} */}
-       <div id={`${id}_for-heart-icon`} key={spot.id}>
+       <div id={`${id}_for-heart-icon`} key={`${spot.id}-heart-icon`}>
          <SavedHeartIcon
         spot={spot}
         savedIcon={savedIcon}
