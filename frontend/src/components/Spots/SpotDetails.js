@@ -47,7 +47,7 @@ const SpotDetails = () => {
         <button className="back_arrow" onClick={() => goBackClick()}>
           ⬅
         </button>
-        <div className="go-back_div">Go Back</div>
+        <div className="go-back_div">Go Back?</div>
       </div>
     </div>
   ) : (
