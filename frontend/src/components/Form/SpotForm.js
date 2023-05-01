@@ -25,14 +25,14 @@ const validateError = () => {
   if (!address) {
     errors.address = "Address is required";
   }
-  if (address.length > 80) {
-    errors.address = "Address only allow up to 80 characters";
+  if (address.length > 50) {
+    errors.address = "Address only allow up to 50 characters";
   }
   if (!city) {
     errors.city = "City is required";
   }
-  if (city.length > 50) {
-    errors.city = "Only allow up to 50 characters";
+  if (city.length > 40) {
+    errors.city = "Only allow up to 40 characters";
   }
   if (!state) {
     errors.state = "State is required";

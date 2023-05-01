@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
 import * as savesActions from "../../store/savedSpot";
-// import * as spotsAction from "../../store/spot";
 import SpotImages from "../Spots/SpotImages";
 import "./UserSavedSpot.css"
 
@@ -15,19 +14,18 @@ dispatch(savesActions.getUserSavedSpots())
     },[dispatch])
 
 
-
 if (!userSaves) return null;
 
     return (
       <div className="user-saved-spot-main-container">
-        <h1 style={{textAlign:"center"}} >Saved Page</h1>
+        <h1 style={{ textAlign: "center" }}>Saved Page</h1>
         <div className="user-saved-spot-main-container2">
-          {Object.values(userSaves).map((saved) => (
-            <div
-              className="user-saved-spot-inner-container"
-              key={`user-${saved.Spot.id}`}
-            >
-
+          {userSaves.length ? (
+            Object.values(userSaves).map((saved) => (
+              <div
+                className="user-saved-spot-inner-container"
+                key={`user-${saved.Spot.id}`}
+              >
                 <div className="saved_spot-name"> {saved.Spot.name}</div>
                 <div>
                   {`${saved.Spot.address}, ${saved.Spot.city}, ${saved.Spot.state}`}{" "}
@@ -40,11 +38,11 @@ if (!userSaves) return null;
                     id="user-saved-spot_image-id"
                   />
                 }
-
-
-
-            </div>
-          ))}
+              </div>
+            ))
+          ) : (
+            <h1>Nothing has been saved...</h1>
+          )}
         </div>
       </div>
     );
