@@ -20,11 +20,11 @@ favorite spot to help others discover and appreciate that spot._
 </p>
 
 ## Splash Page
-
+![img_4286a-350x233](https://raw.githubusercontent.com/khaib22127/LGO/main/ReadMeImages/LGO-splash-page.png)
 
 
 ## Fishing Spot Details
-
+![img_4286a-350x233](https://raw.githubusercontent.com/khaib22127/LGO/main/ReadMeImages/LGO-detail-page.png)
 
 
 # Features
