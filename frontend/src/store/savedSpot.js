@@ -55,7 +55,6 @@ export const createSaveSpot = (spot) => async (dispatch) => {
     dispatch(addNewSavedSpot(data.id))
     return data
   }
-  dispatch(getUserSavedSpots())
   return response
 }
 
@@ -70,7 +69,6 @@ export const deleteUserSavedSpot = (spotId) => async (dispatch) => {
     dispatch(deleteSavedSpot(data.spotId))
     return data
   }
-  //  dispatch(getUserSavedSpots());
   return response;
 };
 
