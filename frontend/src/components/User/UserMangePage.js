@@ -24,18 +24,20 @@ const UserManagePage = () => {
     <div className="user-manage__page-main-container">
       <div className="Tabs">
         <ul className="nav">
-          <h1
+          <button
+            id="saved-created_button"
             className={activeTab === "saved-tab" ? "active" : ""}
             onClick={handleTab1}
           >
             Saved
-          </h1>
-          <h1
+          </button>
+          <button
+            id="saved-created_button"
             className={activeTab === "created-tab" ? "active" : ""}
             onClick={handleTab2}
           >
             Created
-          </h1>
+          </button>
         </ul>
         <div className="outlet">
           {activeTab === "saved-tab" ? (

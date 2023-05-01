@@ -21,6 +21,11 @@
     color: rgb(236, 64, 12);
 }
 
+#fishing_hook-icon{
+    width: 35px;
+    height: 35px;
+}
+
 .login-n-signout {
     display: flex;
     flex-direction: column;
@@ -37,7 +42,7 @@
     height: 40px;
     width: 100px;
     border-radius: 15px;
-    background-color: rgb(61, 114, 205);
+    background-color: red;
     color: white;
     flex-direction: column;
     justify-content: center;
@@ -55,7 +60,7 @@
     background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
     z-index: 10;
-    border: rgb(236, 5, 5) solid 4px;
+    border: rgb(61, 114, 205) solid 4px;
     font-size: 20px;
 }
 
