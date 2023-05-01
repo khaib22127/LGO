@@ -15,7 +15,7 @@ favorite spot to help others discover and appreciate that spot._
 ## Technologies Used
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,kubernetes,docker,c,vim" />
+    <img src="https://skillicons.dev/icons?i=express,css,html,js,nodejs, redux, sqlite, react" />
   </a>
 </p>
 
@@ -24,4 +24,3 @@ favorite spot to help others discover and appreciate that spot._
 
 
 ## Fishing Spot Details
-
