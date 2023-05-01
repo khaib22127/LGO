@@ -9,6 +9,7 @@ import SignupFormModal from "../SignupFormModal/SignupForm";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import CreateSpot from "../Spots/CreateSpot";
+import fishingPoleIcon from "../AHelper/icons8-fishing-96.png";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -52,10 +53,9 @@ function ProfileButton({ user }) {
   };
 
   const createSpot = (e) => {
- e.preventDefault();
-    setModalContent(<CreateSpot />)
-    closeMenu()
-
+    e.preventDefault();
+    setModalContent(<CreateSpot />);
+    closeMenu();
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -64,8 +64,13 @@ function ProfileButton({ user }) {
     <>
       <div className="user-dropdown-icon-bar">
         <button className="user-dropdown-icon-bar-button" onClick={openMenu}>
-          <i className="fa-solid fa-bars fa-2x fish-profile"></i>
           <i className="fa-solid fa-fish fa-3x fish-profile" />
+          <img
+            src={fishingPoleIcon}
+            alt="fishing-hook"
+            id="fishing_hook-icon"
+          ></img>
+          {/* <i className="fa-solid fa-bars fa-2x fish-profile"></i> */}
         </button>
       </div>
 
