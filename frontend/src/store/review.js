@@ -142,4 +142,5 @@ export const normalizingReviewBySpot = (data) => {
   data.forEach((ele) => (obj[ele.spotId] = ele));
   return obj;
 };
+
 export default reviewReducer;
