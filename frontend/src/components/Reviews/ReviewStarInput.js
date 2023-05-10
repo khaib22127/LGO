@@ -13,7 +13,6 @@ const ReviewStarInput = ({ stars, onChange}) => {
       starIcon.onMouseEnter = () => setStarRating(number);
       starIcon.onMouseLeave = () => setStarRating(stars);
       starIcon.onClick = () => onChange(number);
-<i class="fa-regular fa-fish"></i>;
     return (
       <div
         key={number}
