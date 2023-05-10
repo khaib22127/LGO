@@ -3,3 +3,4 @@ deployment:
   tasks:
 - export DEPLOYPATH=/home/heykynfc/lgo.heykhai.com
  - cp -r * $DEPLOYPATH
+ - /bin/cp -R images $DEPLOYPATH
