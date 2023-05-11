@@ -1,5 +1,6 @@
 {
   "name": "capstone",
+  "homepage": "http://lgo.heykhai.com/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,6 +23,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/khaib22127/LGO/issues"
-  },
-  "homepage": "https://github.com/khaib22127/LGO#readme"
+  }
 }
