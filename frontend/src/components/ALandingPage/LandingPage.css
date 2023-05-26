@@ -1,16 +1,16 @@
 .landing-page-container {
     position: relative;
     display: flex;
-        flex-direction: column;
-        /* scroll-snap-stop: always; */
-        height: 100vh;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
+    flex-direction: column;
+    /* scroll-snap-stop: always; */
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
-.landing-page-container > *{
+.landing-page-container>* {
 
-scroll-snap-align: start;
+    scroll-snap-align: start;
 }
 
 .landing-page-container::-webkit-scrollbar {
@@ -30,15 +30,16 @@ scroll-snap-align: start;
 
     /* border: 3px solid #73AD21; */
 }
-#h1_welcome-text{
+
+#h1_welcome-text {
     font-size: 70px;
     color: rgb(251, 251, 251);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-style:italic;
+    font-style: italic;
 }
 
-.title_text_1{
-top: 150px;
+.title_text_1 {
+    top: 150px;
     width: 90%;
     display: flex;
     position: absolute;
@@ -49,32 +50,32 @@ top: 150px;
 }
 
 
-#id_title_text_{
-font-size: 40px;
+#id_title_text_ {
+    font-size: 40px;
     color: rgb(250, 164, 4);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
     font-weight: bold;
- padding-right: 60px;
+    padding-right: 60px;
 }
 
 
-.splash-page-log_in-btn{
+.splash-page-log_in-btn {
     position: absolute;
     top: 30px;
     left: 40px;
 }
 
-#log_in-splash-page-btn{
+#log_in-splash-page-btn {
     height: 50px;
-        width: 150px;
-        border: none;
-        border-radius: 25px;
-        background-color: aliceblue;
-        font-size: 20px;
-        font-weight: bold;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+    width: 150px;
+    border: none;
+    border-radius: 25px;
+    background-color: aliceblue;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
 
 }
 
@@ -92,11 +93,11 @@ font-size: 40px;
 } */
 
 .inner_page-Btn_fishing {
-position: absolute;
+    /* position: absolute; */
     display: flex;
     top: 400px;
-    width: 100%;
-    height: 255px;
+    /* width: 100%;
+    height: 4rem; */
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -113,6 +114,8 @@ position: absolute;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+    margin-top: 400px;
 
 }
+
 /* opacity: 1; */

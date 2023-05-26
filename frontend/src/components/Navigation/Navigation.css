@@ -17,6 +17,12 @@
     color: rgb(53, 12, 236);
 }
 
+.nav-lgo-title{
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .fish-profile{
     color: rgb(236, 64, 12);
 }

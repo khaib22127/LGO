@@ -1,9 +1,13 @@
 import splashImage from "../AHelper/hiking-pic2.jpeg";
 import { useModal } from "../../context/Modal";
 import SignupFormModal from "../SignupFormModal/SignupForm";
+import { useHistory } from "react-router-dom";
+
 
 const LandingPage2 = () => {
      const { setModalContent } = useModal();
+     const history = useHistory();
+
   const myStyle = {
     backgroundImage: `url(${splashImage})`,
     height: "100vh",
@@ -18,6 +22,9 @@ const LandingPage2 = () => {
       setModalContent(<SignupFormModal />);
   }
 
+  const hikingBtnClick = () => {
+    history.push("/category/hikings");
+  };
 
   return (
     <div className="landing-page-container-2">
@@ -34,10 +41,10 @@ const LandingPage2 = () => {
           </p>
         </div>
         <div className="page2-sign-up-container-left">
-          <p id="page2-sign-up-text">
-            Sign up to get the best experience!
-          </p>
-          <button id="page-2_sign-up_btn" onClick={signUpButton} >Sign Up</button>
+          <p id="page2-sign-up-text">Sign up to get the best experience!</p>
+          <button id="page-2_sign-up_btn" onClick={signUpButton}>
+            Sign Up
+          </button>
         </div>
       </div>
 
@@ -51,12 +58,18 @@ const LandingPage2 = () => {
         </p>
         <div className="inner_page-Btn-container">
           <div className="inner_page-Btn_hiking">
-            <button id="enter_btn" onClick={() => window.alert("coming soon")}>
+            <button
+              id="activities_btn"
+              onClick={() => hikingBtnClick()}
+            >
               Hiking Spot!
             </button>
           </div>
           <div className="inner_page-Btn_biking">
-            <button id="enter_btn" onClick={() => window.alert("coming soon")}>
+            <button
+              id="activities_btn"
+              onClick={() => window.alert("coming soon")}
+            >
               Biking Spot!
             </button>
           </div>

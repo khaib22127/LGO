@@ -102,8 +102,29 @@ module.exports = {
           city: "Smallville",
           state: "Kansas",
           country: "United States of America",
+          description: "Pet friendly. Picnic area. Boat rental",
+        },
+        {
+          userId: 2,
+          categoryId: 2,
+          name: "Land End Trail",
+          address: "22122 Trail Blvd",
+          city: "Milpitas",
+          state: "California",
+          country: "United States of America",
           description:
-            "Pet friendly. Picnic area. Boat rental",
+            "Dogs allowed on-leash or within sight/voice control. The difficulty is moderate and the length is 1.7 miles",
+        },
+        {
+          userId: 2,
+          categoryId: 2,
+          name: "Redwood Regional Park",
+          address: "28490 Skyline Blvd",
+          city: "San Francisco",
+          state: "California",
+          country: "United States of America",
+          description:
+            "This 1,833-acre park in the Oakland hills boasts 150-foot coast redwoods planted to replace those logged during the Gold Rush to build the Bay Area's structures. The difficulty is Moderate with steep sections and the length is approximately 4 miles",
         },
       ],
       {}

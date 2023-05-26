@@ -30,7 +30,11 @@ function App() {
             <LandingPage />
           </Route>
 
-          <Route exact path={"/category"}>
+          <Route exact path={"/category/fishings"}>
+            <SearchResult />
+          </Route>
+
+          <Route exact path={"/category/hikings"}>
             <SearchResult />
           </Route>
 
@@ -39,16 +43,15 @@ function App() {
           </Route>
 
           <Route path={`/spots/manage`}>
-
             <UserManagePage />
           </Route>
 
           <Route exact path={`/spots/:spotId`}>
             <SpotDetails />
           </Route>
-<Route path="*">
-  <ErrorPage/>
-</Route>
+          <Route path="*">
+            <ErrorPage />
+          </Route>
         </Switch>
       )}
     </>

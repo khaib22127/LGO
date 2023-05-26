@@ -12,26 +12,35 @@ const SearchResult = () => {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const { setModalContent } = useModal();
-  const spots = useSelector((state) => state.spots.allSpots);
+  let spots = useSelector((state) => state.spots.allSpots);
   const currentUser = useSelector((state) => state.session.user);
   const history = useHistory();
+
+if (window.location.pathname === "/category/fishings") {
+      spots = Object.values(spots).filter((spot) => spot.categoryId === 1);
+    }
+
+    if (window.location.pathname === "/category/hikings") {
+      spots = Object.values(spots).filter((spot) => spot.categoryId === 2);
+    }
 
   const filterSpots = (spots, query) => {
     if (!query) {
       return spots;
     }
 
-    return Object.values(spots).filter((spot) => {
-      const spotName = spot.name.toLowerCase();
-      const spotState = spot.state.toLowerCase();
-      const spotCity = spot.city.toLowerCase();
 
-      return (
-        spotName.includes(query) ||
-        spotState.includes(query) ||
-        spotCity.includes(query)
-      );
-    });
+      return Object.values(spots).filter((spot) => {
+        const spotName = spot.name.toLowerCase();
+        const spotState = spot.state.toLowerCase();
+        const spotCity = spot.city.toLowerCase();
+
+        return (
+          spotName.includes(query) ||
+          spotState.includes(query) ||
+          spotCity.includes(query)
+        );
+      });
   };
 
   const { search } = window.location;
