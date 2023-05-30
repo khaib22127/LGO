@@ -128,11 +128,11 @@ router.get("/:spotId", async (req, res) => {
 // Create a Spot
 // POST /api/spots
 router.post("/", requireAuth, validateSpot, async (req, res) => {
-  const { address, city, state, country, name, description } = req.body;
+  const { address, city, state, country, name, description, categoryId } = req.body;
 
   const newSpot = await Spot.create({
     userId: req.user.id,
-    categoryId: 1,
+    categoryId,
     address,
     city,
     state,
@@ -184,7 +184,7 @@ router.put(
   async (req, res) => {
     const spotId = req.params.spotId;
     const spot = await Spot.findByPk(spotId);
-    const { address, city, state, country, name, description } = req.body;
+    const { address, city, state, country, name, description, categoryId } = req.body;
 
     if (!spot) {
       res.status(404);
@@ -195,7 +195,7 @@ router.put(
     }
 
     spot.userId = req.user.id;
-    spot.categoryId = 1;
+    spot.categoryId = categoryId;
     spot.name = name;
     spot.address = address;
     spot.city = city;

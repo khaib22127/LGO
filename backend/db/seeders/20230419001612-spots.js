@@ -126,6 +126,38 @@ module.exports = {
           description:
             "This 1,833-acre park in the Oakland hills boasts 150-foot coast redwoods planted to replace those logged during the Gold Rush to build the Bay Area's structures. The difficulty is Moderate with steep sections and the length is approximately 4 miles",
         },
+        {
+          userId: 2,
+          categoryId: 3,
+          name: "South Central",
+          address: "1342 South Central Blvd",
+          city: "Denver",
+          state: "Colorado",
+          country: "United States of America",
+          description:
+            "The city has multiple bike parks, 196 miles of on-street bike lanes connecting commuters and cyclists with all parts of Denver, from downtown to the Cherry Creek Reservoir.",
+        },
+        {
+          userId: 2,
+          categoryId: 3,
+          name: "North Creek",
+          address: "2222 North Creek Blvd",
+          city: "San Francisco",
+          state: "California",
+          country: "United States of America",
+          description:
+            "The trail is close to parks and lakes and has easy access from roads and ramps throughout San Francisco, so you can easily plan where you'll get on or off the path for a picnic to enjoy the sites or take on other adventures.",
+        },
+        {
+          userId: 2,
+          categoryId: 3,
+          name: "Bear Creek Trail",
+          address: "2256 Bear Creek Blvd",
+          city: "San Francisco",
+          state: "California",
+          country: "United States of America",
+          description: "The trail is easy and fun all all ages. Pet friendly. Picnic area.",
+        },
       ],
       {}
     );

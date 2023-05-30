@@ -32,6 +32,8 @@ const SpotDetails = () => {
   //   });
   // }, [dispatch, spotId]);
 
+console.log("single spot", spot.categoryId);
+
   const goBackClick = () => {
    history.push("/category");
   };
@@ -82,7 +84,7 @@ const SpotDetails = () => {
         </div>
         <div className="-single_container-right">
           <AllReviews spotId={spotId} spot={spot} />
-          <CatchLog />
+         {spot.categoryId === 1 && <CatchLog />}
         </div>
       </div>
     </>

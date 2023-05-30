@@ -16,31 +16,34 @@ const SearchResult = () => {
   const currentUser = useSelector((state) => state.session.user);
   const history = useHistory();
 
-if (window.location.pathname === "/category/fishings") {
-      spots = Object.values(spots).filter((spot) => spot.categoryId === 1);
-    }
+  if (window.location.pathname === "/category/fishings") {
+    spots = Object.values(spots).filter((spot) => spot.categoryId === 1);
+  }
 
-    if (window.location.pathname === "/category/hikings") {
-      spots = Object.values(spots).filter((spot) => spot.categoryId === 2);
-    }
+  if (window.location.pathname === "/category/hikings") {
+    spots = Object.values(spots).filter((spot) => spot.categoryId === 2);
+  }
+
+  if (window.location.pathname === "/category/bikings") {
+    spots = Object.values(spots).filter((spot) => spot.categoryId === 3);
+  }
 
   const filterSpots = (spots, query) => {
     if (!query) {
       return spots;
     }
 
+    return Object.values(spots).filter((spot) => {
+      const spotName = spot.name.toLowerCase();
+      const spotState = spot.state.toLowerCase();
+      const spotCity = spot.city.toLowerCase();
 
-      return Object.values(spots).filter((spot) => {
-        const spotName = spot.name.toLowerCase();
-        const spotState = spot.state.toLowerCase();
-        const spotCity = spot.city.toLowerCase();
-
-        return (
-          spotName.includes(query) ||
-          spotState.includes(query) ||
-          spotCity.includes(query)
-        );
-      });
+      return (
+        spotName.includes(query) ||
+        spotState.includes(query) ||
+        spotCity.includes(query)
+      );
+    });
   };
 
   const { search } = window.location;
@@ -57,10 +60,10 @@ if (window.location.pathname === "/category/fishings") {
     fetchData();
   }, [dispatch]);
 
- const onClick =  () => {
- history.push("/category");
-setSearchQuery("")
- }
+  const onClick = () => {
+    history.push("/category");
+    setSearchQuery("");
+  };
 
   if (!spots) return null;
   return !isLoaded ? (
@@ -70,12 +73,9 @@ setSearchQuery("")
   ) : (
     <>
       <div className="search_result-top-page">
-          <button
-            className="no-result_search-btn"
-            onClick={() => onClick()}
-          >
-            Reset
-          </button>
+        <button className="no-result_search-btn" onClick={() => onClick()}>
+          Reset
+        </button>
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         {currentUser && (
           <button
@@ -88,15 +88,18 @@ setSearchQuery("")
       </div>
 
       <div className="searchResult-AllSpot_main-conainter">
-        {filteredSpots.length !== 0 ? Object.values(filteredSpots).map((spot) => (
-          <div className="All-Spot_container" key={spot.id}>
-            <AllSpots spot={spot} isLoaded={isLoaded} />
+        {filteredSpots.length !== 0 ? (
+          Object.values(filteredSpots).map((spot) => (
+            <div className="All-Spot_container" key={spot.id}>
+              <AllSpots spot={spot} isLoaded={isLoaded} />
+            </div>
+          ))
+        ) : (
+          <div className="no-search_result-data">
+            <h1>No result.....</h1>
           </div>
-        )) : <div className="no-search_result-data">
-          <h1>No result.....</h1>
-        </div>}
+        )}
       </div>
-
     </>
   );
 };

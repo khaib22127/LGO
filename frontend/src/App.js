@@ -38,6 +38,10 @@ function App() {
             <SearchResult />
           </Route>
 
+          <Route exact path={"/category/bikings"}>
+            <SearchResult />
+          </Route>
+
           <Route exact path={"/saves"}>
             <UserSavedSpot />
           </Route>

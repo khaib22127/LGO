@@ -8,6 +8,7 @@ import { useModal } from "../../context/Modal";
 const SpotForm = ({ spot, submitType, formType }) => {
   const { closeModal } = useModal();
   const [name, setName] = useState(spot.name);
+  const [categoryId, setCategoryId] = useState(spot.categoryId);
   const [address, setAddress] = useState(spot.address);
   const [city, setCity] = useState(spot.city);
   const [state, setState] = useState(spot.state);
@@ -81,11 +82,12 @@ const validateError = () => {
       spot = await dispatch(
         spotsAction.createNewSpot(
           {
+            name,
+            categoryId,
             address,
             city,
             state,
             country,
-            name,
             description,
           },
           { url: SpotImages }
@@ -106,11 +108,12 @@ const validateError = () => {
       return dispatch(
         (spot = spotsAction.editUserSpot(
           {
+            name,
+            categoryId,
             address,
             city,
             state,
             country,
-            name,
             description,
           },
           spot.id
@@ -129,6 +132,7 @@ const validateError = () => {
     }
   };
 
+  console.log("category", categoryId);
 
   return (
     <div className="spot_form-main_container">
@@ -146,6 +150,28 @@ const validateError = () => {
               onChange={(e) => setName(e.target.value)}
               // placeholder="Name of The Place"
             />
+          </div>
+        </div>
+
+        <div className="spot_form-relative-position">
+          <label htmlFor="category">Category</label>
+          <div className="input_spaces">
+            <select
+              value={categoryId}
+              onChange={(e) => setCategoryId(e.target.value)}
+              required
+            >
+              <option value="">-- Select --</option>
+              <option value="1" onChange={(e) => setCategoryId(e.target.value)}>
+                Fishing
+              </option>
+              <option value="2" onChange={(e) => setCategoryId(e.target.value)}>
+                Hiking
+              </option>
+              <option value="3" onChange={(e) => setCategoryId(e.target.value)}>
+                Biking
+              </option>
+            </select>
           </div>
         </div>
 
@@ -232,7 +258,7 @@ const validateError = () => {
                 placeholder="Image URL"
                 required
               ></input>
-            {<label className="error-msg">{errors.SpotImages}</label>}
+              {<label className="error-msg">{errors.SpotImages}</label>}
             </div>
           </div>
         )}

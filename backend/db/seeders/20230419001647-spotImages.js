@@ -55,6 +55,18 @@ module.exports = {
           spotId: 11,
           url: "https://upload.travelawaits.com/ta/uploads/2022/07/Muir-Main-Trail-1024x683.jpg",
         },
+        {
+          spotId: 12,
+          url: "https://www.skijournal.com/wp-content/uploads/sites/8/2022/06/bikingMM.jpg",
+        },
+        {
+          spotId: 13,
+          url: "https://static.wixstatic.com/media/ce2dd7_d004fd8287ff4baf8a0237a28bea551b~mv2.png/v1/fill/w_1000,h_561,al_c,q_90,usm_0.66_1.00_0.01/ce2dd7_d004fd8287ff4baf8a0237a28bea551b~mv2.png",
+        },
+        {
+          spotId: 14,
+          url: "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2019/05/rungu-header.jpg",
+        },
       ],
       {}
     );

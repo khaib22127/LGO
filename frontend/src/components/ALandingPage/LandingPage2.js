@@ -26,6 +26,10 @@ const LandingPage2 = () => {
     history.push("/category/hikings");
   };
 
+   const bikingBtnClick = () => {
+     history.push("/category/bikings");
+   };
+
   return (
     <div className="landing-page-container-2">
       <div className="inner-landing-page2-left">
@@ -58,18 +62,12 @@ const LandingPage2 = () => {
         </p>
         <div className="inner_page-Btn-container">
           <div className="inner_page-Btn_hiking">
-            <button
-              id="activities_btn"
-              onClick={() => hikingBtnClick()}
-            >
+            <button id="activities_btn" onClick={() => hikingBtnClick()}>
               Hiking Spot!
             </button>
           </div>
           <div className="inner_page-Btn_biking">
-            <button
-              id="activities_btn"
-              onClick={() => window.alert("coming soon")}
-            >
+            <button id="activities_btn" onClick={() => bikingBtnClick()}>
               Biking Spot!
             </button>
           </div>
