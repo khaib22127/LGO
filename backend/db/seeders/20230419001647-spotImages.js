@@ -13,7 +13,7 @@ module.exports = {
       [
         {
           spotId: 1,
-          url: "https://wiselivingmagazine.co.uk/wp-content/uploads/2020/01/Most-beautiful-Lakes-Lake-tahoe.jpg",
+          url: "https://w.forfun.com/fetch/60/60bbcf7e27c829e5d5d3bf8d1041a312.jpeg",
         },
         {
           spotId: 2,
@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           spotId: 3,
-          url: "https://cdn-dagmd.nitrocdn.com/GkSQqzOLaEezXjOFCgVFfMwImNJoCLDL/assets/images/optimized/rev-6c46e46/20210913150333/jkamero-Instagram-2465-ig-17906171063111602-1024x1024.jpg",
+          url: "https://4kwallpapers.com/images/wallpapers/autumn-trees-lake-mountain-range-day-time-landscape-long-4480x2520-4920.jpg",
         },
         {
           spotId: 4,
@@ -46,6 +46,26 @@ module.exports = {
         {
           spotId: 9,
           url: "https://www.sciencenews.org/wp-content/uploads/2022/10/101722_jc_river-heat-waves_feat.jpg",
+        },
+        {
+          spotId: 10,
+          url: "https://media.timeout.com/images/105898986/image.jpg",
+        },
+        {
+          spotId: 11,
+          url: "https://upload.travelawaits.com/ta/uploads/2022/07/Muir-Main-Trail-1024x683.jpg",
+        },
+        {
+          spotId: 12,
+          url: "https://www.skijournal.com/wp-content/uploads/sites/8/2022/06/bikingMM.jpg",
+        },
+        {
+          spotId: 13,
+          url: "https://static.wixstatic.com/media/ce2dd7_d004fd8287ff4baf8a0237a28bea551b~mv2.png/v1/fill/w_1000,h_561,al_c,q_90,usm_0.66_1.00_0.01/ce2dd7_d004fd8287ff4baf8a0237a28bea551b~mv2.png",
+        },
+        {
+          spotId: 14,
+          url: "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2019/05/rungu-header.jpg",
         },
       ],
       {}

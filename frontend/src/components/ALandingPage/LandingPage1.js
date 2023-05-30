@@ -16,7 +16,7 @@ const LandingPage1 = () => {
   };
 
   const btn1click = () => {
-    history.push("/category");
+    history.push("/category/fishings");
   };
 
 // const logIn = (e) => {

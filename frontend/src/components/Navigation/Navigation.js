@@ -11,14 +11,15 @@ function Navigation({ isLoaded }) {
   return (
     <ul className="home-knb-icon">
       <div className="go-to-main-button">
-        <NavLink exact to="/category">
+        <NavLink exact to="/">
           <i className="fa-solid fa-person-hiking fa-4x" />
+          <span className="nav-lgo-title">LGO</span>
         </NavLink>
       </div>
 
-      {
+      {/* {
         <div className="searchBar">
-          
+
           <i className="fas fa-solid fa-magnifying-glass"></i>
           <input
             className="searchInput"
@@ -26,7 +27,7 @@ function Navigation({ isLoaded }) {
             placeholder="Search"
           ></input>
         </div>
-      }
+      } */}
 
       <div className="create-new-spot-profileBtn">
         {isLoaded && <ProfileButton user={sessionUser} />}

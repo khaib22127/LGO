@@ -2,14 +2,15 @@ import SpotForm from "../Form/SpotForm";
 
 const CreateSpot = () => {
   const spot = {
-    name: "",
-    address: "",
-    city: "",
-    state: "",
-    country: "",
-    description: "",
-    SpotImages:
-      "",
+    name: "new spot",
+    categoryId: "",
+    address: "new address",
+    city: "new city",
+    state: "new state",
+    country: "new country",
+    description:
+      "new description new description new description new description new description new description",
+    SpotImages: "https://c.stocksy.com/a/tbFF00/z9/3634929.jpg",
   };
 
   return (
