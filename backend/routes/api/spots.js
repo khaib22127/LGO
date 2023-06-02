@@ -54,7 +54,7 @@ router.get("/", async (req, res, next) => {
     }
   });
   return res.json({ Spots: spots });
-  // return res.json({ Spots: allSpots });
+  // return res.json({ Spots: allSpots }); 
 });
 
 // GET /api/spots/current
