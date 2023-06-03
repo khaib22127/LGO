@@ -1,7 +1,7 @@
 .All-review-main-container {
     /* margin-top: 40px; */
-    height: 410px;
-    width: 650px;
+    height: 47rem;
+    width: 40rem;
     padding: 5px;
     overflow-y: scroll;
     background-color: white;
@@ -34,7 +34,7 @@
     margin-bottom: 25px;
 }
 
-.single_review-container{
+.single_review-container {
     display: flex;
     flex-direction: column-reverse;
 }
@@ -56,12 +56,12 @@
     font-size: 20px;
 }
 
-.review_text-display{
+.review_text-display {
     font-weight: bold;
     margin-top: 20px;
 }
 
-.review_text-display >span{
+.review_text-display>span {
     color: red;
 }
 
@@ -91,4 +91,15 @@
 .margin {
     margin-top: 7px;
     margin-bottom: 7px;
+}
+
+#review-catchLog_button {
+    width: 10rem;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 20px;
+    color: rgb(14, 13, 13);
+    border: 4px solid rgb(168, 126, 241);
+    margin-right: 20px;
 }
