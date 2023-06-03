@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as spotsAction from "../../store/spot";
 import * as reviewsActions from "../../store/review";
-import { useParams, useHistory} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import SpotImages from "./SpotImages";
 import "./SpotDetails.css";
 import AllReviews from "../Reviews/AllReviews";
@@ -14,6 +14,8 @@ const SpotDetails = () => {
   const history = useHistory();
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const [activeTab, setActiveTab] = useState("review-tab");
+
   const spot = useSelector((state) => state.spots.singleSpot);
 
   useEffect(() => {
@@ -26,16 +28,23 @@ const SpotDetails = () => {
     fetchData();
   }, [dispatch, spotId]);
 
+  const handleTab1 = () => {
+    setActiveTab("review-tab");
+  };
+  const handleTab2 = () => {
+    setActiveTab("catch-log-tab");
+  };
+
   // useEffect(() => {
   //   dispatch(spotsAction.getSingleSpot(spotId)).then(() => {
   //     dispatch(reviewsActions.getSpotReviews(spotId));
   //   });
   // }, [dispatch, spotId]);
 
-console.log("single spot", spot.categoryId);
+  console.log("single spot", spot.categoryId);
 
   const goBackClick = () => {
-   history.push("/category");
+    history.push("/category");
   };
 
   const starAverageType = typeof spot.averageRating === "number";
@@ -83,8 +92,37 @@ console.log("single spot", spot.categoryId);
           </div>
         </div>
         <div className="-single_container-right">
-          <AllReviews spotId={spotId} spot={spot} />
-         {spot.categoryId === 1 && <CatchLog />}
+          <div className="spot-detail-Tabs">
+            <ul className="spot-detail-nav">
+              <button
+                id="review-catchLog_button"
+                className={activeTab === "review-tab" ? "active" : ""}
+                onClick={handleTab1}
+              >
+                Review
+              </button>
+              {spot.categoryId === 1 && (
+                <button
+                  id="review-catchLog_button"
+                  className={activeTab === "catch-log-tab" ? "active" : ""}
+                  onClick={handleTab2}
+                >
+                  Catch Log
+                </button>
+              )}
+            </ul>
+            <div className="spot-detail-outlet">
+              {activeTab === "review-tab" ? (
+                <div className="FirstTab-Review">
+                  <AllReviews spotId={spotId} spot={spot} />
+                </div>
+              ) : (
+                <div className="SecondTab-Catch-Log">
+                  {spot.categoryId === 1 && <CatchLog />}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>

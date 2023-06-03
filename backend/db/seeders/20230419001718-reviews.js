@@ -87,8 +87,13 @@ module.exports = {
         {
           userId: 4,
           spotId: 9,
-          review:
-            "The best spot to enjoy with friends and families",
+          review: "The best spot to enjoy with friends and families",
+          stars: 5,
+        },
+        {
+          userId: 4,
+          spotId: 10,
+          review: "The best hiking spot to enjoy with friends and families",
           stars: 5,
         },
       ],
