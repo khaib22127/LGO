@@ -1,10 +1,9 @@
 .-single_container {
-    padding-bottom: 300px;
+    /* padding-bottom: 10rem; */
     background-color: gray;
     margin-top: 0px;
     flex-direction: row;
-    position: relative;
-    height: 100%;
+    height: auto;
     width: auto;
     padding-right: 20rem;
     padding-left: 20rem;
@@ -13,10 +12,11 @@
     align-content: flex-start;
     align-items: flex-start;
     justify-content: space-evenly;
+    /* position: relative; */
 }
 
 .-single_container-left {
-    height: 60rem;
+    height: 100%;
     width: 43.71rem;
     /* margin-right: 25px; */
     margin-top: 40px;
@@ -113,4 +113,18 @@
 
 .loading_problem {
     padding-left: 30px;
+}
+
+.spot-detail-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 995px),
+screen and (max-height: 1600px) {
+.-single_container{
+   padding-bottom: 10rem;
+}
 }
