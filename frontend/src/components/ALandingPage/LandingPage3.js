@@ -8,6 +8,7 @@ const LandingPage3 = () => {
     width: "60%",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
   };
 
   return (
